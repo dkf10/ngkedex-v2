@@ -107,5 +107,7 @@
       }
     }
   },
-  "defaultProject": "ngkedex-v2"
+  "cli": {
+    "analytics": false
+  }
 }
