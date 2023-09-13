@@ -1,0 +1,39 @@
+@import "../../../../assets/palette/base-palette.scss";
+
+
+nav {
+	height: 60px;
+	padding: 0px 25px;
+	border-bottom: 5px solid rgba($ngkdx-red);
+	background: rgba($ngkdx-dark-blue-1);
+	color: rgba($ngkdx-white);
+
+	.navbar-brand {
+		height: 100%;
+	}
+
+	.red-squared-btn {
+		border: {
+			radius: 0;
+			color: transparent !important;
+		}
+
+		background: {
+			color: rgba($ngkdx-red) !important;
+		}
+
+		color: rgba($ngkdx-white);
+		height: 70px;
+		width: 70px;
+
+		fa-icon {
+			outline: none !important;
+		}
+	}
+}
+
+.nav-link {
+	&.active {
+		color: rgba($ngkdx-white) !important;
+	}
+}
