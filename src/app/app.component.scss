@@ -1,0 +1,5 @@
+@use "/src/assets/styles/utils" as *;
+
+main {
+  height: calc(100% - pxToRem(60px));
+}

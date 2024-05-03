@@ -1,0 +1,24 @@
+@use "/src/assets/styles/utils" as *;
+
+#error-404 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+
+  .mascotte-wrapper {
+    height: pxToRem(256px) !important;
+    width: pxToRem(256px) !important;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .error-title {
+    font-size: pxToRem(60px) !important;
+  }
+}

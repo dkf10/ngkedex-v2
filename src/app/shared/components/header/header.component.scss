@@ -1,10 +1,10 @@
-@import "../../../../assets/palette/base-palette.scss";
-
+@use "/src/assets/styles/utils" as *;
+@import "/src/assets/palette/base-palette.scss";
 
 nav {
-	height: 60px;
-	padding: 0px 25px;
-	border-bottom: 5px solid rgba($ngkdx-red);
+	height: pxToRem(60px);
+	padding: pxToRem(0px) pxToRem(25px);
+	border-bottom: pxToRem(5px) solid rgba($ngkdx-red);
 	background: rgba($ngkdx-dark-blue-1);
 
 	.navbar-brand {
@@ -22,8 +22,8 @@ nav {
 		}
 
 		color: rgba($ngkdx-white);
-		height: 70px;
-		width: 70px;
+		height: pxToRem(70px);
+		width: pxToRem(70px);
 
 		fa-icon {
 			outline: none !important;
@@ -33,18 +33,19 @@ nav {
 
 .nav-link {
 	color: rgba($ngkdx-white);
-	min-width: 100px;
+	min-width: pxToRem(100px);
 	text-align: center;
-	margin: 0 10px;
+	margin: 0 pxToRem(10px);
+	border-bottom: pxToRem(2px) solid transparent;
 
 	&.active {
 		color: rgba($ngkdx-red);
 		font-weight: 700;
-		border-bottom: 2px solid rgba($ngkdx-white);
+		border-bottom: pxToRem(2px) solid rgba($ngkdx-white);
 	}
 
 	&:hover {
-		border-bottom: 2px solid rgba($ngkdx-white);
+		border-bottom: pxToRem(2px) solid rgba($ngkdx-white);
 		cursor: pointer;
 	}
 }

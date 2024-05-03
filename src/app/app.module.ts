@@ -9,6 +9,7 @@ import { ComponentsModule as SharedComponents } from './shared/components/compon
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { ErrorModule } from './pages/error/error.module';
 
 export function setupTranslations(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/languages/', '.json');
@@ -32,8 +33,9 @@ const TRANSLATE_MODULE_CONFIG = {
     HttpClientModule,
     CoreModule,
     SharedComponents,
+    BrowserAnimationsModule,
     TranslateModule.forRoot(TRANSLATE_MODULE_CONFIG),
-    BrowserAnimationsModule
+    ErrorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

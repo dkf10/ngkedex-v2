@@ -1,4 +1,18 @@
 {
+  "errors": {
+    "401": {
+      "title": "401",
+      "subtitle": "Sorry, this page can't be viewed"
+    },
+    "403": {
+      "title": "403",
+      "subtitle": "Sorry, this page can't be viewed"
+    },
+    "404": {
+      "title": "404",
+      "subtitle": "Sorry, this page doesn't exists"
+    }
+  },
   "header": {
     "pokedex": "Pokédex",
     "machines": "Machines"

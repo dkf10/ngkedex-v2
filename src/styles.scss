@@ -1,1 +1,2 @@
-@import "./assets/palette/base-palette.scss";
+@use "./assets/styles/general" as *;
+@use "./assets/palette/base-palette.scss" as *;
