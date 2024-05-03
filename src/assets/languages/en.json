@@ -15,6 +15,7 @@
   },
   "header": {
     "pokedex": "Pokédex",
-    "machines": "Machines"
+    "machines": "Machines",
+    "about": "About"
   }
 }
