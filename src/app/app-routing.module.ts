@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { mainMenu } from './core/enum/routes.enum';
 
 const routes: Routes = [
   {
@@ -8,10 +9,10 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'pokedex',
+    path: mainMenu.POKEDEX,
     loadChildren: () => import('./pages/pokedex/pokedex.module').then(m => m.PokedexModule)
   }
-];  
+];
 
 @NgModule({
   imports: [

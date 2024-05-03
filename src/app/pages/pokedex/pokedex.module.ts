@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LandingComponent } from './components/landing/landing.component';
 import { RouterModule } from '@angular/router';
 import { pokedexRoutes } from './routes';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -12,7 +13,8 @@ import { pokedexRoutes } from './routes';
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(pokedexRoutes)
+    RouterModule.forChild(pokedexRoutes),
+    TranslateModule.forChild()
   ]
 })
 export class PokedexModule { }
