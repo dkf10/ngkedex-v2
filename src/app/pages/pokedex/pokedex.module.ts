@@ -4,6 +4,8 @@ import { LandingComponent } from './components/landing/landing.component';
 import { RouterModule } from '@angular/router';
 import { pokedexRoutes } from './routes';
 import { TranslateModule } from '@ngx-translate/core';
+import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -13,6 +15,9 @@ import { TranslateModule } from '@ngx-translate/core';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    RouterModule,
+    FontAwesomeModule,
     RouterModule.forChild(pokedexRoutes),
     TranslateModule.forChild()
   ]

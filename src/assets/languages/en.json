@@ -17,5 +17,8 @@
     "pokedex": "Pokédex",
     "machines": "Machines",
     "about": "About"
-  }
+  },
+  "common": {
+    "search": "Search"
+  } 
 }

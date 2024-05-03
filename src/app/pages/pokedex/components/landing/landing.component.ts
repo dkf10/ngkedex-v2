@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
+  public searchTerm: string;
+
   constructor() { }
 
   ngOnInit(): void {

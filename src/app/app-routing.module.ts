@@ -3,14 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { mainMenu } from './core/enum/routes.enum';
 
 const routes: Routes = [
-  /* {
-    path: '',
-    redirectTo: '',
-    pathMatch: 'full'
-  }, */
   {
-    path: mainMenu.HOME,
-    loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule)
+    path: '',
+    redirectTo: mainMenu.POKEDEX,
+    pathMatch: 'full'
   },
   {
     path: mainMenu.POKEDEX,
