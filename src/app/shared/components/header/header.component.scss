@@ -6,7 +6,6 @@ nav {
 	padding: 0px 25px;
 	border-bottom: 5px solid rgba($ngkdx-red);
 	background: rgba($ngkdx-dark-blue-1);
-	color: rgba($ngkdx-white);
 
 	.navbar-brand {
 		height: 100%;
@@ -33,7 +32,19 @@ nav {
 }
 
 .nav-link {
+	color: rgba($ngkdx-white);
+	min-width: 100px;
+	text-align: center;
+	margin: 0 10px;
+
 	&.active {
-		color: rgba($ngkdx-white) !important;
+		color: rgba($ngkdx-red);
+		font-weight: 700;
+		border-bottom: 2px solid rgba($ngkdx-white);
+	}
+
+	&:hover {
+		border-bottom: 2px solid rgba($ngkdx-white);
+		cursor: pointer;
 	}
 }

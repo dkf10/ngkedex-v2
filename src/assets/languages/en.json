@@ -1,3 +1,6 @@
 {
-  
+  "header": {
+    "pokedex": "Pokédex",
+    "machines": "Machines"
+  }
 }

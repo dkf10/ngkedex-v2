@@ -1,5 +1,7 @@
-type MainMenu = 'POKEDEX';
+type MainMenu = 'HOME' | 'POKEDEX' | 'MACHINES';
 
 export const mainMenu: Record<MainMenu, string> = {
-  POKEDEX: 'pokedex'
+  HOME: 'home',
+  POKEDEX: 'pokedex',
+  MACHINES: 'machines'
 }
