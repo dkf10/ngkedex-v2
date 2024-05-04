@@ -10,7 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { ErrorModule } from './pages/error/error.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 export function setupTranslations(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/languages/', '.json');
@@ -35,7 +34,6 @@ const TRANSLATE_MODULE_CONFIG = {
     CoreModule,
     SharedComponents,
     BrowserAnimationsModule,
-    FontAwesomeModule,
     TranslateModule.forRoot(TRANSLATE_MODULE_CONFIG),
     ErrorModule
   ],

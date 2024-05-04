@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { pokedexRoutes } from './routes';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule } from '@angular/forms';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -17,7 +16,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CommonModule,
     FormsModule,
     RouterModule,
-    FontAwesomeModule,
     RouterModule.forChild(pokedexRoutes),
     TranslateModule.forChild()
   ]
