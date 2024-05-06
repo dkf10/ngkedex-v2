@@ -1,0 +1,62 @@
+@use "/src/assets/styles/utils" as *;
+@import "/src/assets/palette/base-palette.scss";
+
+#pokedex {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  #search {
+    margin-top: pxToRem(30px);
+    margin-bottom: pxToRem(15px);
+  }
+
+  .pokemon-list {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-top: pxToRem(15px);
+    transition: all ease-in-out !important;
+
+    .poke-box {
+      height: pxToRem(250px);
+      width: 100%;
+      border: 1px solid var(--bs-border-color);
+      border-radius: pxToRem(8px);
+      margin-bottom: pxToRem(30px);
+      display: flex;
+      flex-direction: column;
+
+      .pokemon-picture {
+        justify-content: center;
+        align-items: center;
+        flex-grow: 1;
+        transform: translateY(30px);
+      }
+
+      .pokemon-name {
+        height: pxToRem(80px);
+        background: rgba(0, 0, 0, 0.5);
+        margin: 0;
+        border-bottom-left-radius: pxToRem(8px);
+        border-bottom-right-radius: pxToRem(8px);
+        align-items: center;
+        color: rgba($ngkdx-white);
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      &:hover {
+        cursor: pointer;
+
+        .pokemon-picture {
+          transform: translateY(0px);
+        }
+
+        .pokemon-name {
+          opacity: 1;
+          transform: translateY(0px);
+        }
+      }
+    }
+  }
+}

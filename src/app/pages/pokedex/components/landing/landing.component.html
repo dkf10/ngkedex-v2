@@ -1,12 +1,40 @@
-<div class="container-fluid p-3">
-  <div class="row">
-    <div class="col-6 offset-3">
-      <div class="input-group" id="search">
+<div class="container" id="pokedex">
+
+  <div class="row" id="search">
+    <div class="col">
+      <div class="input-group">
         <input class="form-control" type="text" [(ngModel)]="searchTerm" [placeholder]="'common.search' | translate" />
         <span class="input-group-text">
-            <em class="fas fa-magnifying-glass"></em>
+          <em class="fas fa-magnifying-glass"></em>
         </span>
       </div>
+    </div>
+  </div>
+
+  <div class="row pokemon-list" #uiElement (scroll)="onScroll()">
+    <div class="col-3" *ngFor="let pokemon of pokemonList">
+      <div class="poke-box">
+        <div class="row pokemon-picture">
+          <div class="col-auto">
+            <img *ngIf="!pokemon.sprite_link" src="assets/img/pokeball-spinner.gif" width="128" height="128"
+              alt="Waiter" />
+            <img *ngIf="pokemon.sprite_link" [src]="pokemon.sprite_link" width="128" height="128" alt="pokemon" />
+          </div>
+        </div>
+
+        <div class="row pokemon-name">
+          <div class="col text-center">
+            {{pokemon.display_name}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-center" *ngIf="showSmallLoader">
+    <div class="col-auto">
+      <img src="assets/img/pokeball-spinner.gif" width="64" height="64" alt="Waiter" />
     </div>
   </div>
 </div>
