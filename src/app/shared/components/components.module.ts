@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
+import { WaitingComponent } from './waiting/waiting.component';
 
 
 
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    WaitingComponent
   ],
   imports: [
     CommonModule,
@@ -16,7 +18,8 @@ import { RouterModule } from '@angular/router';
     TranslateModule.forChild()
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    WaitingComponent
   ]
 })
 export class ComponentsModule { }
