@@ -7,7 +7,7 @@ nav {
 	border-bottom: pxToRem(5px) solid rgba($ngkdx-red);
 	background: rgba($ngkdx-dark-blue-1);
 
-	.navbar-brand {
+	.container-fluid {
 		height: 100%;
 	}
 
@@ -29,23 +29,26 @@ nav {
 			outline: none !important;
 		}
 	}
-}
 
-.nav-link {
-	color: rgba($ngkdx-white);
-	min-width: pxToRem(100px);
-	text-align: center;
-	margin: 0 pxToRem(10px);
-	border-bottom: pxToRem(2px) solid transparent;
+	.nav-link {
+		color: rgba($ngkdx-white);
+		min-width: pxToRem(100px);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0 pxToRem(10px);
+		border-bottom: pxToRem(2px) solid transparent;
+		height: 100%;
 
-	&.active {
-		color: rgba($ngkdx-red);
-		font-weight: 700;
-		border-bottom: pxToRem(2px) solid rgba($ngkdx-white);
-	}
+		&.active {
+			color: rgba($ngkdx-red);
+			font-weight: 700;
+			border-bottom: pxToRem(2px) solid rgba($ngkdx-white);
+		}
 
-	&:hover {
-		border-bottom: pxToRem(2px) solid rgba($ngkdx-white);
-		cursor: pointer;
+		&:hover {
+			border-bottom: pxToRem(2px) solid rgba($ngkdx-white);
+			cursor: pointer;
+		}
 	}
 }
