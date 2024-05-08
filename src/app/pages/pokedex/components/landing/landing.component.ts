@@ -1,8 +1,10 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import { PokedexService } from '../../services/pokedex/pokedex.service';
+import { Router } from '@angular/router';
+
 import { IPokemon } from 'src/app/shared/interfaces/pokemon.interface';
 import { WaitingService } from 'src/app/shared/services/waiting/waiting.service';
-import { PokemonModalComponent } from '../pokemon-modal/pokemon-modal.component';
+import { mainMenu, pokemonPage } from 'src/app/core/enum/routes.enum';
+import { PokedexService } from '../../services/pokedex/pokedex.service';
 
 @Component({
   selector: 'ngkdx-landing',
@@ -12,7 +14,6 @@ import { PokemonModalComponent } from '../pokemon-modal/pokemon-modal.component'
 export class LandingComponent implements AfterViewInit {
 
   @ViewChild('uiElement', { static: false }) public uiElement: ElementRef;
-  @ViewChild('pokemonModal', { static: true }) public pokemonModal: PokemonModalComponent;
 
   public searchTerm: string;
   public pokemonList: IPokemon.ListItem[] = [];
@@ -23,6 +24,7 @@ export class LandingComponent implements AfterViewInit {
 
   constructor(
     private pokedexService: PokedexService,
+    private router: Router,
     private waiting: WaitingService
   ) { }
 
@@ -43,6 +45,10 @@ export class LandingComponent implements AfterViewInit {
     }
   }
 
+  public goToPokemon(pokemon: IPokemon.ListItem): void {
+    this.router.navigate([`${mainMenu.POKEDEX}/${pokemonPage.POKEMON}/${pokemon.id}`]);
+  }
+
   private async loadPokemonList(url?: string): Promise<void> {
     const mainData = await this.pokedexService.getAllPokemon(url);
     this.lastUrl = mainData.next;
@@ -58,7 +64,6 @@ export class LandingComponent implements AfterViewInit {
 
       this.pokemonList.push({
         id: newId,
-        display_name: el.name.charAt(0).toUpperCase() + el.name.slice(1),
         sprite_link: form.sprites.front_default,
         ...el
       });

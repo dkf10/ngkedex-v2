@@ -1,0 +1,16 @@
+@use "/src/assets/styles/utils" as *;
+
+#pokemon {
+  padding-top: pxToRem(15px);
+
+  #bio {
+    border: 1px solid var(--bs-border-color);
+    border-radius: pxToRem(8px);
+
+    .display-name {
+      font-size: pxToRem(50px);
+      font-weight: lighter;
+      margin: 0;
+    }
+  }
+}

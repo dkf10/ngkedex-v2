@@ -34,7 +34,6 @@ export namespace IPokemon {
   export interface ListItem extends Result {
     id: number;
     sprite_link: string;
-    display_name: string;
   }
 
   export interface Form {

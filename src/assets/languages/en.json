@@ -19,7 +19,10 @@
     "about": "About"
   },
   "pokedex": {
-    "pokemon": "Pokemon"
+    "pokemon": "Pokemon",
+    "height": "Height",
+    "weight": "Weight",
+    "type": "Type"
   },
   "common": {
     "search": "Search"

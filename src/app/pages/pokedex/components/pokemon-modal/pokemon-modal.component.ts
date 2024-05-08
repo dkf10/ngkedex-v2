@@ -13,7 +13,7 @@ export class PokemonModalComponent {
 
   public isModalOpen: boolean = false;
   public selectedPokemon: IPokemon.Pokemon = {} as IPokemon.Pokemon;
-  public displayName: string;
+  // public displayName: string;
   public spriteLink: string;
 
   public readonly ModalSize = ModalSize;
@@ -25,7 +25,7 @@ export class PokemonModalComponent {
 
   public openModal(pokemon: IPokemon.ListItem): void {
     this.spriteLink = pokemon.sprite_link;
-    this.displayName = pokemon.display_name;
+    // this.displayName = pokemon.display_name;
     this.loadPokemonStats(pokemon.id);
     this.isModalOpen = true;
   }

@@ -13,7 +13,7 @@
 
   <div class="row pokemon-list" #uiElement (scroll)="onScroll()">
     <div class="col-3" *ngFor="let pokemon of pokemonList">
-      <div class="poke-box" (click)="pokemonModal.openModal(pokemon)">
+      <div class="poke-box" (click)="goToPokemon(pokemon)">
         <div class="row pokemon-picture">
           <div class="col-auto">
             <img *ngIf="!pokemon.sprite_link" src="assets/img/pokeball-spinner.gif" width="128" height="128"
@@ -24,7 +24,7 @@
 
         <div class="row pokemon-name">
           <div class="col text-center">
-            {{pokemon.display_name}}
+            {{pokemon.name | capitalize}}
           </div>
         </div>
 
@@ -38,5 +38,3 @@
     </div>
   </div>
 </div>
-
-<ngkdx-pokemon-modal #pokemonModal></ngkdx-pokemon-modal>
