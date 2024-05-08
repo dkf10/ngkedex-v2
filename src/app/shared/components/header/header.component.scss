@@ -3,52 +3,30 @@
 
 nav {
 	height: pxToRem(60px);
-	padding: pxToRem(0px) pxToRem(25px);
+	padding: pxToRem(0px) pxToRem(15px);
 	border-bottom: pxToRem(5px) solid rgba($ngkdx-red);
 	background: rgba($ngkdx-dark-blue-1);
 
-	.container-fluid {
-		height: 100%;
-	}
+	.navbar-nav {
+		margin-left: pxToRem(15px);
 
-	.red-squared-btn {
-		border: {
-			radius: 0;
-			color: transparent !important;
-		}
+		.nav-link {
+			color: rgba($ngkdx-white);
+			text-align: center;
+			border-radius: pxToRem(6px);
+			min-width: pxToRem(100px);
+			margin-right: pxToRem(6px);
 
-		background: {
-			color: rgba($ngkdx-red) !important;
-		}
+			&.active {
+				background-color: rgba($ngkdx-red);
+				font-weight: 700;
+			}
 
-		color: rgba($ngkdx-white);
-		height: pxToRem(70px);
-		width: pxToRem(70px);
-
-		fa-icon {
-			outline: none !important;
-		}
-	}
-
-	.nav-link {
-		color: rgba($ngkdx-white);
-		min-width: pxToRem(100px);
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		margin: 0 pxToRem(10px);
-		border-bottom: pxToRem(2px) solid transparent;
-		height: 100%;
-
-		&.active {
-			color: rgba($ngkdx-red);
-			font-weight: 700;
-			border-bottom: pxToRem(2px) solid rgba($ngkdx-white);
-		}
-
-		&:hover {
-			border-bottom: pxToRem(2px) solid rgba($ngkdx-white);
-			cursor: pointer;
+			&:hover:not(.active) {
+				background-color: rgba($ngkdx-light-blue-1);
+				color: black;
+				cursor: pointer;
+			}
 		}
 	}
 }
