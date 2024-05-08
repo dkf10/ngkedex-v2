@@ -15,11 +15,11 @@ export class LandingComponent implements AfterViewInit {
   @ViewChild('pokemonModal', { static: true }) public pokemonModal: PokemonModalComponent;
 
   public searchTerm: string;
-  public pokemonList: IPokemon.Pokemon[] = [];
+  public pokemonList: IPokemon.ListItem[] = [];
   public showSmallLoader: boolean = false;
 
   private lastUrl: string;
-  private totalCount: number = 802;
+  private totalCount: number;
 
   constructor(
     private pokedexService: PokedexService,

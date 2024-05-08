@@ -1,6 +1,5 @@
-<div class="modal" [attr.id]="id ?? null" [@openClose]="isOpen ? 'open' : 'close'" [hidden]="!isOpen"
-  (click)="closeModal()">
-  <div class="modal-dialog modal-dialog-centered {{size}}">
+<div class="modal" [attr.id]="id ?? null" [@openClose]="isOpen ? 'open' : 'close'" [hidden]="!isOpen">
+  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered {{size}}">
     <div class="modal-content" [@contentAnimate]="isOpen ? 'open' : 'close'">
       <header>
         {{title}}

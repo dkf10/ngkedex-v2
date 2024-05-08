@@ -18,7 +18,10 @@
     "machines": "Machines",
     "about": "About"
   },
+  "pokedex": {
+    "pokemon": "Pokemon"
+  },
   "common": {
     "search": "Search"
-  } 
+  }
 }

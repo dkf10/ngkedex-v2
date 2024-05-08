@@ -26,6 +26,13 @@ export class PokedexService {
     );
   }
 
+  public async getPokemon(id: number): Promise<IPokemon.Pokemon> {
+    return lastValueFrom(
+      this.httpClient.get<IPokemon.Form>(`${environment.BASE_URL}${ApiUrl.Pokemon.POKEMON}${id}`, { responseType: 'json' })
+        .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
+    );
+  }
+
   public async getPokemonForm(id: number): Promise<IPokemon.Form> {
     return lastValueFrom(
       this.httpClient.get<IPokemon.Form>(`${environment.BASE_URL}${ApiUrl.Pokemon.POKEMON_FORM}${id}`, { responseType: 'json' })

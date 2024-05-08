@@ -6,12 +6,32 @@ export namespace IPokemon {
     results: Result[];
   }
 
+  export interface Pokemon {
+    abilities: Ability[];
+    base_experience: number;
+    cries: Cry[];
+    forms: Result[];
+    game_indices: GameIndex[];
+    height: number;
+    id: number;
+    is_default: boolean;
+    location_areas_encounters: string;
+    moves: Move[];
+    name: string;
+    order: number;
+    species: Result;
+    sprites: Sprite;
+    stats: Stat[];
+    types: Type[];
+    weight: number;
+  }
+
   export interface Result {
     name: string;
     url: string;
   }
 
-  export interface Pokemon extends Result {
+  export interface ListItem extends Result {
     id: number;
     sprite_link: string;
     display_name: string;
@@ -45,8 +65,39 @@ export namespace IPokemon {
     front_shiny_female: string;
   }
 
+  export interface Ability {
+    ability: Result;
+    is_hidden: boolean;
+    slot: number;
+  }
+
+  export interface Cry {
+    latest: string;
+    legacy: string;
+  }
+
+  export interface GameIndex {
+    game_index: number;
+    version: Result;
+  }
+
   export interface Type {
     slot: number;
     type: Result;
+  }
+
+  export interface Stat {
+    base_stat: number;
+    effort: number;
+    stat: Result;
+  }
+  
+  export interface Move {
+    move: Result;
+    version_group_details: {
+      level_learn_at: number;
+      move_learn_method: Result;
+      version_group: Result;
+    }[];
   }
 }

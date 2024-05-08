@@ -7,6 +7,7 @@
   display: block;
 
   .modal-content {
+    border: 1px solid rgba($ngkdx-red);
     border-radius: pxToRem(8px);
 
     header {
@@ -29,6 +30,7 @@
     section {
       min-height: pxToRem(300px);
       padding: pxToRem(10px) pxToRem(15px);
+      overflow-y: auto;
     }
 
     footer {

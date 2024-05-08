@@ -1,0 +1,6 @@
+@use "/src/assets/styles/utils" as *;
+
+#pokemon-bio {
+  font-size: pxToRem(35px);
+  font-weight: lighter;
+}

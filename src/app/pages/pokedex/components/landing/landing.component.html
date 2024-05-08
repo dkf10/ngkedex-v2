@@ -13,7 +13,7 @@
 
   <div class="row pokemon-list" #uiElement (scroll)="onScroll()">
     <div class="col-3" *ngFor="let pokemon of pokemonList">
-      <div class="poke-box">
+      <div class="poke-box" (click)="pokemonModal.openModal(pokemon)">
         <div class="row pokemon-picture">
           <div class="col-auto">
             <img *ngIf="!pokemon.sprite_link" src="assets/img/pokeball-spinner.gif" width="128" height="128"
