@@ -1,1 +1,22 @@
-<p>base-modal works!</p>
+<div class="modal" [attr.id]="id ?? null" [@openClose]="isOpen ? 'open' : 'close'" [hidden]="!isOpen"
+  (click)="closeModal()">
+  <div class="modal-dialog modal-dialog-centered {{size}}">
+    <div class="modal-content" [@contentAnimate]="isOpen ? 'open' : 'close'">
+      <header>
+        {{title}}
+
+        <span class="close-btn" (click)="closeModal()">
+          <em class="fas fa-lg fa-xmark"></em>
+        </span>
+      </header>
+
+      <section *ngIf="isOpen">
+        <ng-content />
+      </section>
+
+      <footer #footer [hidden]="footer.childNodes.length === 0">
+        <ng-content select="[footer]" />
+      </footer>
+    </div>
+  </div>
+</div>

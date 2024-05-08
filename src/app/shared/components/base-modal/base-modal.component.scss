@@ -1,0 +1,39 @@
+@use "/src/assets/styles/utils" as *;
+@import "/src/assets/palette/base-palette.scss";
+
+.modal {
+  position: absolute !important;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: block;
+
+  .modal-content {
+    border-radius: pxToRem(8px);
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      background-color: rgba($ngkdx-dark-blue-1);
+      border-bottom: pxToRem(5px) solid rgba($ngkdx-red);
+      color: rgba($ngkdx-white);
+      padding: pxToRem(10px) pxToRem(15px);
+      border-top-left-radius: pxToRem(6px);
+      border-top-right-radius: pxToRem(6px);
+
+      .close-btn {
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+
+    section {
+      min-height: pxToRem(300px);
+      padding: pxToRem(10px) pxToRem(15px);
+    }
+
+    footer {
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      padding: pxToRem(10px) pxToRem(15px);
+    }
+  }
+}

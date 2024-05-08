@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { PokedexService } from '../../services/pokedex/pokedex.service';
 import { IPokemon } from 'src/app/shared/interfaces/pokemon.interface';
 import { WaitingService } from 'src/app/shared/services/waiting/waiting.service';
+import { PokemonModalComponent } from '../pokemon-modal/pokemon-modal.component';
 
 @Component({
   selector: 'ngkdx-landing',
@@ -10,14 +11,15 @@ import { WaitingService } from 'src/app/shared/services/waiting/waiting.service'
 })
 export class LandingComponent implements AfterViewInit {
 
+  @ViewChild('uiElement', { static: false }) public uiElement: ElementRef;
+  @ViewChild('pokemonModal', { static: true }) public pokemonModal: PokemonModalComponent;
+
   public searchTerm: string;
   public pokemonList: IPokemon.Pokemon[] = [];
   public showSmallLoader: boolean = false;
 
   private lastUrl: string;
   private totalCount: number = 802;
-
-  @ViewChild('uiElement', { static: false }) public uiElement: ElementRef;
 
   constructor(
     private pokedexService: PokedexService,

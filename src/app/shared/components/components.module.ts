@@ -21,7 +21,8 @@ import { BaseModalComponent } from './base-modal/base-modal.component';
   ],
   exports: [
     HeaderComponent,
-    WaitingComponent
+    WaitingComponent,
+    BaseModalComponent
   ]
 })
 export class ComponentsModule { }
