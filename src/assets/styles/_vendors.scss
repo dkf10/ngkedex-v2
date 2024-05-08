@@ -1,7 +1,15 @@
+@import "/src/assets/palette/base-palette.scss";
+
 .form-control {
+  border-color: rgba($ngkdx-light-blue-1) !important;
+
   &:focus {
     outline: unset !important;
     box-shadow: unset !important;
-    border-color: var(--bs-border-color) !important;
   }
+}
+
+.input-group-text {
+  border-color: rgba($ngkdx-light-blue-1) !important;
+  background-color: rgba($ngkdx-light-blue-3) !important;
 }
