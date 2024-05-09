@@ -26,7 +26,9 @@
     "abilities": "Abilities",
     "moves": "Moves",
     "evolutions": "Evolutions",
-    "stats": "Stats"
+    "stats": "Stats",
+    "base-experience": "Base Experience",
+    "cry": "Cry"
   },
   "common": {
     "search": "Search"

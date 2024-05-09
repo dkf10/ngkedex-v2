@@ -9,7 +9,7 @@ export namespace IPokemon {
   export interface Pokemon {
     abilities: Ability[];
     base_experience: number;
-    cries: Cry[];
+    cries: Cry;
     forms: Result[];
     game_indices: GameIndex[];
     height: number;

@@ -19,6 +19,16 @@
       font-weight: lighter;
       margin: 0;
     }
+
+    #cry-play {
+      margin-bottom: pxToRem(5px);
+      border-radius: 100%;
+    }
+
+    .text-bg-poke {
+      background-color: rgba($ngkdx-dark-blue-1);
+      color: rgba($ngkdx-white);
+    }
   }
 
   #specs {

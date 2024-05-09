@@ -10,15 +10,33 @@
           </div>
           <div class="col px-4">
             <p class="display-name">
-              {{selectedPokemon.name | capitalize}}
+              <span>
+                {{selectedPokemon.name | capitalize}}
+              </span>
+              <span>
+                <button type="button" id="cry-play" class="btn btn-success" (click)="pokemonCry.play()">
+                  <span>
+                    <em class="fas fa-play"></em>
+                  </span>
+                </button>
+              </span>
             </p>
 
-            <p>
+            <p class="mb-1">
               <span>{{'pokedex.height' | translate}}: {{selectedPokemon.height / 10}}m</span>
               <span class="mx-2">|</span>
               <span>{{'pokedex.weight' | translate}}: {{selectedPokemon.weight / 10}}kg</span>
               <span class="mx-2">|</span>
               <span>{{'pokedex.type' | translate}}: {{selectedPokemon.types[0].type.name | capitalize}}</span>
+              <span class="mx-2">|</span>
+              <span>{{'pokedex.base-experience' | translate}}: {{selectedPokemon.base_experience}}</span>
+            </p>
+
+            <p>
+              <span>{{'pokedex.abilities' | translate}}:</span>
+              <span class="badge rounded-pill text-bg-poke mx-1" *ngFor="let ability of selectedPokemon.abilities">
+                {{ability.ability.name | capitalize}}
+              </span>
             </p>
           </div>
         </div>
@@ -66,3 +84,6 @@
     </div>
   </div>
 </div>
+
+<audio #pokemonCry id="pokemon-cry" [src]="selectedPokemon.cries.latest" type="audio/ogg">
+</audio>
