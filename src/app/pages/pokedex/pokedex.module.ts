@@ -1,22 +1,31 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LandingComponent } from './components/landing/landing.component';
 import { RouterModule } from '@angular/router';
-import { pokedexRoutes } from './routes';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule } from '@angular/forms';
+import { PlotlyModule } from 'angular-plotly.js';
+import * as PlotlyJS from 'plotly.js-dist-min';
+
+import { pokedexRoutes } from './routes';
+import { LandingComponent } from './components/landing/landing.component';
 import { PokemonModalComponent } from './components/pokemon-modal/pokemon-modal.component';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
 import { PokemonComponent } from './components/pokemon/pokemon.component';
 import { PipesModule } from 'src/app/shared/pipes/pipes.module';
+import { AbilitiesComponent } from './components/pokemon/abilities/abilities.component';
+import { MovesComponent } from './components/pokemon/moves/moves.component';
+import { EvolutionsComponent } from './components/pokemon/evolutions/evolutions.component';
 
-
+PlotlyModule.plotlyjs = PlotlyJS;
 
 @NgModule({
   declarations: [
     LandingComponent,
     PokemonModalComponent,
-    PokemonComponent
+    PokemonComponent,
+    AbilitiesComponent,
+    MovesComponent,
+    EvolutionsComponent
   ],
   imports: [
     CommonModule,
@@ -24,6 +33,7 @@ import { PipesModule } from 'src/app/shared/pipes/pipes.module';
     RouterModule,
     ComponentsModule,
     PipesModule,
+    PlotlyModule,
     RouterModule.forChild(pokedexRoutes),
     TranslateModule.forChild()
   ],

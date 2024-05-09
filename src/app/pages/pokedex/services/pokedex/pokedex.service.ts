@@ -35,7 +35,7 @@ export class PokedexService {
 
   public async getPokemonForm(id: number): Promise<IPokemon.Form> {
     return lastValueFrom(
-      this.httpClient.get<IPokemon.Form>(`${environment.BASE_URL}${ApiUrl.Pokemon.POKEMON_FORM}${id}`, { responseType: 'json' })
+      this.httpClient.get<IPokemon.Form>(`${environment.BASE_URL}${ApiUrl.Pokemon.FORM}${id}`, { responseType: 'json' })
         .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
     );
   }

@@ -90,7 +90,7 @@ export namespace IPokemon {
     effort: number;
     stat: Result;
   }
-  
+
   export interface Move {
     move: Result;
     version_group_details: {

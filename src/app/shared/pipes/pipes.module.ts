@@ -13,6 +13,9 @@ import { CapitalizePipe } from './capitalize/capitalize.pipe';
   ],
   exports: [
     CapitalizePipe
+  ],
+  providers: [
+    CapitalizePipe
   ]
 })
 export class PipesModule { }
