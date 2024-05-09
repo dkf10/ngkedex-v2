@@ -38,8 +38,8 @@ export class StatsComponent implements OnChanges {
           range: [0, 250]
         },
         margin: {
-          t: 50,
-          b: 30,
+          t: 10,
+          b: 50,
           l: 50,
           r: 50
         }

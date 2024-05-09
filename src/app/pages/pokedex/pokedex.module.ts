@@ -15,6 +15,7 @@ import { PipesModule } from 'src/app/shared/pipes/pipes.module';
 import { MovesComponent } from './components/pokemon/moves/moves.component';
 import { EvolutionsComponent } from './components/pokemon/evolutions/evolutions.component';
 import { StatsComponent } from './components/pokemon/stats/stats.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -34,6 +35,7 @@ PlotlyModule.plotlyjs = PlotlyJS;
     ComponentsModule,
     PipesModule,
     PlotlyModule,
+    NgbModule,
     RouterModule.forChild(pokedexRoutes),
     TranslateModule.forChild()
   ],

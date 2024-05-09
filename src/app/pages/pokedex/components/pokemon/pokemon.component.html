@@ -50,40 +50,40 @@
 
       <!-- Pokemon specs container -->
       <div class="container-fluid" id="specs">
-        <ul class="nav" id="specs-tabs" role="tablist">
-          <li class="nav-item" (click)="switchTab(tabs.STATS)">
-            <span class="nav-link" [class.active]="selectedTab === tabs.STATS">
+        <ul ngbNav #specsTabs="ngbNav" id="specs-tabs" class="nav-tabs" [(activeId)]="selectedTab"
+          [destroyOnHide]="false">
+          <li [ngbNavItem]="tabs.STATS">
+            <button ngbNavLink>
               {{'pokedex.stats' | translate}}
-            </span>
+            </button>
+            <ng-template ngbNavContent>
+              <ngkdx-pokemon-stats [stats]="selectedPokemon.stats" />
+            </ng-template>
           </li>
-          <li class="nav-item" (click)="switchTab(tabs.MOVES)">
-            <span class="nav-link" [class.active]="selectedTab === tabs.MOVES">
+          <li [ngbNavItem]="tabs.MOVES">
+            <button ngbNavLink>
               {{'pokedex.moves' | translate}}
-            </span>
+            </button>
+            <ng-template ngbNavContent>
+              <ngkdx-pokemon-moves />
+            </ng-template>
           </li>
-          <li class="nav-item" (click)="switchTab(tabs.EVOLUTIONS)">
-            <span class="nav-link" [class.active]="selectedTab === tabs.EVOLUTIONS">
+          <li [ngbNavItem]="tabs.EVOLUTIONS">
+            <button ngbNavLink>
               {{'pokedex.evolutions' | translate}}
-            </span>
+            </button>
+            <ng-template ngbNavContent>
+              <ngkdx-pokemon-evolutions />
+            </ng-template>
           </li>
         </ul>
 
-        <div class="tab-content" id="specs-tabs-content">
-          <div class="tab-pane fade" [ngClass]="{'show active': selectedTab === tabs.STATS}" role="tabpanel">
-            <ngkdx-pokemon-stats [stats]="selectedPokemon.stats" />
-          </div>
-          <div class="tab-pane fade" [ngClass]="{'show active': selectedTab === tabs.MOVES}" role="tabpanel">
-            <ngkdx-pokemon-moves />
-          </div>
-          <div class="tab-pane fade" [ngClass]="{'show active': selectedTab === tabs.EVOLUTIONS}" role="tabpanel">
-            <ngkdx-pokemon-evolutions />
-          </div>
-        </div>
+        <div [ngbNavOutlet]="specsTabs"></div>
       </div>
 
     </div>
   </div>
 </div>
 
-<audio #pokemonCry id="pokemon-cry" [src]="selectedPokemon.cries.latest" type="audio/ogg">
+<audio #pokemonCry [id]="'pokemon-cry'" [src]="selectedPokemon.cries.latest" type="audio/ogg">
 </audio>

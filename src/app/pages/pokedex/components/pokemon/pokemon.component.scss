@@ -46,6 +46,7 @@
       .nav-item {
         .nav-link {
           text-align: center;
+          border: unset !important;
           border-radius: pxToRem(6px);
           min-width: pxToRem(100px);
           margin-right: pxToRem(6px);
