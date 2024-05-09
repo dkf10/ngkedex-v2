@@ -24,7 +24,7 @@ nav {
 
 			&:hover:not(.active) {
 				background-color: rgba($ngkdx-light-blue-1);
-				color: black;
+        color: rgba($ngkdx-black);
 				cursor: pointer;
 			}
 		}

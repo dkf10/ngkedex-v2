@@ -67,6 +67,8 @@ export class LandingComponent implements AfterViewInit {
         sprite_link: form.sprites.front_default,
         ...el
       });
-    })
+    });
+
+    this.pokemonList.sort((a, b) => a.id - b.id);
   }
 }

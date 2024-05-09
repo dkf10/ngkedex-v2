@@ -22,7 +22,10 @@
     "pokemon": "Pokemon",
     "height": "Height",
     "weight": "Weight",
-    "type": "Type"
+    "type": "Type",
+    "abilities": "Abilities",
+    "moves": "Moves",
+    "evolutions": "Evolutions"
   },
   "common": {
     "search": "Search"

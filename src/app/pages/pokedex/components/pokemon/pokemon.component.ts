@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { IPokemon } from 'src/app/shared/interfaces/pokemon.interface';
-import { PokedexService } from '../../services/pokedex/pokedex.service';
 import { WaitingService } from 'src/app/shared/services/waiting/waiting.service';
+import { PokedexService } from '../../services/pokedex/pokedex.service';
+import { PokedexEnum } from '../../enums/pokedex.enum';
 
 @Component({
   selector: 'ngkdx-pokemon',
@@ -13,9 +14,8 @@ import { WaitingService } from 'src/app/shared/services/waiting/waiting.service'
 export class PokemonComponent implements OnInit {
 
   public selectedPokemon: IPokemon.Pokemon;
-  public displayName: string;
-
-  private pokemonId: number;
+  public selectedTab = PokedexEnum.PokemonTabs.ABILITIES;
+  public readonly tabs = PokedexEnum.PokemonTabs;
 
   constructor(
     private pokedexService: PokedexService,
@@ -24,14 +24,17 @@ export class PokemonComponent implements OnInit {
   ) { }
 
   public ngOnInit(): void {
-    this.pokemonId = this.activatedRoute.snapshot.params['id'];
-    this.getPokemonDetail();
+    const pokemonId = parseInt(this.activatedRoute.snapshot.params['id'], 10);
+    this.getPokemonDetail(pokemonId);
   }
 
-  private async getPokemonDetail(): Promise<void> {
+  public switchTab(tab: PokedexEnum.PokemonTabs): void {
+    this.selectedTab = tab;
+  }
+
+  private async getPokemonDetail(id: number): Promise<void> {
     this.waiting.WaitingEnabled = true;
-    this.selectedPokemon = await this.pokedexService.getPokemon(this.pokemonId);
-    this.displayName = this.selectedPokemon.name.charAt(0).toUpperCase() + this.selectedPokemon.name.slice(1);
+    this.selectedPokemon = await this.pokedexService.getPokemon(id);
     this.waiting.WaitingEnabled = false;
   }
 }

@@ -1,42 +1,68 @@
 <div class="container" id="pokemon" *ngIf="selectedPokemon">
-  <div class="row align-items-center" id="bio">
-    <div class="col-auto">
-      <img [src]="selectedPokemon.sprites.front_default" width="300" height="300" alt="pokemon" />
-    </div>
-    <div class="col px-4">
-      <p class="display-name">
-        {{selectedPokemon.name | capitalize}}
-      </p>
+  <div class="row">
+    <div class="col">
 
-      <p>
-        <span>{{'pokedex.height' | translate}}: {{selectedPokemon.height / 10}}m</span>
-        <span class="mx-2">|</span>
-        <span>{{'pokedex.weight' | translate}}: {{selectedPokemon.weight / 10}}kg</span>
-        <span class="mx-2">|</span>
-        <span>{{'pokedex.type' | translate}}: {{selectedPokemon.types[0].type.name | capitalize}}</span>
-      </p>
+      <!-- Pokemon Bio Container -->
+      <div class="container-fluid" id="bio">
+        <div class="row align-items-center">
+          <div class="col-auto">
+            <img [src]="selectedPokemon.sprites.front_default" width="300" height="300" alt="pokemon" />
+          </div>
+          <div class="col px-4">
+            <p class="display-name">
+              {{selectedPokemon.name | capitalize}}
+            </p>
+
+            <p>
+              <span>{{'pokedex.height' | translate}}: {{selectedPokemon.height / 10}}m</span>
+              <span class="mx-2">|</span>
+              <span>{{'pokedex.weight' | translate}}: {{selectedPokemon.weight / 10}}kg</span>
+              <span class="mx-2">|</span>
+              <span>{{'pokedex.type' | translate}}: {{selectedPokemon.types[0].type.name | capitalize}}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <div class="row flex-grow-1" id="specs">
+  <div class="row flex-grow-1">
     <div class="col">
-      <ul class="nav" id="specs-tabs" role="tablist">
-        <li class="nav-item">
-          <span class="nav-link active">
-            Active
-          </span>
-        </li>
-        <li class="nav-item">
-          <span class="nav-link">
-            Link
-          </span>
-        </li>
-        <li class="nav-item">
-          <span class="nav-link">
-            Link
-          </span>
-        </li>
-      </ul>
+
+      <!-- Pokemon specs container -->
+      <div class="container-fluid" id="specs">
+        <ul class="nav" id="specs-tabs" role="tablist">
+          <li class="nav-item" (click)="switchTab(tabs.ABILITIES)">
+            <span class="nav-link" [class.active]="selectedTab === tabs.ABILITIES">
+              {{'pokedex.abilities' | translate}}
+            </span>
+          </li>
+          <li class="nav-item" (click)="switchTab(tabs.MOVES)">
+            <span class="nav-link" [class.active]="selectedTab === tabs.MOVES">
+              {{'pokedex.moves' | translate}}
+            </span>
+          </li>
+          <li class="nav-item" (click)="switchTab(tabs.EVOLUTIONS)">
+            <span class="nav-link" [class.active]="selectedTab === tabs.EVOLUTIONS">
+              {{'pokedex.evolutions' | translate}}
+            </span>
+          </li>
+        </ul>
+
+        <div class="tab-content" id="specs-tabs-content">
+          <div class="tab-pane fade" [ngClass]="{'show active': selectedTab === tabs.ABILITIES}" role="tabpanel">
+            abilities
+          </div>
+          <div class="tab-pane fade" [ngClass]="{'show active': selectedTab === tabs.MOVES}" role="tabpanel">
+            moves
+          </div>
+          <div class="tab-pane fade" [ngClass]="{'show active': selectedTab === tabs.EVOLUTIONS}" role="tabpanel">
+            evolutions
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>

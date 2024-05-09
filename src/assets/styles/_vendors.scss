@@ -1,5 +1,9 @@
 @import "/src/assets/palette/base-palette.scss";
 
+.container {
+  min-width: 994px;
+}
+
 .form-control {
   border-color: rgba($ngkdx-light-blue-1) !important;
 
