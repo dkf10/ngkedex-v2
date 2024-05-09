@@ -22,10 +22,8 @@ export class AbilitiesComponent implements OnChanges {
     this.chartModel = {
       data: [],
       config: {
-        showTips: false,
+        staticPlot: true,
         responsive: true,
-        displayModeBar: false,
-        displaylogo: false
       },
       layout: {
         autosize: true,
@@ -33,14 +31,11 @@ export class AbilitiesComponent implements OnChanges {
         showlegend: false,
         xaxis: {
           ticklen: 5,
-          tickcolor: 'rgba(0,0,0,0)',
-          fixedrange: true
+          tickcolor: 'rgba(0,0,0,0)'
         },
         yaxis: {
-          ticklen: 5,
-          tickcolor: 'rgba(0,0,0,0)',
-          range: [0, 500],
-          fixedrange: true
+          showticklabels: false,
+          range: [0, 250]
         },
         margin: {
           t: 50,
