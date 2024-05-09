@@ -28,10 +28,6 @@ export class PokemonComponent implements OnInit {
     this.getPokemonDetail(pokemonId);
   }
 
-  public switchTab(tab: PokedexEnum.PokemonTabs): void {
-    this.selectedTab = tab;
-  }
-
   private async getPokemonDetail(id: number): Promise<void> {
     this.waiting.WaitingEnabled = true;
     this.selectedPokemon = await this.pokedexService.getPokemon(id);

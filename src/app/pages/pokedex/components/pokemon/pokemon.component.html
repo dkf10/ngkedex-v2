@@ -14,7 +14,8 @@
                 {{selectedPokemon.name | capitalize}}
               </span>
               <span>
-                <button type="button" id="cry-play" class="btn btn-success" (click)="pokemonCry.play()">
+                <button type="button" id="cry-play" class="btn btn-success" (click)="pokemonCry.play()"
+                  [ngbTooltip]="'pokedex.play-cry' | translate">
                   <span>
                     <em class="fas fa-play"></em>
                   </span>
@@ -33,7 +34,7 @@
             </p>
 
             <p>
-              <span>{{'pokedex.abilities' | translate}}:</span>
+              <span class="me-1">{{'pokedex.abilities' | translate}}:</span>
               <span class="badge rounded-pill text-bg-poke mx-1" *ngFor="let ability of selectedPokemon.abilities">
                 {{ability.ability.name | capitalize}}
               </span>

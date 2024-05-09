@@ -28,7 +28,8 @@
     "evolutions": "Evolutions",
     "stats": "Stats",
     "base-experience": "Base Experience",
-    "cry": "Cry"
+    "cry": "Cry",
+    "play-cry": "Play cry"
   },
   "common": {
     "search": "Search"
