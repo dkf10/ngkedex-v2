@@ -14,7 +14,7 @@ import { PokedexEnum } from '../../enums/pokedex.enum';
 export class PokemonComponent implements OnInit {
 
   public selectedPokemon: IPokemon.Pokemon;
-  public selectedTab = PokedexEnum.PokemonTabs.ABILITIES;
+  public selectedTab = PokedexEnum.PokemonTabs.STATS;
   public readonly tabs = PokedexEnum.PokemonTabs;
 
   constructor(

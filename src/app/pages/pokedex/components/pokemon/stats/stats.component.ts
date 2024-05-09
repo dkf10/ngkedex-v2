@@ -4,11 +4,11 @@ import { IPokemon } from 'src/app/shared/interfaces/pokemon.interface';
 import { CapitalizePipe } from 'src/app/shared/pipes/capitalize/capitalize.pipe';
 
 @Component({
-  selector: 'ngkdx-pokemon-abilities',
-  templateUrl: './abilities.component.html',
-  styleUrls: ['./abilities.component.scss']
+  selector: 'ngkdx-pokemon-stats',
+  templateUrl: './stats.component.html',
+  styleUrls: ['./stats.component.scss']
 })
-export class AbilitiesComponent implements OnChanges {
+export class StatsComponent implements OnChanges {
 
   @ViewChild('chartDiv') public chartDivRef: ElementRef;
   @Input() public stats: IPokemon.Stat[];

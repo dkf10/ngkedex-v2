@@ -12,9 +12,9 @@ import { PokemonModalComponent } from './components/pokemon-modal/pokemon-modal.
 import { ComponentsModule } from 'src/app/shared/components/components.module';
 import { PokemonComponent } from './components/pokemon/pokemon.component';
 import { PipesModule } from 'src/app/shared/pipes/pipes.module';
-import { AbilitiesComponent } from './components/pokemon/abilities/abilities.component';
 import { MovesComponent } from './components/pokemon/moves/moves.component';
 import { EvolutionsComponent } from './components/pokemon/evolutions/evolutions.component';
+import { StatsComponent } from './components/pokemon/stats/stats.component';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -23,9 +23,9 @@ PlotlyModule.plotlyjs = PlotlyJS;
     LandingComponent,
     PokemonModalComponent,
     PokemonComponent,
-    AbilitiesComponent,
     MovesComponent,
-    EvolutionsComponent
+    EvolutionsComponent,
+    StatsComponent
   ],
   imports: [
     CommonModule,

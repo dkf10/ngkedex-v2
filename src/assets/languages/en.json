@@ -25,7 +25,8 @@
     "type": "Type",
     "abilities": "Abilities",
     "moves": "Moves",
-    "evolutions": "Evolutions"
+    "evolutions": "Evolutions",
+    "stats": "Stats"
   },
   "common": {
     "search": "Search"
