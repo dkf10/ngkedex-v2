@@ -12,12 +12,10 @@ export class EvolutionsComponent implements OnChanges {
 
   @Input() public species: IPokemon.Species;
   public evolution: IEvolution.Item;
-  public displayEvolution: IEvolution.DisplayItem[] = [];
+  public displayEvolution: IPokemon.ListItem[] = [];
   public isLoading: boolean = true;
 
-  constructor(
-    private pokedexService: PokedexService
-  ) { }
+  constructor(private pokedexService: PokedexService) { }
 
   public ngOnChanges(changes: SimpleChanges): void {
     if (changes['species']?.currentValue) {
@@ -37,14 +35,14 @@ export class EvolutionsComponent implements OnChanges {
 
     if (!chain) {
       pokemon = await this.pokedexService.getPokemon(this.evolution.chain.species.name);
-      this.addElementToDisplayChain(pokemon, this.evolution.chain.evolution_details);
+      this.addElementToDisplayChain(pokemon);
       await this.buildChain(this.evolution.chain.evolves_to);
       return;
     }
 
     chain.forEach(async (evo) => {
       pokemon = await this.pokedexService.getPokemon(evo.species.name);
-      this.addElementToDisplayChain(pokemon, evo.evolution_details);
+      this.addElementToDisplayChain(pokemon);
 
       if (evo.evolves_to?.length > 0) {
         await this.buildChain(evo.evolves_to);
@@ -52,12 +50,11 @@ export class EvolutionsComponent implements OnChanges {
     });
   }
 
-  private addElementToDisplayChain(pokemon: IPokemon.Pokemon, evolution_details: IEvolution.Detail): void {
+  private addElementToDisplayChain(pokemon: IPokemon.Pokemon): void {
     this.displayEvolution.push({
       id: pokemon.id,
       name: pokemon.name,
-      sprite_link: pokemon.sprites.front_default,
-      evo_detail: evolution_details
+      sprite_link: pokemon.sprites.front_default
     });
   }
 }

@@ -7,12 +7,8 @@ export namespace IEvolution {
     chain: Chain
   }
 
-  export interface DisplayItem extends IPokemon.ListItem {
-    evo_detail: Detail;
-  }
-
   export interface Chain {
-    evolution_details: Detail;
+    evolution_details: Detail[];
     evolves_to: Chain[];
     is_baby: boolean;
     species: Result;
