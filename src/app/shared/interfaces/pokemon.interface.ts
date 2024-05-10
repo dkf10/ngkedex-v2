@@ -1,3 +1,5 @@
+import { Result } from "./result.interface";
+
 export namespace IPokemon {
   export interface Main {
     count: number;
@@ -24,11 +26,6 @@ export namespace IPokemon {
     stats: Stat[];
     types: Type[];
     weight: number;
-  }
-
-  export interface Result {
-    name: string;
-    url: string;
   }
 
   export interface ListItem extends Result {
@@ -98,5 +95,17 @@ export namespace IPokemon {
       move_learn_method: Result;
       version_group: Result;
     }[];
+  }
+
+  export interface Species {
+    id: number;
+    base_happiness: number;
+    capture_rate: number;
+    evolution_chain: Result;
+    growth_rate: Result;
+    habitat: Result;
+    is_baby: boolean;
+    is_legendary: boolean;
+    is_mythical: boolean;
   }
 }

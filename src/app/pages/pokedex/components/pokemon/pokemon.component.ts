@@ -14,6 +14,7 @@ import { PokedexEnum } from '../../enums/pokedex.enum';
 export class PokemonComponent implements OnInit {
 
   public selectedPokemon: IPokemon.Pokemon;
+  public pokemonSpecies: IPokemon.Species;
   public selectedTab = PokedexEnum.PokemonTabs.STATS;
   public readonly tabs = PokedexEnum.PokemonTabs;
 
@@ -31,6 +32,7 @@ export class PokemonComponent implements OnInit {
   private async getPokemonDetail(id: number): Promise<void> {
     this.waiting.WaitingEnabled = true;
     this.selectedPokemon = await this.pokedexService.getPokemon(id);
+    this.pokemonSpecies = await this.pokedexService.getPokemonSpecies(this.selectedPokemon.species.name);
     this.waiting.WaitingEnabled = false;
   }
 }

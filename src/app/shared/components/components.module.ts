@@ -5,6 +5,8 @@ import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 import { WaitingComponent } from './waiting/waiting.component';
 import { BaseModalComponent } from './base-modal/base-modal.component';
+import { PokeBoxComponent } from './poke-box/poke-box.component';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 
@@ -12,17 +14,20 @@ import { BaseModalComponent } from './base-modal/base-modal.component';
   declarations: [
     HeaderComponent,
     WaitingComponent,
-    BaseModalComponent
+    BaseModalComponent,
+    PokeBoxComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
+    PipesModule,
     TranslateModule.forChild()
   ],
   exports: [
     HeaderComponent,
     WaitingComponent,
-    BaseModalComponent
+    BaseModalComponent,
+    PokeBoxComponent
   ]
 })
 export class ComponentsModule { }

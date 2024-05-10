@@ -13,22 +13,7 @@
 
   <div class="row pokemon-list" #uiElement (scroll)="onScroll()">
     <div class="col-3" *ngFor="let pokemon of pokemonList">
-      <div class="poke-box" (click)="goToPokemon(pokemon)">
-        <div class="row pokemon-picture">
-          <div class="col-auto">
-            <img *ngIf="!pokemon.sprite_link" src="assets/img/pokeball-spinner.gif" width="128" height="128"
-              alt="Waiter" />
-            <img *ngIf="pokemon.sprite_link" [src]="pokemon.sprite_link" width="128" height="128" alt="pokemon" />
-          </div>
-        </div>
-
-        <div class="row pokemon-name">
-          <div class="col text-center">
-            {{pokemon.name | capitalize}}
-          </div>
-        </div>
-
-      </div>
+      <ngkdx-poke-box [pokemon]="pokemon" (clickEvent)="goToPokemon($event)" />
     </div>
   </div>
 

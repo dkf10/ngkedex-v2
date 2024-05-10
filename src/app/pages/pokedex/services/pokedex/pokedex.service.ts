@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { lastValueFrom, timeout } from 'rxjs';
 import { AppConfig } from 'src/app/core/config/app.config';
 import { ApiUrl } from 'src/app/core/enum/api-url.enum';
+import { IEvolution } from 'src/app/shared/interfaces/evolution.interface';
 import { IPokemon } from 'src/app/shared/interfaces/pokemon.interface';
 import { environment } from 'src/environments/environment';
 
@@ -26,9 +27,9 @@ export class PokedexService {
     );
   }
 
-  public async getPokemon(id: number): Promise<IPokemon.Pokemon> {
+  public async getPokemon(pokemon: number | string): Promise<IPokemon.Pokemon> {
     return lastValueFrom(
-      this.httpClient.get<IPokemon.Form>(`${environment.BASE_URL}${ApiUrl.Pokemon.POKEMON}${id}`, { responseType: 'json' })
+      this.httpClient.get<IPokemon.Form>(`${environment.BASE_URL}${ApiUrl.Pokemon.POKEMON}${pokemon}`, { responseType: 'json' })
         .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
     );
   }
@@ -36,6 +37,20 @@ export class PokedexService {
   public async getPokemonForm(id: number): Promise<IPokemon.Form> {
     return lastValueFrom(
       this.httpClient.get<IPokemon.Form>(`${environment.BASE_URL}${ApiUrl.Pokemon.FORM}${id}`, { responseType: 'json' })
+        .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
+    );
+  }
+
+  public async getPokemonSpecies(name: string): Promise<IPokemon.Species>{
+    return lastValueFrom(
+      this.httpClient.get<IPokemon.Species>(`${environment.BASE_URL}${ApiUrl.Pokemon.POKEMON_SPECIES}${name}`, { responseType: 'json' })
+        .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
+    );
+  }
+
+  public async getEvolutionChain(id: number): Promise<IEvolution.Item> {
+    return lastValueFrom(
+      this.httpClient.get<IEvolution.Item>(`${environment.BASE_URL}${ApiUrl.Pokemon.EVOLUTION_CHAIN}${id}`, { responseType: 'json' })
         .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
     );
   }

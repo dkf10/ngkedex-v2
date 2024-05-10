@@ -1,1 +1,9 @@
-<p>evolutions works!</p>
+<div class="h-100 d-flex align-items-center justify-content-center" *ngIf="isLoading">
+  <img src="assets/img/pokeball-spinner.gif" width="64" height="64" alt="Waiter" />
+</div>
+
+<div class="row py-3">
+  <div class="col" *ngFor="let pokemon of displayEvolution">
+    <ngkdx-poke-box [pokemon]="pokemon" />
+  </div>
+</div>

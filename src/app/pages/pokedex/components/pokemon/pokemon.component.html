@@ -77,7 +77,7 @@
               {{'pokedex.evolutions' | translate}}
             </button>
             <ng-template ngbNavContent>
-              <ngkdx-pokemon-evolutions />
+              <ngkdx-pokemon-evolutions [species]="pokemonSpecies" [sprite]="selectedPokemon.sprites.front_default" />
             </ng-template>
           </li>
         </ul>
@@ -87,7 +87,7 @@
 
     </div>
   </div>
-</div>
 
-<audio #pokemonCry [id]="'pokemon-cry'" [src]="selectedPokemon.cries.latest" type="audio/ogg">
-</audio>
+  <audio #pokemonCry [id]="'pokemon-cry'" [src]="selectedPokemon.cries.latest" type="audio/ogg">
+  </audio>
+</div>

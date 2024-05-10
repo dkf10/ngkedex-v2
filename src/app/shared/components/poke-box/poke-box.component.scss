@@ -1,0 +1,51 @@
+@use "/src/assets/styles/utils" as *;
+@import "/src/assets/palette/base-palette.scss";
+
+.poke-box {
+  height: pxToRem(250px);
+  width: 100%;
+  border: 1px solid rgba($ngkdx-light-blue-1);
+  border-radius: pxToRem(8px);
+  margin-bottom: pxToRem(30px);
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+
+  .pokemon-picture {
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    transform: translateY(30px);
+    transition: transform 200ms, opacity 100ms ease-in-out !important;
+  }
+
+  .pokemon-name {
+    height: pxToRem(80px);
+    font-size: pxToRem(25px);
+    font-weight: lighter;
+    margin: 0;
+    opacity: 0;
+    align-items: center;
+    transition: transform 200ms, opacity 100ms ease-in-out !important;
+    transform: translateY(10px);
+  }
+
+  &:hover {
+    cursor: pointer;
+    transition: background-color 200ms;
+    background-color: rgba($ngkdx-light-blue-3);
+
+    .pokemon-picture {
+      transform: translateY(15px);
+    }
+
+    .pokemon-name {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  &:active {
+    background-color: rgba($ngkdx-light-blue-1) !important;
+  }
+}
