@@ -1,0 +1,11 @@
+@use "/src/assets/styles/utils" as *;
+
+#moves-table-container {
+  height: 100%;
+  overflow-y: auto;
+  padding: pxToRem(30px);
+
+  .learn-more-btn {
+    cursor: pointer;
+  }
+}

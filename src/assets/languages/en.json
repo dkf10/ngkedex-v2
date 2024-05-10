@@ -29,9 +29,16 @@
     "stats": "Stats",
     "base-experience": "Base Experience",
     "cry": "Cry",
-    "play-cry": "Play cry"
+    "play-cry": "Play cry",
+    "move": "Move",
+    "learned-at-level": "Learned at level",
+    "method": "Method",
+    "move-detail-modal": { 
+      
+    }
   },
   "common": {
-    "search": "Search"
+    "search": "Search",
+    "learn-more": "Learn More"
   }
 }

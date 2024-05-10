@@ -1,0 +1,46 @@
+<ngkdx-base-modal [size]="modalSize.X_LARGE" [title]="moveTitle | capitalize" [(isOpen)]="isMoveDetailOpen"
+  (isOpenChange)="closeModal()">
+  <div class="container-fluid" id="move" *ngIf="selectedMove">
+    <div class="row">
+      <div class="col">
+        {{selectedMove.name | capitalize}} <br />
+        {{selectedMove.flavor_text}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        accuracy: {{selectedMove.accuracy}}%
+      </div>
+      <div class="col">
+        power: {{selectedMove.power}}
+      </div>
+      <div class="col">
+        power points: {{selectedMove.pp}}
+      </div>
+      <div class="col">
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        category: {{selectedMove.meta.category.name | capitalize}}
+      </div>
+      <div class="col" *ngIf="selectedMove.meta.ailment.name !== 'none'">
+        ailment <br />
+        type: {{selectedMove.meta.ailment.name | capitalize}} <br />
+        chance: {{selectedMove.meta.ailment}}
+      </div>
+      <div class="col">
+        critical rate: {{selectedMove.meta.crit_rate}}
+      </div>
+      <div class="col">
+        drain: {{selectedMove.meta.drain}}
+      </div>
+    </div>
+  </div>
+
+
+  <!-- {{selectedMove | json}} -->
+</ngkdx-base-modal>

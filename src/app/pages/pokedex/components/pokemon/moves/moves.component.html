@@ -1,1 +1,41 @@
-<p>moves works!</p>
+<div id="moves-table-container" class="h-100 overflow-y-auto">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">
+          {{'pokedex.move' | translate}}
+        </th>
+        <th scope="col">
+          {{'pokedex.learned-at-level' | translate}}
+        </th>
+        <th scope="col">
+          {{'pokedex.method' | translate}}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let moveItem of moves">
+        <tr *ngIf="moveItem.version_group_details[0].level_learned_at > 0">
+          <td class="text-center">
+            <span class="learn-more-btn" [ngbTooltip]="'common.learn-more' | translate" position="bottom"
+              (click)="moveDetailPopup.openModal(moveItem)">
+              <em class="fa-brands fa-readme"></em>
+            </span>
+          </td>
+          <td>
+            {{moveItem.move.name | capitalize}}
+          </td>
+          <td>
+            {{moveItem.version_group_details[0].level_learned_at}}
+          </td>
+          <td>
+            {{moveItem.version_group_details[0].move_learn_method.name | capitalize}}
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+
+<ngkdx-move-popup #moveDetailPopup />

@@ -91,7 +91,7 @@ export namespace IPokemon {
   export interface Move {
     move: Result;
     version_group_details: {
-      level_learn_at: number;
+      level_learned_at: number;
       move_learn_method: Result;
       version_group: Result;
     }[];

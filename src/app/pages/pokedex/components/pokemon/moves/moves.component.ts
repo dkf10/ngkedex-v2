@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IPokemon } from 'src/app/shared/interfaces/pokemon.interface';
 
 @Component({
   selector: 'ngkdx-pokemon-moves',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./moves.component.scss']
 })
 export class MovesComponent {
-
+  @Input() public moves: IPokemon.Move[];
 }

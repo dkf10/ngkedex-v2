@@ -14,7 +14,7 @@
                 {{selectedPokemon.name | capitalize}}
               </span>
               <span class="pokemon-number">
-                {{selectedPokemon.id | number:'3.0'}}
+                -{{selectedPokemon.id | number:'3.0'}}-
               </span>
               <span>
                 <button type="button" id="cry-play" class="btn btn-success" (click)="pokemonCry.play()"
@@ -49,8 +49,8 @@
     </div>
   </div>
 
-  <div class="row flex-grow-1">
-    <div class="col">
+  <div class="row flex-grow-1 min-h-0">
+    <div class="col h-100">
 
       <!-- Pokemon specs container -->
       <div class="container-fluid" id="specs">
@@ -69,7 +69,7 @@
               {{'pokedex.moves' | translate}}
             </button>
             <ng-template ngbNavContent>
-              <ngkdx-pokemon-moves />
+              <ngkdx-pokemon-moves [moves]="selectedPokemon.moves" />
             </ng-template>
           </li>
           <li [ngbNavItem]="tabs.EVOLUTIONS">
