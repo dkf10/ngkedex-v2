@@ -48,9 +48,9 @@ export class PokedexService {
     );
   }
 
-  public async getEvolutionChain(id: number): Promise<IEvolution.Item> {
+  public async getEvolutionChain(url: string): Promise<IEvolution.Item> {
     return lastValueFrom(
-      this.httpClient.get<IEvolution.Item>(`${environment.BASE_URL}${ApiUrl.Pokemon.EVOLUTION_CHAIN}${id}`, { responseType: 'json' })
+      this.httpClient.get<IEvolution.Item>(`${url}`, { responseType: 'json' })
         .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
     );
   }

@@ -1,16 +1,19 @@
 <div class="poke-box" (click)="clickEvent.emit(pokemon)">
   <div class="row pokemon-picture">
     <div class="col-auto">
-      <img *ngIf="!pokemon.sprite_link" src="assets/img/pokeball-spinner.gif" width="128" height="128"
-        alt="Waiter" />
+      <img *ngIf="!pokemon.sprite_link" src="assets/img/pokeball-spinner.gif" width="128" height="128" alt="Waiter" />
       <img *ngIf="pokemon.sprite_link" [src]="pokemon.sprite_link" width="128" height="128" alt="pokemon" />
     </div>
   </div>
 
   <div class="row pokemon-name">
     <div class="col text-center">
-      {{pokemon.name | capitalize}}
+      <p>
+        {{pokemon.name | capitalize}}
+      </p>
+      <p class="pokemon-number">
+        - {{pokemon.id | number:'3.0'}} -
+      </p>
     </div>
   </div>
-
 </div>

@@ -11,9 +11,8 @@ import { PokedexService } from '../../../services/pokedex/pokedex.service';
 export class EvolutionsComponent implements OnChanges {
 
   @Input() public species: IPokemon.Species;
-  @Input() public sprite: string;
   public evolution: IEvolution.Item;
-  public displayEvolution: IPokemon.ListItem[] = [];
+  public displayEvolution: IEvolution.DisplayItem[] = [];
   public isLoading: boolean = true;
 
   constructor(
@@ -28,33 +27,37 @@ export class EvolutionsComponent implements OnChanges {
 
   private async loadEvolutionChain(): Promise<void> {
     this.isLoading = true;
-
-    this.evolution = await this.pokedexService.getEvolutionChain(this.species.id);
-    this.displayEvolution = [{
-      id: this.species.id,
-      name: this.evolution.chain.species.name,
-      sprite_link: this.sprite,
-      url: null
-    }];
-
-    await this.buildChain(this.evolution.chain.evolves_to);
-
+    this.evolution = await this.pokedexService.getEvolutionChain(this.species.evolution_chain.url);
+    await this.buildChain();
     this.isLoading = false;
   }
 
-  private async buildChain(chain: IEvolution.Chain[]): Promise<void> {
+  private async buildChain(chain?: IEvolution.Chain[]): Promise<void> {
+    let pokemon: IPokemon.Pokemon = null;
+
+    if (!chain) {
+      pokemon = await this.pokedexService.getPokemon(this.evolution.chain.species.name);
+      this.addElementToDisplayChain(pokemon, this.evolution.chain.evolution_details);
+      await this.buildChain(this.evolution.chain.evolves_to);
+      return;
+    }
+
     chain.forEach(async (evo) => {
-      const pokemon = await this.pokedexService.getPokemon(evo.species.name);
-      this.displayEvolution.push({
-        id: pokemon.id,
-        name: pokemon.name,
-        sprite_link: pokemon.sprites.front_default,
-        url: null
-      });
+      pokemon = await this.pokedexService.getPokemon(evo.species.name);
+      this.addElementToDisplayChain(pokemon, evo.evolution_details);
 
       if (evo.evolves_to?.length > 0) {
-        this.buildChain(evo.evolves_to);
+        await this.buildChain(evo.evolves_to);
       }
+    });
+  }
+
+  private addElementToDisplayChain(pokemon: IPokemon.Pokemon, evolution_details: IEvolution.Detail): void {
+    this.displayEvolution.push({
+      id: pokemon.id,
+      name: pokemon.name,
+      sprite_link: pokemon.sprites.front_default,
+      evo_detail: evolution_details
     });
   }
 }

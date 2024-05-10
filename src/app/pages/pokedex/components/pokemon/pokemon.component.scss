@@ -70,13 +70,15 @@
         }
       }
     }
-  }
 
-  #specs-tabs-content {
-    height: calc(100% - pxToRem(85px));
+    #specs-tabs-content {
+      height: calc(100% - pxToRem(85px));
 
-    .tab-pane {
-      height: 100%;
+      ::ng-deep {
+        .tab-pane {
+          height: 100%;
+        }
+      }
     }
   }
 }

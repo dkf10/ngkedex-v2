@@ -77,12 +77,12 @@
               {{'pokedex.evolutions' | translate}}
             </button>
             <ng-template ngbNavContent>
-              <ngkdx-pokemon-evolutions [species]="pokemonSpecies" [sprite]="selectedPokemon.sprites.front_default" />
+              <ngkdx-pokemon-evolutions [species]="pokemonSpecies" />
             </ng-template>
           </li>
         </ul>
 
-        <div [ngbNavOutlet]="specsTabs"></div>
+        <div id="specs-tabs-content" [ngbNavOutlet]="specsTabs"></div>
       </div>
 
     </div>
