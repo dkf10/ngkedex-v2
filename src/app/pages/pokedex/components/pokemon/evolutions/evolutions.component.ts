@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { IEvolution } from 'src/app/shared/interfaces/evolution.interface';
 import { IPokemon } from 'src/app/shared/interfaces/pokemon.interface';
 import { PokedexService } from '../../../services/pokedex/pokedex.service';
@@ -11,6 +11,8 @@ import { PokedexService } from '../../../services/pokedex/pokedex.service';
 export class EvolutionsComponent implements OnChanges {
 
   @Input() public species: IPokemon.Species;
+  @Output() public onPokeboxClick = new EventEmitter<IPokemon.ListItem>();
+
   public evolution: IEvolution.Item;
   public displayEvolution: IPokemon.ListItem[] = [];
   public isLoading: boolean = true;
@@ -34,6 +36,7 @@ export class EvolutionsComponent implements OnChanges {
     let pokemon: IPokemon.Pokemon = null;
 
     if (!chain) {
+      this.displayEvolution = [];
       pokemon = await this.pokedexService.getPokemon(this.evolution.chain.species.name);
       this.addElementToDisplayChain(pokemon);
       await this.buildChain(this.evolution.chain.evolves_to);

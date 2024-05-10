@@ -77,7 +77,7 @@
               {{'pokedex.evolutions' | translate}}
             </button>
             <ng-template ngbNavContent>
-              <ngkdx-pokemon-evolutions [species]="pokemonSpecies" />
+              <ngkdx-pokemon-evolutions [species]="pokemonSpecies" (onPokeboxClick)="switchPokemon($event)" />
             </ng-template>
           </li>
         </ul>

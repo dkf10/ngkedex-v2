@@ -2,10 +2,9 @@
 @import "/src/assets/palette/base-palette.scss";
 
 #chain {
-  margin-top: pxToRem(30px);
-  margin-bottom: pxToRem(30px);
+  margin: pxToRem(30px);
   align-items: center;
-  height: 100%;
+  height: calc(100% - pxToRem(50px));
 
   .next-icon {
     color: rgba(0, 0, 0, 0.5);

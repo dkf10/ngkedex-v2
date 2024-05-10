@@ -5,7 +5,7 @@
 <div class="row" id="chain">
   <ng-container *ngFor="let pokemon of displayEvolution; let i=index">
     <div class="col">
-      <ngkdx-poke-box [pokemon]="pokemon" />
+      <ngkdx-poke-box [pokemon]="pokemon" (clickEvent)="onPokeboxClick.emit(pokemon)" />
     </div>
     <div class="col-auto next-icon" *ngIf="i < displayEvolution.length-1">
       <em class="fas fa-4x fa-angle-right"></em>
