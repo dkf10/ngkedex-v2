@@ -13,6 +13,9 @@
               <span>
                 {{selectedPokemon.name | capitalize}}
               </span>
+              <span class="pokemon-number">
+                {{selectedPokemon.id | number:'3.0'}}
+              </span>
               <span>
                 <button type="button" id="cry-play" class="btn btn-success" (click)="pokemonCry.play()"
                   [ngbTooltip]="'pokedex.play-cry' | translate">

@@ -18,10 +18,15 @@
       font-size: pxToRem(50px);
       font-weight: lighter;
       margin: 0;
+
+      .pokemon-number {
+        color: rgba($ngkdx-light-blue-1);
+        padding: 0 pxToRem(10px);
+      }
     }
 
     #cry-play {
-      margin-bottom: pxToRem(5px);
+      margin-bottom: pxToRem(7px);
       border-radius: 100%;
     }
 
