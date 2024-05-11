@@ -11,7 +11,8 @@ export namespace IMove {
     contest_effect: Result;
     contest_type: Result;
     damage_class: Result;
-    effect_change: VerboseEffect[];
+    effect_chance: number;
+    effect_changes: VerboseEffect[];
     effect_entries: VerboseEffect[];
     flavor_text_entries: VerboseFlavorText[];
     flavor_text?: string;

@@ -1,43 +1,43 @@
-<ngkdx-base-modal [size]="modalSize.X_LARGE" [title]="moveTitle | capitalize" [(isOpen)]="isMoveDetailOpen"
-  (isOpenChange)="closeModal()">
+<ngkdx-base-modal [title]="'pokedex.move' | translate" [(isOpen)]="isMoveDetailOpen" (isOpenChange)="closeModal()">
   <div class="container-fluid" id="move" *ngIf="selectedMove">
-    <div class="row">
+    <div class="row" id="header">
       <div class="col">
-        {{selectedMove.name | capitalize}} <br />
+        <h1>
+          {{selectedMove.name | capitalize}}
+        </h1>
+        {{selectedMove.accuracy}}% | {{selectedMove.meta.category.name | capitalize}}
+        <br />
         {{selectedMove.flavor_text}}
       </div>
     </div>
 
+    <hr />
+
     <div class="row">
       <div class="col">
-        accuracy: {{selectedMove.accuracy}}%
+        power: {{selectedMove.power}} <br />
+        power points: {{selectedMove.pp}} <br />
+        critical rate: {{selectedMove.meta.crit_rate}} <br />
       </div>
       <div class="col">
-        power: {{selectedMove.power}}
+        drain: {{selectedMove.meta.drain}} <br />
+        min turns: {{selectedMove.meta.min_turns}} <br />
+        max turns: {{selectedMove.meta.max_turns}}
       </div>
       <div class="col">
-        power points: {{selectedMove.pp}}
-      </div>
-      <div class="col">
-
+        effect chance: {{selectedMove.effect_chance}}% <br />
+        stat chance: {{selectedMove.meta.stat_chance}}% <br />
+        flinch chance: {{selectedMove.meta.flinch_chance}}%
       </div>
     </div>
 
-    <div class="row">
-      <div class="col">
-        category: {{selectedMove.meta.category.name | capitalize}}
-      </div>
+    <div class="row my-3">
       <div class="col" *ngIf="selectedMove.meta.ailment.name !== 'none'">
         ailment <br />
         type: {{selectedMove.meta.ailment.name | capitalize}} <br />
-        chance: {{selectedMove.meta.ailment}}
+        chance: {{selectedMove.meta.ailment_chance}}%
       </div>
-      <div class="col">
-        critical rate: {{selectedMove.meta.crit_rate}}
-      </div>
-      <div class="col">
-        drain: {{selectedMove.meta.drain}}
-      </div>
+      <div class="col"></div>
     </div>
   </div>
 
