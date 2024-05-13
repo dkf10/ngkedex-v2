@@ -6,14 +6,14 @@
   flex-direction: column;
   height: 100%;
 
-  #search {
+  /* #search {
     margin-top: pxToRem(30px);
     margin-bottom: pxToRem(15px);
   }
-
+ */
   .pokemon-list {
     flex-grow: 1;
     overflow-y: auto;
-    margin-top: pxToRem(15px);
+    margin-top: pxToRem(30px);
   }
 }
