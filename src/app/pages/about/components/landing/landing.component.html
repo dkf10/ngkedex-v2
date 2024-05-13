@@ -13,17 +13,6 @@
 
   <p>
     <span>
-      {{'about.line-2' | translate}}
-    </span>
-    <span class="heart">
-      <em class="fas fa-heart"></em>
-    </span>
-    <span [innerHTML]="'about.line-3' | translate">
-    </span>
-  </p>
-
-  <p>
-    <span>
       {{'about.license-1' | translate}}
     </span>
     <span>
@@ -33,6 +22,18 @@
       {{'about.license-3' | translate}}
     </span>
   </p>
+
+  <p>
+    <span>
+      {{'about.line-2' | translate}}
+    </span>
+    <span class="heart">
+      <em class="fas fa-heart"></em>
+    </span>
+    <span [innerHTML]="'about.line-3' | translate">
+    </span>
+  </p>
+
 </div>
 
 <ngkdx-base-modal #licenseModal [id]="'license-modal'" [(isOpen)]="isLicenseModalOpen"
