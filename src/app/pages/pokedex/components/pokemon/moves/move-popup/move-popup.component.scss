@@ -1,8 +1,30 @@
 @use "/src/assets/styles/utils" as *;
+@import "/src/assets/palette/base-palette.scss";
 
 #header {
   h1 {
     font-size: pxToRem(50px);
     font-weight: lighter !important;
+  }
+}
+
+.value-block {
+  text-align: center;
+  border: 1px solid rgba($ngkdx-light-blue-1);
+  border-radius: pxToRem(8px);
+  height: pxToRem(90px);
+  padding: pxToRem(8px);
+
+  .title {
+    background-color: rgba($ngkdx-light-blue-1);
+    border-radius: pxToRem(6px);
+    font-size: pxToRem(12px);
+    margin-top: pxToRem(10px);
+    padding: pxToRem(3px);
+  }
+
+  .value {
+    font-size: pxToRem(25px);
+    font-weight: lighter;
   }
 }

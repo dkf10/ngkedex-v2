@@ -33,12 +33,22 @@
     "move": "Move",
     "learned-at-level": "Learned at level",
     "method": "Method",
-    "move-detail-modal": { 
-      
+    "move-detail-modal": {
+      "accuracy": "Accuracy",
+      "power": "Power",
+      "pp": "Power Points",
+      "critical-rate": "Critical Rate",
+      "drain": "Drain",
+      "turns": "Turns",
+      "effect-chance": "Effect Chance",
+      "flinch-chance": "Flinch Chance",
+      "ailment": "Ailment"
     }
   },
   "common": {
     "search": "Search",
-    "learn-more": "Learn More"
+    "learn-more": "Learn More",
+    "min": "Min",
+    "max": "Max"
   }
 }
