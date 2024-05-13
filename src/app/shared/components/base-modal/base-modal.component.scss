@@ -9,6 +9,9 @@
   .modal-content {
     border: 1px solid rgba($ngkdx-red);
     border-radius: pxToRem(8px);
+    -webkit-box-shadow: 0px 14px 28px -10px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0px 14px 28px -10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 14px 28px -10px rgba(0, 0, 0, 0.5);
 
     header {
       display: flex;
