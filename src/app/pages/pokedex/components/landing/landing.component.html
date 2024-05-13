@@ -12,7 +12,7 @@
   </div> -->
 
   <div class="row pokemon-list" #uiElement (scroll)="onScroll()">
-    <div class="col-3" *ngFor="let pokemon of pokemonList">
+    <div class="col-3 mb-4" *ngFor="let pokemon of pokemonList">
       <ngkdx-poke-box [pokemon]="pokemon" (clickEvent)="goToPokemon($event)" />
     </div>
   </div>
