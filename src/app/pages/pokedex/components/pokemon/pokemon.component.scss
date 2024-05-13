@@ -13,6 +13,11 @@
     margin-bottom: pxToRem(15px);
     border: 1px solid rgba($ngkdx-light-blue-1);
     border-radius: pxToRem(8px);
+    min-height: pxToRem(150px);
+
+    img {
+      width: 100%;
+    }
 
     .display-name {
       font-size: pxToRem(50px);

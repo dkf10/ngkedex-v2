@@ -4,6 +4,8 @@
   margin: pxToRem(30px);
   align-items: center;
   height: calc(100% - pxToRem(50px));
+  max-height: calc(100% - pxToRem(50px));
+  overflow-y: auto;
 
   .next-icon {
     color: rgba(0, 0, 0, 0.5);
