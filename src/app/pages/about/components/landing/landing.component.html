@@ -1,9 +1,42 @@
 <div id="about">
-  <img src="assets/img/pokeball.png" height="256" width="256" alt="logo" />
-  
+  <img src="assets/img/pokeball.png" height="128" width="128" alt="logo" />
+
   <h1 class="app-name my-4">
     Ngkédex
   </h1>
 
-  v{{appVersion}}
+  <p>
+    v{{appVersion}}
+  </p>
+
+  <p class="m-0" [innerHTML]="'about.line-1' | translate"></p>
+
+  <p>
+    <span>
+      {{'about.line-2' | translate}}
+    </span>
+    <span class="heart">
+      <em class="fas fa-heart"></em>
+    </span>
+    <span [innerHTML]="'about.line-3' | translate">
+    </span>
+  </p>
+
+  <p>
+    <span>
+      {{'about.license-1' | translate}}
+    </span>
+    <span>
+      <a href="#" (click)="openLicenseModal($event);">{{'about.license-2' | translate}}</a>
+    </span>
+    <span>
+      {{'about.license-3' | translate}}
+    </span>
+  </p>
 </div>
+
+<ngkdx-base-modal #licenseModal [id]="'license-modal'" [(isOpen)]="isLicenseModalOpen"
+  [title]="'about.license-2' | translate">
+  <div class="container-fluid p-3 text-center" [innerText]="licenseText">
+  </div>
+</ngkdx-base-modal>
