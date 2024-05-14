@@ -15,10 +15,6 @@ const routes: Routes = [
   {
     path: mainMenu.ABOUT,
     loadChildren: () => import('./pages/about/about.module').then(m => m.AboutModule)
-  },
-  {
-    path: mainMenu.SEARCH,
-    loadChildren: () => import('./pages/search/search.module').then(m => m.SearchModule)
   }
 ];
 

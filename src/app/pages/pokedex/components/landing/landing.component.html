@@ -1,5 +1,16 @@
 <div class="container" id="pokedex">
 
+  <!-- <div class="row" id="search">
+    <div class="col">
+      <div class="input-group">
+        <input class="form-control" type="text" [(ngModel)]="searchTerm" [placeholder]="'common.search' | translate" />
+        <span class="input-group-text">
+          <em class="fas fa-magnifying-glass"></em>
+        </span>
+      </div>
+    </div>
+  </div> -->
+
   <div class="row pokemon-list" #uiElement (scroll)="onScroll()">
     <div class="col-3 mb-4" *ngFor="let pokemon of pokemonList">
       <ngkdx-poke-box [pokemon]="pokemon" (clickEvent)="goToPokemon($event)" />

@@ -15,6 +15,8 @@
   },
   "header": {
     "pokedex": "Pokédex",
+    "moves": "Moves",
+    "generations": "Generations",
     "machines": "Machines",
     "about": "About"
   },
@@ -51,14 +53,6 @@
       "effect-chance": "Effect Chance",
       "flinch-chance": "Flinch Chance",
       "ailment": "Ailment"
-    }
-  },
-  "search": {
-    "filters": {
-      "pokemon": "Pokémon",
-      "generations": "Generations",
-      "moves": "Moves",
-      "machines": "Machines"
     }
   },
   "common": {
