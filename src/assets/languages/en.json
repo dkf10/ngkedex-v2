@@ -55,6 +55,9 @@
       "ailment": "Ailment"
     }
   },
+  "moves": {
+
+  },
   "common": {
     "search": "Search",
     "learn-more": "Learn More",

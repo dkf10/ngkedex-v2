@@ -1,0 +1,12 @@
+@use "/src/assets/styles/utils" as *;
+
+#base-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  #search {
+    margin-top: pxToRem(30px);
+    margin-bottom: pxToRem(30px);
+  }
+}

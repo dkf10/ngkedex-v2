@@ -1,18 +1,7 @@
 @use "/src/assets/styles/utils" as *;
-@import "/src/assets/palette/base-palette.scss";
 
-#pokedex {
-  display: flex;
-  flex-direction: column;
+.pokemon-list {
   height: 100%;
-
-  #search {
-    margin-top: pxToRem(30px);
-    margin-bottom: pxToRem(30px);
-  }
-
-  .pokemon-list {
-    flex-grow: 1;
-    overflow-y: auto;
-  }
+  flex-grow: 1;
+  overflow-y: auto;
 }

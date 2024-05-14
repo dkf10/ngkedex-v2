@@ -5,6 +5,8 @@ import { MovesRoutingModule } from './moves-routing.module';
 import { LandingComponent } from './components/landing/landing.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
+import { ComponentsModule } from 'src/app/shared/components/components.module';
 
 
 @NgModule({
@@ -15,6 +17,8 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     FormsModule,
     RouterModule,
+    TranslateModule,
+    ComponentsModule,
     MovesRoutingModule
   ]
 })

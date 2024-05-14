@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class LandingComponent {
 
+  public searchTerm: string;
+  public showSmallLoader: boolean = false;
+
 }
