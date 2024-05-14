@@ -9,6 +9,7 @@ import { BaseModalComponent } from './base-modal/base-modal.component';
 import { PokeBoxComponent } from './poke-box/poke-box.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { BaseLayoutComponent } from './base-layout/base-layout.component';
+import { MovePopupComponent } from './move-popup/move-popup.component';
 
 
 
@@ -18,7 +19,8 @@ import { BaseLayoutComponent } from './base-layout/base-layout.component';
     WaitingComponent,
     BaseLayoutComponent,
     BaseModalComponent,
-    PokeBoxComponent
+    PokeBoxComponent,
+    MovePopupComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +34,8 @@ import { BaseLayoutComponent } from './base-layout/base-layout.component';
     WaitingComponent,
     BaseLayoutComponent,
     BaseModalComponent,
-    PokeBoxComponent
+    PokeBoxComponent,
+    MovePopupComponent
   ]
 })
 export class ComponentsModule { }

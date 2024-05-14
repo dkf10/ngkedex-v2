@@ -1,9 +1,22 @@
 @use "/src/assets/styles/utils" as *;
 
 #moves-table-container {
-  height: 100%;
-  overflow-y: auto;
-  padding: pxToRem(30px);
+  margin: pxToRem(30px);
+  overflow: auto;
+  height: calc(100% - pxToRem(60px));
+
+  thead,
+  th {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: pxToRem(50px);
+    background-color: white;
+  }
+
+  th {
+    padding-bottom: pxToRem(10px);
+  }
 
   .learn-more-btn {
     cursor: pointer;

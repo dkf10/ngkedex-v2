@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
+import { PipesModule } from 'src/app/shared/pipes/pipes.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { ComponentsModule } from 'src/app/shared/components/components.module';
     FormsModule,
     RouterModule,
     TranslateModule,
+    NgbModule,
     ComponentsModule,
+    PipesModule,
     MovesRoutingModule
   ]
 })

@@ -16,7 +16,6 @@ import { PipesModule } from 'src/app/shared/pipes/pipes.module';
 import { MovesComponent } from './components/pokemon/moves/moves.component';
 import { EvolutionsComponent } from './components/pokemon/evolutions/evolutions.component';
 import { StatsComponent } from './components/pokemon/stats/stats.component';
-import { MovePopupComponent } from './components/pokemon/moves/move-popup/move-popup.component';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -28,7 +27,6 @@ PlotlyModule.plotlyjs = PlotlyJS;
     MovesComponent,
     EvolutionsComponent,
     StatsComponent,
-    MovePopupComponent
   ],
   imports: [
     CommonModule,

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ModalSize } from 'src/app/shared/enum/modal-size.enum';
 import { IPokemon } from 'src/app/shared/interfaces/pokemon.interface';
 import { WaitingService } from 'src/app/shared/services/waiting/waiting.service';
-import { PokedexService } from '../../services/pokedex/pokedex.service';
+import { PokedexService } from '../../../../shared/services/pokedex/pokedex.service';
 
 @Component({
   selector: 'ngkdx-pokemon-modal',

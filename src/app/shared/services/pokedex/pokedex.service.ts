@@ -4,7 +4,6 @@ import { lastValueFrom, timeout } from 'rxjs';
 import { AppConfig } from 'src/app/core/config/app.config';
 import { ApiUrl } from 'src/app/core/enum/api-url.enum';
 import { IEvolution } from 'src/app/shared/interfaces/evolution.interface';
-import { IMove } from 'src/app/shared/interfaces/move.interface';
 import { IPokemon } from 'src/app/shared/interfaces/pokemon.interface';
 import { IGeneral } from 'src/app/shared/interfaces/general.interface';
 import { environment } from 'src/environments/environment';
@@ -53,13 +52,6 @@ export class PokedexService {
   public async getEvolutionChain(url: string): Promise<IEvolution.Item> {
     return lastValueFrom(
       this.httpClient.get<IEvolution.Item>(`${url}`, { responseType: 'json' })
-        .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
-    );
-  }
-
-  public async getMoveDetail(url: string): Promise<IMove.Item> {
-    return lastValueFrom(
-      this.httpClient.get<IMove.Item>(`${url}`, { responseType: 'json' })
         .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
     );
   }

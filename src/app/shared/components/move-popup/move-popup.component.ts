@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { AppConfig } from 'src/app/core/config/app.config';
-import { PokedexService } from 'src/app/pages/pokedex/services/pokedex/pokedex.service';
 import { IMove } from 'src/app/shared/interfaces/move.interface';
 import { IPokemon } from 'src/app/shared/interfaces/pokemon.interface';
 import { WaitingService } from 'src/app/shared/services/waiting/waiting.service';
+import { MovesService } from '../../services/moves/moves.service';
 
 @Component({
   selector: 'ngkdx-move-popup',
@@ -16,7 +16,7 @@ export class MovePopupComponent {
   public selectedMove: IMove.Item;
 
   constructor(
-    private pokedexService: PokedexService,
+    private movesService: MovesService,
     private waiting: WaitingService
   ) { }
 
@@ -32,7 +32,7 @@ export class MovePopupComponent {
 
   private async loadMoveDetail(url: string): Promise<void> {
     this.waiting.WaitingEnabled = true;
-    this.selectedMove = await this.pokedexService.getMoveDetail(url);
+    this.selectedMove = await this.movesService.getMoveDetail(url);
     this.selectedMove.flavor_text = this.selectedMove.flavor_text_entries.find((el) => el.language.name === AppConfig.DEFAULT_LANG).flavor_text;
     this.waiting.WaitingEnabled = false;
   }

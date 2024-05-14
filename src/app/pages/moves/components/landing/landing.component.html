@@ -1,12 +1,55 @@
 <ngkdx-base-layout [id]="'moves'" [showSearch]="true" [searchTerm]="searchTerm">
 
-  <!-- <div class="row pokemon-list" #uiElement (scroll)="onScroll()">
-    <div class="col-3 mb-4" *ngFor="let pokemon of pokemonList">
-      <ngkdx-poke-box [pokemon]="pokemon" (clickEvent)="goToPokemon($event)" />
+  <div class="moves-table" #uiElement (scroll)="onScroll()">
+    <table class="table table-striped">
+      <thead>
+        <th scope="col"></th>
+        <th scope="col">
+          {{'moves.fields.name' | translate}}
+        </th>
+        <th scope="col">
+          {{'moves.fields.type' | translate}}
+        </th>
+        <th scope="col">
+          {{'moves.fields.category' | translate}}
+        </th>
+        <th scope="col">
+          {{'moves.fields.description' | translate}}
+        </th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let move of movesList">
+          <td class="text-center">
+            <span class="learn-more-btn" [ngbTooltip]="'common.learn-more' | translate">
+              <em class="fa-brands fa-readme"></em>
+            </span>
+          </td>
+          <td>
+            {{move.name | capitalize}}
+          </td>
+          <td>
+            -
+          </td>
+          <td>
+            -
+          </td>
+          <td>
+            -
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- <div class="row move-list" #uiElement (scroll)="onScroll()">
+    <div class="col">
+      <div *ngFor="let move of movesList">
+        {{move.name | capitalize}}
+      </div>
     </div>
   </div>
- -->
-  <!--  <div class="row justify-content-center" *ngIf="showSmallLoader">
+
+  <div class="row justify-content-center" *ngIf="showSmallLoader">
     <div class="col-auto">
       <img src="assets/img/pokeball-spinner.gif" width="64" height="64" alt="Waiter" />
     </div>

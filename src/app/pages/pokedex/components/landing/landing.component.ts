@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { IPokemon } from 'src/app/shared/interfaces/pokemon.interface';
 import { WaitingService } from 'src/app/shared/services/waiting/waiting.service';
 import { mainMenu, pokemonPage } from 'src/app/core/enum/routes.enum';
-import { PokedexService } from '../../services/pokedex/pokedex.service';
+import { PokedexService } from '../../../../shared/services/pokedex/pokedex.service';
 
 @Component({
   selector: 'ngkdx-landing',
