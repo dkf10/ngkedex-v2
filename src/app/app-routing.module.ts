@@ -13,6 +13,18 @@ const routes: Routes = [
     loadChildren: () => import('./pages/pokedex/pokedex.module').then(m => m.PokedexModule)
   },
   {
+    path: mainMenu.MOVES,
+    loadChildren: () => import('./pages/moves/moves.module').then(m => m.MovesModule)
+  },
+  {
+    path: mainMenu.GENERATIONS,
+    loadChildren: () => import('./pages/generations/generations.module').then(m => m.GenerationsModule)
+  },
+  {
+    path: mainMenu.MACHINES,
+    loadChildren: () => import('./pages/machines/machines.module').then(m => m.MachinesModule)
+  },
+  {
     path: mainMenu.ABOUT,
     loadChildren: () => import('./pages/about/about.module').then(m => m.AboutModule)
   }
