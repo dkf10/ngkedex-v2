@@ -24,8 +24,12 @@ nav {
 
 			&:hover:not(.active) {
 				background-color: rgba($ngkdx-light-blue-1);
-        color: rgba($ngkdx-black);
+				color: rgba($ngkdx-black);
 				cursor: pointer;
+			}
+
+			&#search-btn {
+				min-width: pxToRem(48px) !important;
 			}
 		}
 	}

@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { PlotlyModule } from 'angular-plotly.js';
 import * as PlotlyJS from 'plotly.js-dist-min';
 
-import { pokedexRoutes } from './routes';
+import { PokedexRoutingModule } from './routes';
 import { LandingComponent } from './components/landing/landing.component';
 import { PokemonModalComponent } from './components/pokemon-modal/pokemon-modal.component';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
@@ -38,11 +38,8 @@ PlotlyModule.plotlyjs = PlotlyJS;
     PipesModule,
     PlotlyModule,
     NgbModule,
-    RouterModule.forChild(pokedexRoutes),
+    PokedexRoutingModule,
     TranslateModule.forChild()
-  ],
-  exports: [
-    RouterModule
   ]
 })
 export class PokedexModule { }
