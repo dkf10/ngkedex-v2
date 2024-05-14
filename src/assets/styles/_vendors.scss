@@ -1,3 +1,4 @@
+@use "/src/assets/styles/utils" as *;
 @import "/src/assets/palette/base-palette.scss";
 
 .container {
@@ -25,4 +26,34 @@
 .text-bg-poke {
   background-color: rgba($ngkdx-dark-blue-1);
   color: rgba($ngkdx-white);
+}
+
+.standard-tabs {
+  background-color: rgba($ngkdx-light-blue-1);
+  border-radius: pxToRem(8px);
+  padding: pxToRem(8px);
+  margin-top: pxToRem(15px);
+  user-select: none;
+
+  .nav-item {
+    .nav-link {
+      text-align: center;
+      border: unset !important;
+      border-radius: pxToRem(6px);
+      min-width: pxToRem(100px);
+      margin-right: pxToRem(6px);
+      color: rgba($ngkdx-black);
+
+      &.active {
+        background-color: rgba($ngkdx-dark-blue-1);
+        font-weight: 700;
+        color: rgba($ngkdx-white);
+      }
+
+      &:hover:not(.active) {
+        background-color: rgba($ngkdx-light-blue-2);
+        cursor: pointer;
+      }
+    }
+  }
 }

@@ -27,7 +27,7 @@
     "license-3": " and comes with no warranty."
   },
   "pokedex": {
-    "pokemon": "Pokemon",
+    "pokemon": "Pokémon",
     "height": "Height",
     "weight": "Weight",
     "type": "Type",
@@ -51,6 +51,14 @@
       "effect-chance": "Effect Chance",
       "flinch-chance": "Flinch Chance",
       "ailment": "Ailment"
+    }
+  },
+  "search": {
+    "filters": {
+      "pokemon": "Pokémon",
+      "generations": "Generations",
+      "moves": "Moves",
+      "machines": "Machines"
     }
   },
   "common": {
