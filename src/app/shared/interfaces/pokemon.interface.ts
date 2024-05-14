@@ -1,18 +1,11 @@
-import { Result } from "./result.interface";
+import { IGeneral } from "./general.interface";
 
 export namespace IPokemon {
-  export interface Main {
-    count: number;
-    next: string;
-    previous: string;
-    results: Result[];
-  }
-
   export interface Pokemon {
     abilities: Ability[];
     base_experience: number;
     cries: Cry;
-    forms: Result[];
+    forms: IGeneral.Result[];
     game_indices: GameIndex[];
     height: number;
     id: number;
@@ -21,14 +14,14 @@ export namespace IPokemon {
     moves: Move[];
     name: string;
     order: number;
-    species: Result;
+    species: IGeneral.Result;
     sprites: Sprite;
     stats: Stat[];
     types: Type[];
     weight: number;
   }
 
-  export interface ListItem extends Result {
+  export interface ListItem extends IGeneral.Result {
     id: number;
     sprite_link: string;
   }
@@ -45,9 +38,9 @@ export namespace IPokemon {
     names: string[];
     order: number;
     sprites: Sprite;
-    pokemon: Result;
+    pokemon: IGeneral.Result;
     types: Type[];
-    version_group: Result;
+    version_group: IGeneral.Result;
   }
 
   export interface Sprite {
@@ -62,7 +55,7 @@ export namespace IPokemon {
   }
 
   export interface Ability {
-    ability: Result;
+    ability: IGeneral.Result;
     is_hidden: boolean;
     slot: number;
   }
@@ -74,26 +67,26 @@ export namespace IPokemon {
 
   export interface GameIndex {
     game_index: number;
-    version: Result;
+    version: IGeneral.Result;
   }
 
   export interface Type {
     slot: number;
-    type: Result;
+    type: IGeneral.Result;
   }
 
   export interface Stat {
     base_stat: number;
     effort: number;
-    stat: Result;
+    stat: IGeneral.Result;
   }
 
   export interface Move {
-    move: Result;
+    move: IGeneral.Result;
     version_group_details: {
       level_learned_at: number;
-      move_learn_method: Result;
-      version_group: Result;
+      move_learn_method: IGeneral.Result;
+      version_group: IGeneral.Result;
     }[];
   }
 
@@ -101,9 +94,9 @@ export namespace IPokemon {
     id: number;
     base_happiness: number;
     capture_rate: number;
-    evolution_chain: Result;
-    growth_rate: Result;
-    habitat: Result;
+    evolution_chain: IGeneral.Result;
+    growth_rate: IGeneral.Result;
+    habitat: IGeneral.Result;
     is_baby: boolean;
     is_legendary: boolean;
     is_mythical: boolean;

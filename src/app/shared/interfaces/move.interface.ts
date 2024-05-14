@@ -1,4 +1,4 @@
-import { Result } from "./result.interface";
+import { IGeneral } from "./general.interface";
 
 export namespace IMove {
   export interface Item {
@@ -8,9 +8,9 @@ export namespace IMove {
       normal: Combo;
       super: Combo;
     };
-    contest_effect: Result;
-    contest_type: Result;
-    damage_class: Result;
+    contest_effect: IGeneral.Result;
+    contest_type: IGeneral.Result;
+    damage_class: IGeneral.Result;
     effect_chance: number;
     effect_changes: VerboseEffect[];
     effect_entries: VerboseEffect[];
@@ -20,30 +20,30 @@ export namespace IMove {
     name: string;
     power: number;
     pp: number;
-    super_contest_effects: Result;
-    target: Result;
-    type: Result;
+    super_contest_effects: IGeneral.Result;
+    target: IGeneral.Result;
+    type: IGeneral.Result;
   }
 
   export interface Combo {
-    use_before: Result;
-    use_after: Result;
+    use_before: IGeneral.Result;
+    use_after: IGeneral.Result;
   }
 
   export interface VerboseEffect {
     effect: string;
     short_effect: string;
-    language: Result;
+    language: IGeneral.Result;
   }
 
   export interface VerboseFlavorText {
     flavor_text: string;
-    language: Result;
+    language: IGeneral.Result;
   }
 
   export interface Metadata {
-    ailment: Result;
-    category: Result;
+    ailment: IGeneral.Result;
+    category: IGeneral.Result;
     min_hits: number;
     max_hits: number;
     min_turns: number;
