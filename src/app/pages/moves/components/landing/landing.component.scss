@@ -1,7 +1,10 @@
+@use "/src/assets/styles/utils" as *;
 @import "/src/assets/palette/base-palette.scss";
 
 .moves-table {
   border: 1px solid rgba($ngkdx-light-blue-1);
+  margin-top: pxToRem(30px);
+  margin-bottom: pxToRem(30px);
 }
 
 .small-loader {

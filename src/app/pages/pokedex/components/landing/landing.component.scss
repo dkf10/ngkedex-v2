@@ -1,7 +1,8 @@
 @use "/src/assets/styles/utils" as *;
 
 .pokemon-list {
-  height: 100%;
+  height: calc(100% - pxToRem(30px));
+  margin-top: pxToRem(30px);
   flex-grow: 1;
   overflow-y: auto;
 }

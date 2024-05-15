@@ -56,7 +56,7 @@ export class LandingComponent implements OnInit {
     const startIdx = this.pageSize * (this.pageIndex - 1);
     const endIdx = this.pageSize * this.pageIndex;
 
-    let rawMovesList = await Promise.all(
+    const rawMovesList = await Promise.all(
       list.slice(startIdx, endIdx).map(async (el) => {
         const move = await this.movesService.getMoveDetail(el.url);
         move.name = move.names.find((el) => el.language.name === AppConfig.DEFAULT_LANG).name;
