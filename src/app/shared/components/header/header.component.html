@@ -36,7 +36,7 @@
                     </a>
                 </li>
 
-                <li class="nav-item" id="search-btn">
+                <li class="nav-item" id="search-btn" *ngIf="searchBtnVisible">
                     <span class="nav-link" [ngbTooltip]="'header.search-here' | translate" (click)="openSearchLayer()">
                         <em class="fas fa-search"></em>
                     </span>

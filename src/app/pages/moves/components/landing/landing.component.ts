@@ -1,17 +1,18 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MovesService } from '../../../../shared/services/moves/moves.service';
 import { WaitingService } from 'src/app/shared/services/waiting/waiting.service';
 import { IGeneral } from 'src/app/shared/interfaces/general.interface';
 import { MovePopupComponent } from 'src/app/shared/components/move-popup/move-popup.component';
 import { IMove } from 'src/app/shared/interfaces/move.interface';
 import { AppConfig } from 'src/app/core/config/app.config';
+import { SearchService } from 'src/app/shared/services/search/search.service';
 
 @Component({
   selector: 'ngkdx-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss']
 })
-export class LandingComponent implements AfterViewInit {
+export class LandingComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @ViewChild('uiElement', { static: false }) public uiElement: ElementRef;
   @ViewChild('moveDetail') public moveDetailPopup: MovePopupComponent;
@@ -27,13 +28,22 @@ export class LandingComponent implements AfterViewInit {
 
   constructor(
     private movesService: MovesService,
+    private searchService: SearchService,
     private waiting: WaitingService
   ) { }
+
+  public ngOnInit(): void {
+    this.searchService.searchBtnVisible = true;
+  }
 
   public async ngAfterViewInit(): Promise<void> {
     this.waiting.WaitingEnabled = true;
     await this.loadRawList();
     this.waiting.WaitingEnabled = false;
+  }
+
+  public ngOnDestroy(): void {
+    this.searchService.searchBtnVisible = false;
   }
 
   public async onScroll(): Promise<void> {

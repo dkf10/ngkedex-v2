@@ -1,17 +1,18 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { IPokemon } from 'src/app/shared/interfaces/pokemon.interface';
 import { WaitingService } from 'src/app/shared/services/waiting/waiting.service';
 import { mainMenu, pokemonPage } from 'src/app/core/enum/routes.enum';
 import { PokedexService } from '../../../../shared/services/pokedex/pokedex.service';
+import { SearchService } from 'src/app/shared/services/search/search.service';
 
 @Component({
   selector: 'ngkdx-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss']
 })
-export class LandingComponent implements AfterViewInit {
+export class LandingComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChild('uiElement', { static: false }) public uiElement: ElementRef;
 
@@ -24,14 +25,23 @@ export class LandingComponent implements AfterViewInit {
 
   constructor(
     private pokedexService: PokedexService,
+    private searchService: SearchService,
     private router: Router,
     private waiting: WaitingService
   ) { }
+
+  public ngOnInit(): void {
+    this.searchService.searchBtnVisible = true;
+  }
 
   public async ngAfterViewInit(): Promise<void> {
     this.waiting.WaitingEnabled = true;
     await this.loadPokemonList();
     this.waiting.WaitingEnabled = false;
+  }
+
+  public ngOnDestroy(): void {
+    this.searchService.searchBtnVisible = false;
   }
 
   public async onScroll(): Promise<void> {
