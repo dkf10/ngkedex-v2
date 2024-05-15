@@ -135,8 +135,8 @@
 
       &.active {
         background-color: rgba($ngkdx-dark-blue-1);
-        font-weight: 700;
         color: rgba($ngkdx-white);
+        font-weight: 600;
       }
 
       &:hover:not(.active) {
@@ -171,6 +171,7 @@
     z-index: 100;
     height: pxToRem(40px);
     background-color: white;
+    font-weight: 600;
   }
 
   th {
@@ -180,7 +181,7 @@
 
   tr {
     &:nth-of-type(2n+1) {
-      td {  
+      td {
         background-color: rgba($ngkdx-light-blue-4) !important;
         box-shadow: unset !important;
       }

@@ -33,7 +33,10 @@
     flex-grow: 1;
     font-size: pxToRem(23px);
     font-weight: lighter;
-    color: rgba($ngkdx-white);
+    
+    .close-btn {
+      cursor: pointer;
+    }
   }
 }
 
