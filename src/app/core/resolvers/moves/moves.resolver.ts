@@ -1,6 +1,5 @@
 import { inject } from '@angular/core';
 import { ResolveFn } from '@angular/router';
-import { of } from 'rxjs';
 import { IGeneral } from 'src/app/shared/interfaces/general.interface';
 import { MovesService } from 'src/app/shared/services/moves/moves.service';
 import { SearchService } from 'src/app/shared/services/search/search.service';
