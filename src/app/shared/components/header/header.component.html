@@ -4,7 +4,7 @@
             <img src="assets/img/pokeball.png" width="30" height="30" alt="Home" />
         </a>
 
-        <div class="navbar-expand">
+        <div class="navbar-expand flex-grow-1">
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a [routerLink]="mainMenuRoute.POKEDEX" routerLinkActive="active" class="nav-link">
@@ -34,6 +34,12 @@
                     <a [routerLink]="mainMenuRoute.ABOUT" routerLinkActive="active" class="nav-link">
                         {{'header.about' | translate}}
                     </a>
+                </li>
+
+                <li class="nav-item" id="search-btn">
+                    <span class="nav-link" [ngbTooltip]="'header.search-here' | translate" (click)="openSearchLayer()">
+                        <em class="fas fa-search"></em>
+                    </span>
                 </li>
             </ul>
         </div>

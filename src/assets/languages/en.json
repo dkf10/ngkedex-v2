@@ -18,7 +18,8 @@
     "moves": "Moves",
     "generations": "Generations",
     "machines": "Machines",
-    "about": "About"
+    "about": "About",
+    "search-here": "Search in this page"
   },
   "about": {
     "line-1": "This software uses the <a target='blank' href='https://pokeapi.co/'>PokéAPI</a> public service.",

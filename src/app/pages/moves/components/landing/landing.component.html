@@ -1,4 +1,4 @@
-<ngkdx-base-layout [id]="'moves'" [showSearch]="true" [searchTerm]="searchTerm">
+<ngkdx-base-layout [id]="'moves'">
 
   <div class="moves-table" #uiElement (scroll)="onScroll()" [class.overflow-hidden]="showSmallLoader">
     <table class="table table-striped">
@@ -44,6 +44,10 @@
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <div search-results>
+    test search results
   </div>
 </ngkdx-base-layout>
 

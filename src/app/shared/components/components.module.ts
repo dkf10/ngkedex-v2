@@ -10,6 +10,7 @@ import { PokeBoxComponent } from './poke-box/poke-box.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { BaseLayoutComponent } from './base-layout/base-layout.component';
 import { MovePopupComponent } from './move-popup/move-popup.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -27,6 +28,7 @@ import { MovePopupComponent } from './move-popup/move-popup.component';
     FormsModule,
     RouterModule,
     PipesModule,
+    NgbModule,
     TranslateModule.forChild()
   ],
   exports: [

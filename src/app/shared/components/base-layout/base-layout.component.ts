@@ -1,14 +1,50 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
+import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
+import { SearchService } from '../../services/search/search.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'ngkdx-base-layout',
   templateUrl: './base-layout.component.html',
   styleUrls: ['./base-layout.component.scss']
 })
-export class BaseLayoutComponent {
+export class BaseLayoutComponent implements OnInit, OnDestroy {
 
+  @ViewChild('searchCanvas') public searchCanvas: TemplateRef<any>;
   @Input() public id?: string;
-  @Input() public showSearch?: boolean = false;
-  @Input() public searchTerm?: string;
-  @Output() public onSearch = new EventEmitter<string>();
+
+  public searchTerm?: string;
+  private searchLayerOpenSubscription: Subscription;
+
+  constructor(
+    private canvasService: NgbOffcanvas,
+    private searchService: SearchService
+  ) { }
+
+  public ngOnInit(): void {
+    this.searchLayerOpenSubscription = this.searchService.searchCanvasVisible.subscribe((value) =>
+      this.toggleSearchCanvas(value)
+    );
+  }
+
+  public ngOnDestroy(): void {
+    this.searchLayerOpenSubscription.unsubscribe();
+  }
+
+  public onSearch(): void {
+    this.searchService.searchTerm = this.searchTerm;
+  }
+
+  private toggleSearchCanvas(value: boolean): void {
+    if (!value && this.canvasService.hasOpenOffcanvas()) {
+      this.canvasService.dismiss();
+      return;
+    }
+
+    this.canvasService.open(this.searchCanvas, {
+      panelClass: 'search-canvas',
+      position: 'end',
+      ariaLabelledBy: 'search-canvas-title'
+    });
+  }
 }

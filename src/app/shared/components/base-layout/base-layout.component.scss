@@ -1,12 +1,43 @@
 @use "/src/assets/styles/utils" as *;
+@import "/src/assets/palette/base-palette.scss";
 
 #base-layout {
   display: flex;
   flex-direction: column;
   height: 100%;
+  padding-top: pxToRem(30px);
+}
 
-  #search {
-    margin-top: pxToRem(30px);
-    margin-bottom: pxToRem(30px);
+::ng-deep {
+  ngb-offcanvas-panel {
+    &.search-canvas {
+      width: pxToRem(500px) !important;
+    }
   }
+}
+
+.search-canvas-header,
+.search-canvas-body {
+  border-left: pxToRem(5px) solid rgba($ngkdx-red);
+  padding: pxToRem(20px);
+}
+
+.search-canvas-header {
+  display: flex;
+  align-items: center;
+  border-bottom: pxToRem(5px) solid rgba($ngkdx-red);
+  background: rgba($ngkdx-dark-blue-1);
+  color: rgba($ngkdx-white);
+
+  #search-canvas-title {
+    flex-grow: 1;
+    font-size: pxToRem(23px);
+    font-weight: lighter;
+    color: rgba($ngkdx-white);
+  }
+}
+
+.search-canvas-body {
+  height: 100%;
+  min-height: 0;
 }

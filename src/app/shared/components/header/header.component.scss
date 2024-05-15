@@ -28,5 +28,15 @@ nav {
 				cursor: pointer;
 			}
 		}
+
+		#search-btn {
+			justify-content: end;
+			display: flex;
+			flex-grow: 1;
+
+			.nav-link {
+				min-width: pxToRem(40px) !important;
+			}
+		}
 	}
 }
