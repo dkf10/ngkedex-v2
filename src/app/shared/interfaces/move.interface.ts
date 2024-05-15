@@ -24,6 +24,7 @@ export namespace IMove {
     super_contest_effects: IGeneral.Result;
     target: IGeneral.Result;
     type: IGeneral.Result;
+    category_class?: string;
   }
 
   export interface Combo {

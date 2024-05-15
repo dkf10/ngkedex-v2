@@ -16,6 +16,7 @@ export class MovePopupComponent {
     this.selectedMove = moveItem;
     this.selectedMove.name = moveItem.names.find((el) => el.language.name === AppConfig.DEFAULT_LANG).name;
     this.selectedMove.flavor_text = moveItem.flavor_text_entries.find((el) => el.language.name === AppConfig.DEFAULT_LANG).flavor_text;
+    this.selectedMove.category_class = moveItem.meta.category.name.replace('+', '-');
   }
 
   public closeModal(): void {

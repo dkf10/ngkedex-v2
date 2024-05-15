@@ -58,6 +58,7 @@ export class LandingComponent implements AfterViewInit {
         const move = await this.movesService.getMoveDetail(el.url);
         move.name = move.names.find((el) => el.language.name === AppConfig.DEFAULT_LANG).name;
         move.flavor_text = move.flavor_text_entries.find((el) => el.language.name === AppConfig.DEFAULT_LANG).flavor_text;
+        move.category_class = move.meta.category.name.replace('+', '-');
         return move;
       })
     );

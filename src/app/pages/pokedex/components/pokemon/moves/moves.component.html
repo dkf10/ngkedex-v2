@@ -1,8 +1,8 @@
-<div id="moves-table-container">
+<div class="moves-table">
   <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col"></th>
+        <th scope="col" id="read-col"></th>
         <th scope="col">
           {{'pokedex.move' | translate}}
         </th>
@@ -20,7 +20,7 @@
           <td class="text-center">
             <span class="learn-more-btn" [ngbTooltip]="'common.learn-more' | translate"
               (click)="openMoveDetail(moveItem)">
-              <em class="fa-brands fa-readme"></em>
+              <em class="far fa-eye"></em>
             </span>
           </td>
           <td>

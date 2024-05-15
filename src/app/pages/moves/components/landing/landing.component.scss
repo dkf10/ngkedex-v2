@@ -1,23 +1,12 @@
-@use "/src/assets/styles/utils" as *;
+@import "/src/assets/palette/base-palette.scss";
 
 .moves-table {
-  overflow: auto;
-  height: 100%;
+  border: 1px solid rgba($ngkdx-light-blue-1);
+}
 
-  thead,
-  th {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    height: pxToRem(50px);
-    background-color: white;
-  }
-
-  th {
-    padding-bottom: pxToRem(10px);
-  }
-
-  .learn-more-btn {
-    cursor: pointer;
-  }
+.small-loader {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 0;
 }

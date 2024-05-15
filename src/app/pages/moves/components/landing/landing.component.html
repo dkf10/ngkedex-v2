@@ -1,17 +1,17 @@
 <ngkdx-base-layout [id]="'moves'" [showSearch]="true" [searchTerm]="searchTerm">
 
-  <div class="moves-table" #uiElement (scroll)="onScroll()">
+  <div class="moves-table" #uiElement (scroll)="onScroll()" [class.overflow-hidden]="showSmallLoader">
     <table class="table table-striped">
       <thead>
-        <th scope="col"></th>
+        <th scope="col" id="read-col"></th>
         <th scope="col">
           {{'moves.fields.name' | translate}}
         </th>
-        <th scope="col">
-          {{'moves.fields.type' | translate}}
-        </th>
-        <th scope="col">
+        <th scope="col" id="category-col">
           {{'moves.fields.category' | translate}}
+        </th>
+        <th scope="col" id="type-col">
+          {{'moves.fields.type' | translate}}
         </th>
         <th scope="col">
           {{'moves.fields.description' | translate}}
@@ -20,18 +20,23 @@
       <tbody>
         <tr *ngFor="let move of movesList">
           <td class="text-center">
-            <span class="learn-more-btn" [ngbTooltip]="'common.learn-more' | translate">
-              <em class="fa-brands fa-readme"></em>
+            <span class="learn-more-btn" [ngbTooltip]="'common.learn-more' | translate"
+              (click)="moveDetail.openModal(move)">
+              <em class="far fa-eye"></em>
             </span>
           </td>
           <td>
             {{move.name}}
           </td>
           <td>
-            -
+            <span class="badge w-100 rounded-pill text-bg-move-category {{move.category_class}}">
+              {{move.meta.category.name | capitalize}}
+            </span>
           </td>
           <td>
-            -
+            <span class="badge w-100 rounded-pill text-bg-move-type {{move.type.name}}">
+              {{move.type.name | capitalize}}
+            </span>
           </td>
           <td>
             {{move.flavor_text}}
@@ -40,19 +45,10 @@
       </tbody>
     </table>
   </div>
-
-  <div class="row justify-content-center" *ngIf="showSmallLoader">
-    <div class="col-auto">
-      <img src="assets/img/pokeball-spinner.gif" width="64" height="64" alt="Waiter" />
-    </div>
-  </div>
-  <!-- <div class="row move-list" #uiElement (scroll)="onScroll()">
-    <div class="col">
-      <div *ngFor="let move of movesList">
-        {{move.name | capitalize}}
-      </div>
-    </div>
-  </div>
-
-  -->
 </ngkdx-base-layout>
+
+<div class="small-loader" *ngIf="showSmallLoader">
+  <img src="assets/img/pokeball-spinner.gif" width="64" height="64" alt="Waiter" />
+</div>
+
+<ngkdx-move-popup #moveDetail />
