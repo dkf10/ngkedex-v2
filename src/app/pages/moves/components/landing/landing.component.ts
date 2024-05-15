@@ -3,6 +3,8 @@ import { MovesService } from '../../../../shared/services/moves/moves.service';
 import { WaitingService } from 'src/app/shared/services/waiting/waiting.service';
 import { IGeneral } from 'src/app/shared/interfaces/general.interface';
 import { MovePopupComponent } from 'src/app/shared/components/move-popup/move-popup.component';
+import { IMove } from 'src/app/shared/interfaces/move.interface';
+import { AppConfig } from 'src/app/core/config/app.config';
 
 @Component({
   selector: 'ngkdx-landing',
@@ -15,7 +17,7 @@ export class LandingComponent implements AfterViewInit {
   @ViewChild('moveDetail') public moveDetailPopup: MovePopupComponent;
 
   public searchTerm: string;
-  public movesList: IGeneral.Result[] = [];
+  public movesList: IMove.Item[] = [];
   public showSmallLoader: boolean = false;
 
   private lastUrl: string;
@@ -51,7 +53,15 @@ export class LandingComponent implements AfterViewInit {
       this.totalCount = mainData.count;
     }
 
-    this.movesList = this.movesList.concat(mainData.results);
-    this.onScroll();
+    let rawMovesList = await Promise.all(
+      mainData.results.map(async (el) => {
+        const move = await this.movesService.getMoveDetail(el.url);
+        move.name = move.names.find((el) => el.language.name === AppConfig.DEFAULT_LANG).name;
+        move.flavor_text = move.flavor_text_entries.find((el) => el.language.name === AppConfig.DEFAULT_LANG).flavor_text;
+        return move;
+      })
+    );
+
+    this.movesList = this.movesList.concat(rawMovesList);
   }
 }

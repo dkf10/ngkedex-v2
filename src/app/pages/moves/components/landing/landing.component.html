@@ -25,7 +25,7 @@
             </span>
           </td>
           <td>
-            {{move.name | capitalize}}
+            {{move.name}}
           </td>
           <td>
             -
@@ -34,13 +34,18 @@
             -
           </td>
           <td>
-            -
+            {{move.flavor_text}}
           </td>
         </tr>
       </tbody>
     </table>
   </div>
 
+  <div class="row justify-content-center" *ngIf="showSmallLoader">
+    <div class="col-auto">
+      <img src="assets/img/pokeball-spinner.gif" width="64" height="64" alt="Waiter" />
+    </div>
+  </div>
   <!-- <div class="row move-list" #uiElement (scroll)="onScroll()">
     <div class="col">
       <div *ngFor="let move of movesList">
@@ -49,9 +54,5 @@
     </div>
   </div>
 
-  <div class="row justify-content-center" *ngIf="showSmallLoader">
-    <div class="col-auto">
-      <img src="assets/img/pokeball-spinner.gif" width="64" height="64" alt="Waiter" />
-    </div>
-  </div> -->
+  -->
 </ngkdx-base-layout>

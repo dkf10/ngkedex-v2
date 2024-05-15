@@ -18,6 +18,7 @@ export namespace IMove {
     flavor_text?: string;
     meta: Metadata;
     name: string;
+    names: VerboseName[];
     power: number;
     pp: number;
     super_contest_effects: IGeneral.Result;
@@ -28,6 +29,11 @@ export namespace IMove {
   export interface Combo {
     use_before: IGeneral.Result;
     use_after: IGeneral.Result;
+  }
+
+  export interface VerboseName {
+    name: string;
+    language: IGeneral.Result;
   }
 
   export interface VerboseEffect {

@@ -3,14 +3,14 @@
     <div class="row" id="header">
       <div class="col">
         <h1>
-          {{selectedMove.name | capitalize}}
+          {{selectedMove.name}}
         </h1>
 
-        <span class="badge rounded-pill text-bg-poke mt-1 mb-2">
+        <span class="badge rounded-pill text-bg-move-category mt-1 mb-2">
           {{selectedMove.meta.category.name | capitalize}}
         </span>
 
-        <span class="badge rounded-pill text-bg-poke ms-1 mt-1 mb-2">
+        <span class="badge rounded-pill text-bg-move-type ms-1 mt-1 mb-2">
           {{selectedMove.type.name | capitalize}}
         </span>
       </div>

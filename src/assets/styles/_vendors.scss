@@ -28,6 +28,16 @@
   color: rgba($ngkdx-white);
 }
 
+.text-bg-move-type {
+  background-color: rgba($ngkdx-red);
+  color: rgba($ngkdx-white);
+}
+
+.text-bg-move-category {
+  background-color: rgba($ngkdx-green);
+  color: rgba($ngkdx-white);
+}
+
 .standard-tabs {
   background-color: rgba($ngkdx-light-blue-1);
   border-radius: pxToRem(8px);

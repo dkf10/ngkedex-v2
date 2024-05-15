@@ -58,17 +58,18 @@ export class LandingComponent implements AfterViewInit {
     }
 
     // Concat pokemon lists and set incremental ids for newly fetched
-    mainData.results.forEach(async (el, idx) => {
-      const newId = this.pokemonList.length + idx + 1;
-      const form = await this.pokedexService.getPokemonForm(newId);
+    const rawPokemonList = await Promise.all(
+      mainData.results.map(async (el, idx) => {
+        const newId = this.pokemonList.length + idx + 1;
+        const form = await this.pokedexService.getPokemonForm(newId);
+        return {
+          id: newId,
+          sprite_link: form.sprites.front_default,
+          ...el
+        }
+      })
+    );
 
-      this.pokemonList.push({
-        id: newId,
-        sprite_link: form.sprites.front_default,
-        ...el
-      });
-    });
-
-    this.pokemonList.sort((a, b) => a.id - b.id);
+    this.pokemonList = this.pokemonList.concat(rawPokemonList).sort((a, b) => a.id - b.id);
   }
 }
