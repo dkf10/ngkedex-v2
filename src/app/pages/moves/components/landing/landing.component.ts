@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { MovesService } from '../../../../shared/services/moves/moves.service';
 import { WaitingService } from 'src/app/shared/services/waiting/waiting.service';
-import { IGeneral } from 'src/app/shared/interfaces/general.interface';
 import { MovePopupComponent } from 'src/app/shared/components/move-popup/move-popup.component';
 import { IMove } from 'src/app/shared/interfaces/move.interface';
 import { AppConfig } from 'src/app/core/config/app.config';
