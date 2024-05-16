@@ -3,7 +3,6 @@
   <div class="moves-table" #uiElement (scroll)="onScroll()">
     <table class="table table-striped">
       <thead>
-        <th scope="col" id="read-col"></th>
         <th scope="col" id="name-col">
           {{'moves.fields.name' | translate}}
         </th>
@@ -17,13 +16,9 @@
           {{'moves.fields.description' | translate}}
         </th>
       </thead>
+
       <tbody>
-        <tr *ngFor="let move of movesList">
-          <td class="text-center">
-            <span class="learn-more-btn" [ngbTooltip]="'common.learn-more' | translate" (click)="openMoveDetail(move)">
-              <em class="far fa-eye"></em>
-            </span>
-          </td>
+        <tr *ngFor="let move of movesList" (click)="openMoveDetail(move)">
           <td>
             <div class="text-truncate">
               {{move.name}}

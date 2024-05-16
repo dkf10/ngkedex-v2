@@ -37,7 +37,7 @@
   }
 
   &.fire {
-    background-color: rgba($ngkdx-red);
+    background-color: rgba($ngkdx-red-1);
   }
 
   &.fighting,
@@ -92,7 +92,7 @@
 
   &.damage,
   &.ailment {
-    background-color: rgba($ngkdx-red);
+    background-color: rgba($ngkdx-red-1);
   }
 
   &.net-good-stats,
@@ -147,18 +147,6 @@
   }
 }
 
-.learn-more-btn {
-  border-radius: 6px;
-  cursor: pointer;
-  color: rgba($ngkdx-dark-blue-1);
-  padding: pxToRem(5px);
-
-  &:hover {
-    background-color: rgba($ngkdx-light-blue-3);
-  }
-}
-
-
 .moves-table {
   overflow: auto;
   height: 100%;
@@ -180,15 +168,28 @@
 
   th {
     padding-bottom: pxToRem(10px);
-    padding-left: pxToRem(8px);
+    padding-left: pxToRem(15px);
   }
 
   tr {
+    td {
+      padding-left: pxToRem(15px);
+    }
+
     &:nth-of-type(2n+1) {
       td {
-        background-color: rgba($ngkdx-light-blue-4) !important;
+        transition: all 200ms ease-in-out;
+        background-color: rgba($ngkdx-light-blue-4);
         box-shadow: unset !important;
       }
+    }
+
+    &:hover {
+      td {
+        background-color: rgba($ngkdx-light-blue-3) !important;
+      }
+
+      cursor: pointer;
     }
   }
 

@@ -2,7 +2,6 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th scope="col" id="read-col"></th>
         <th scope="col">
           {{'pokedex.move' | translate}}
         </th>
@@ -16,13 +15,7 @@
     </thead>
     <tbody>
       <ng-container *ngFor="let moveItem of moves">
-        <tr *ngIf="moveItem.version_group_details[0].level_learned_at > 0">
-          <td class="text-center">
-            <span class="learn-more-btn" [ngbTooltip]="'common.learn-more' | translate"
-              (click)="openMoveDetail(moveItem)">
-              <em class="far fa-eye"></em>
-            </span>
-          </td>
+        <tr *ngIf="moveItem.version_group_details[0].level_learned_at > 0" (click)="openMoveDetail(moveItem)">
           <td>
             {{moveItem.move.name | capitalize}}
           </td>

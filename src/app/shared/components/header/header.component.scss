@@ -4,7 +4,7 @@
 nav {
 	height: pxToRem(60px);
 	padding: pxToRem(0px) pxToRem(15px);
-	border-bottom: pxToRem(5px) solid rgba($ngkdx-red);
+	border-bottom: pxToRem(5px) solid rgba($ngkdx-red-1);
 	background: rgba($ngkdx-dark-blue-1);
 
 	.navbar-nav {
@@ -18,7 +18,7 @@ nav {
 			margin-right: pxToRem(6px);
 
 			&.active {
-				background-color: rgba($ngkdx-red);
+				background-color: rgba($ngkdx-red-1);
 				font-weight: 600;
 			}
 
