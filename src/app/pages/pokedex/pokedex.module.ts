@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
 import { PlotlyModule } from 'angular-plotly.js';
 import * as PlotlyJS from 'plotly.js-dist-min';
 
-import { pokedexRoutes } from './routes';
+import { PokedexRoutingModule } from './pokedex-routes.module';
 import { LandingComponent } from './components/landing/landing.component';
 import { PokemonModalComponent } from './components/pokemon-modal/pokemon-modal.component';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
@@ -15,8 +16,6 @@ import { PipesModule } from 'src/app/shared/pipes/pipes.module';
 import { MovesComponent } from './components/pokemon/moves/moves.component';
 import { EvolutionsComponent } from './components/pokemon/evolutions/evolutions.component';
 import { StatsComponent } from './components/pokemon/stats/stats.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MovePopupComponent } from './components/pokemon/moves/move-popup/move-popup.component';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -28,7 +27,6 @@ PlotlyModule.plotlyjs = PlotlyJS;
     MovesComponent,
     EvolutionsComponent,
     StatsComponent,
-    MovePopupComponent
   ],
   imports: [
     CommonModule,
@@ -38,11 +36,8 @@ PlotlyModule.plotlyjs = PlotlyJS;
     PipesModule,
     PlotlyModule,
     NgbModule,
-    RouterModule.forChild(pokedexRoutes),
+    PokedexRoutingModule,
     TranslateModule.forChild()
-  ],
-  exports: [
-    RouterModule
   ]
 })
 export class PokedexModule { }

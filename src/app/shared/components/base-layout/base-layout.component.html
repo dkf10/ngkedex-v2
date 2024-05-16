@@ -1,0 +1,30 @@
+<div class="container" id="base-layout">
+  <ng-content />
+
+  <ng-template #searchCanvas let-searchCanvas>
+    <div class="search-canvas-header">
+      <div class="offcanvas-title text-truncate" id="search-canvas-title">
+        {{'common.search' | translate}} {{id}}
+      </div>
+      <span class="close-btn" (click)="searchCanvas.dismiss()">
+        <em class="fas fa-lg fa-xmark"></em>
+      </span>
+    </div>
+    <div class="search-canvas-body">
+
+      <div class="row" id="search">
+        <div class="col">
+          <div class="input-group">
+            <input class="form-control" type="text" [(ngModel)]="searchTerm"
+              (ngModelChange)="onSearch()" />
+            <span class="input-group-text">
+              <em class="fas fa-magnifying-glass"></em>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <ng-content select="[search-results]" />
+    </div>
+  </ng-template>
+</div>

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { IEvolution } from 'src/app/shared/interfaces/evolution.interface';
 import { IPokemon } from 'src/app/shared/interfaces/pokemon.interface';
-import { PokedexService } from '../../../services/pokedex/pokedex.service';
+import { PokedexService } from '../../../../../shared/services/pokedex/pokedex.service';
 
 @Component({
   selector: 'ngkdx-pokemon-evolutions',

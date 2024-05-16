@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { IPokemon } from 'src/app/shared/interfaces/pokemon.interface';
 import { WaitingService } from 'src/app/shared/services/waiting/waiting.service';
 import { mainMenu, pokemonPage } from 'src/app/core/enum/routes.enum';
-import { PokedexService } from '../../services/pokedex/pokedex.service';
+import { PokedexService } from '../../../../shared/services/pokedex/pokedex.service';
+import { SearchService } from 'src/app/shared/services/search/search.service';
 
 @Component({
   selector: 'ngkdx-landing',
@@ -35,13 +36,19 @@ export class LandingComponent implements AfterViewInit {
   }
 
   public async onScroll(): Promise<void> {
+    // Preventing loading duplicates
+    if (this.showSmallLoader) {
+      return;
+    }
+
     const nativeElement = this.uiElement.nativeElement
 
-    if (nativeElement.clientHeight + Math.round(nativeElement.scrollTop) === nativeElement.scrollHeight
-      && this.pokemonList.length !== this.totalCount) {
+    if (
+      nativeElement.clientHeight + Math.round(nativeElement.scrollTop) === nativeElement.scrollHeight
+      && this.pokemonList.length !== this.totalCount
+    ) {
       this.showSmallLoader = true;
       await this.loadPokemonList(this.lastUrl);
-      this.showSmallLoader = false;
     }
   }
 
@@ -58,17 +65,19 @@ export class LandingComponent implements AfterViewInit {
     }
 
     // Concat pokemon lists and set incremental ids for newly fetched
-    mainData.results.forEach(async (el, idx) => {
-      const newId = this.pokemonList.length + idx + 1;
-      const form = await this.pokedexService.getPokemonForm(newId);
+    const rawPokemonList = await Promise.all(
+      mainData.results.map(async (el, idx) => {
+        const newId = this.pokemonList.length + idx + 1;
+        const form = await this.pokedexService.getPokemonForm(newId);
+        return {
+          id: newId,
+          sprite_link: form.sprites.front_default,
+          ...el
+        }
+      })
+    );
 
-      this.pokemonList.push({
-        id: newId,
-        sprite_link: form.sprites.front_default,
-        ...el
-      });
-    });
-
-    this.pokemonList.sort((a, b) => a.id - b.id);
+    this.pokemonList = this.pokemonList.concat(rawPokemonList).sort((a, b) => a.id - b.id);
+    this.showSmallLoader = false;
   }
 }

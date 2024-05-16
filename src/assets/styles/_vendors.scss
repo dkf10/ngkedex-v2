@@ -1,3 +1,4 @@
+@use "/src/assets/styles/utils" as *;
 @import "/src/assets/palette/base-palette.scss";
 
 .container {
@@ -25,4 +26,183 @@
 .text-bg-poke {
   background-color: rgba($ngkdx-dark-blue-1);
   color: rgba($ngkdx-white);
+}
+
+.text-bg-move-type {
+  color: rgba($ngkdx-white);
+
+  &.unkown,
+  &.normal {
+    background-color: rgba($ngkdx-dark-blue-2);
+  }
+
+  &.fire {
+    background-color: rgba($ngkdx-red-1);
+  }
+
+  &.fighting,
+  &.ground {
+    background-color: rgba($ngkdx-orange-1);
+  }
+
+  &.flying,
+  &.ghost,
+  &.steel {
+    background-color: rgba($ngkdx-grey);
+  }
+
+  &.grass,
+  &.rock {
+    background-color: rgba($ngkdx-green-2);
+  }
+
+  &.bug,
+  &.poison,
+  &.psychic {
+    background-color: rgba($ngkdx-green-3);
+  }
+
+  &.ice {
+    background-color: rgba($ngkdx-light-blue-1);
+  }
+
+  &.water {
+    background-color: rgba($ngkdx-dark-blue-3);
+  }
+
+  &.electric {
+    background-color: rgba($ngkdx-yellow-2);
+  }
+
+  &.dark {
+    background-color: rgba($ngkdx-black);
+  }
+
+  &.dragon {
+    background-color: rgba($ngkdx-purple-1);
+  }
+
+  &.fairy {
+    background-color: rgba($ngkdx-pink);
+  }
+}
+
+.text-bg-move-category {
+  color: rgba($ngkdx-white);
+
+  &.damage,
+  &.ailment {
+    background-color: rgba($ngkdx-red-1);
+  }
+
+  &.net-good-stats,
+  &.heal,
+  &.ohko {
+    background-color: rgba($ngkdx-green-1);
+  }
+
+  &.damage-lower,
+  &.damage-raise,
+  &.damage-heal,
+  &.damage-ailment {
+    background-color: rgba($ngkdx-yellow-1);
+  }
+
+  &.unique,
+  &.force-switch,
+  &.field-effect,
+  &.whole-field-effect,
+  &.swagger {
+    background-color: rgba($ngkdx-dark-blue-1);
+  }
+}
+
+.standard-tabs {
+  background-color: rgba($ngkdx-light-blue-1);
+  border-radius: pxToRem(8px);
+  padding: pxToRem(8px);
+  margin-top: pxToRem(15px);
+  user-select: none;
+
+  .nav-item {
+    .nav-link {
+      text-align: center;
+      border: unset !important;
+      border-radius: pxToRem(6px);
+      min-width: pxToRem(100px);
+      margin-right: pxToRem(6px);
+      color: rgba($ngkdx-black);
+
+      &.active {
+        background-color: rgba($ngkdx-dark-blue-1);
+        color: rgba($ngkdx-white);
+        font-weight: 600;
+      }
+
+      &:hover:not(.active) {
+        background-color: rgba($ngkdx-light-blue-2);
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.moves-table {
+  overflow: auto;
+  height: 100%;
+  border-radius: pxToRem(8px);
+
+  table {
+    table-layout: fixed;
+  }
+
+  thead,
+  th {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: pxToRem(40px);
+    background-color: white;
+    font-weight: 600;
+  }
+
+  th {
+    padding-bottom: pxToRem(10px);
+    padding-left: pxToRem(15px);
+  }
+
+  tr {
+    td {
+      padding-left: pxToRem(15px);
+    }
+
+    &:nth-of-type(2n+1) {
+      td {
+        transition: all 200ms ease-in-out;
+        background-color: rgba($ngkdx-light-blue-4);
+        box-shadow: unset !important;
+      }
+    }
+
+    &:hover {
+      td {
+        background-color: rgba($ngkdx-light-blue-3) !important;
+      }
+
+      cursor: pointer;
+    }
+  }
+
+  #type-col,
+  #category-col {
+    width: pxToRem(140px);
+  }
+
+  #name-col {
+    width: pxToRem(200px);
+  }
+
+  #read-col {
+    width: pxToRem(50px);
+  }
 }

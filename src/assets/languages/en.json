@@ -15,8 +15,11 @@
   },
   "header": {
     "pokedex": "Pokédex",
+    "moves": "Moves",
+    "generations": "Generations",
     "machines": "Machines",
-    "about": "About"
+    "about": "About",
+    "search-here": "Search in this page"
   },
   "about": {
     "line-1": "This software uses the <a target='blank' href='https://pokeapi.co/'>PokéAPI</a> public service.",
@@ -27,7 +30,7 @@
     "license-3": " and comes with no warranty."
   },
   "pokedex": {
-    "pokemon": "Pokemon",
+    "pokemon": "Pokémon",
     "height": "Height",
     "weight": "Weight",
     "type": "Type",
@@ -53,10 +56,24 @@
       "ailment": "Ailment"
     }
   },
+  "moves": {
+    "fields": {
+      "name": "Name",
+      "type": "Type",
+      "category": "Category",
+      "description": "Description"
+    },
+    "search": {
+      "info": "Click on a result to see more details.",
+      "start-search": "Search moves by typing something."
+    }
+  },
   "common": {
     "search": "Search",
     "learn-more": "Learn More",
     "min": "Min",
-    "max": "Max"
+    "max": "Max",
+    "search-by": "Search by: ",
+    "no-results": "No results"
   }
 }

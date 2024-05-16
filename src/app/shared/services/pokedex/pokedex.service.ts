@@ -4,8 +4,8 @@ import { lastValueFrom, timeout } from 'rxjs';
 import { AppConfig } from 'src/app/core/config/app.config';
 import { ApiUrl } from 'src/app/core/enum/api-url.enum';
 import { IEvolution } from 'src/app/shared/interfaces/evolution.interface';
-import { IMove } from 'src/app/shared/interfaces/move.interface';
 import { IPokemon } from 'src/app/shared/interfaces/pokemon.interface';
+import { IGeneral } from 'src/app/shared/interfaces/general.interface';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -17,13 +17,13 @@ export class PokedexService {
     private httpClient: HttpClient
   ) { }
 
-  public async getAllPokemon(url?: string): Promise<IPokemon.Main> {
+  public async getAllPokemon(url?: string): Promise<IGeneral.Paginated> {
     if (!url) {
       url = `${environment.BASE_URL}${ApiUrl.Pokemon.POKEMON}`;
     }
 
     return lastValueFrom(
-      this.httpClient.get<IPokemon.Main>(url, { responseType: 'json' })
+      this.httpClient.get<IGeneral.Paginated>(url, { responseType: 'json' })
         .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
     );
   }
@@ -42,7 +42,7 @@ export class PokedexService {
     );
   }
 
-  public async getPokemonSpecies(name: string): Promise<IPokemon.Species>{
+  public async getPokemonSpecies(name: string): Promise<IPokemon.Species> {
     return lastValueFrom(
       this.httpClient.get<IPokemon.Species>(`${environment.BASE_URL}${ApiUrl.Pokemon.POKEMON_SPECIES}${name}`, { responseType: 'json' })
         .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
@@ -52,13 +52,6 @@ export class PokedexService {
   public async getEvolutionChain(url: string): Promise<IEvolution.Item> {
     return lastValueFrom(
       this.httpClient.get<IEvolution.Item>(`${url}`, { responseType: 'json' })
-        .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
-    );
-  }
-
-  public async getMoveDetail(url: string): Promise<IMove.Item> {
-    return lastValueFrom(
-      this.httpClient.get<IMove.Item>(`${url}`, { responseType: 'json' })
         .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
     );
   }

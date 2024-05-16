@@ -1,0 +1,45 @@
+@use "/src/assets/styles/utils" as *;
+@import "/src/assets/palette/base-palette.scss";
+
+#base-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+::ng-deep {
+  ngb-offcanvas-panel {
+    &.search-canvas {
+      width: pxToRem(500px) !important;
+    }
+  }
+}
+
+.search-canvas-header,
+.search-canvas-body {
+  border-left: 1px solid rgba($ngkdx-red-1);
+  padding: pxToRem(20px);
+}
+
+.search-canvas-header {
+  display: flex;
+  align-items: center;
+  border-bottom: pxToRem(5px) solid rgba($ngkdx-red-1);
+  background: rgba($ngkdx-dark-blue-1);
+  color: rgba($ngkdx-white);
+
+  #search-canvas-title {
+    flex-grow: 1;
+    font-size: pxToRem(23px);
+    font-weight: lighter;
+    
+    .close-btn {
+      cursor: pointer;
+    }
+  }
+}
+
+.search-canvas-body {
+  height: 100%;
+  min-height: 0;
+}

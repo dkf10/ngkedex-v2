@@ -4,7 +4,7 @@
 nav {
 	height: pxToRem(60px);
 	padding: pxToRem(0px) pxToRem(15px);
-	border-bottom: pxToRem(5px) solid rgba($ngkdx-red);
+	border-bottom: pxToRem(5px) solid rgba($ngkdx-red-1);
 	background: rgba($ngkdx-dark-blue-1);
 
 	.navbar-nav {
@@ -14,18 +14,28 @@ nav {
 			color: rgba($ngkdx-white);
 			text-align: center;
 			border-radius: pxToRem(6px);
-			min-width: pxToRem(100px);
+			min-width: pxToRem(120px);
 			margin-right: pxToRem(6px);
 
 			&.active {
-				background-color: rgba($ngkdx-red);
-				font-weight: 700;
+				background-color: rgba($ngkdx-red-1);
+				font-weight: 600;
 			}
 
 			&:hover:not(.active) {
 				background-color: rgba($ngkdx-light-blue-1);
-        color: rgba($ngkdx-black);
+				color: rgba($ngkdx-black);
 				cursor: pointer;
+			}
+		}
+
+		#search-btn {
+			justify-content: end;
+			display: flex;
+			flex-grow: 1;
+
+			.nav-link {
+				min-width: pxToRem(40px) !important;
 			}
 		}
 	}

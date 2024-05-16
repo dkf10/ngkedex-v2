@@ -1,5 +1,4 @@
-import { IPokemon } from "./pokemon.interface";
-import { Result } from "./result.interface";
+import { IGeneral } from "./general.interface";
 
 export namespace IEvolution {
   export interface Item {
@@ -11,12 +10,12 @@ export namespace IEvolution {
     evolution_details: Detail[];
     evolves_to: Chain[];
     is_baby: boolean;
-    species: Result;
+    species: IGeneral.Result;
   }
 
   export interface Detail {
     gender: number;
-    item: Result;
-    trigger: Result;
+    item: IGeneral.Result;
+    trigger: IGeneral.Result;
   }
 }
