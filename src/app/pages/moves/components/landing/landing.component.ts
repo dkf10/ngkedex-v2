@@ -23,6 +23,7 @@ export class LandingComponent implements OnInit, OnDestroy {
   public movesList: IMove.Item[] = [];
   public rawFilteredList: IGeneral.Result[] = [];
   public showSmallLoader: boolean = false;
+  public isSearching: boolean = false;
 
   private rawList: IGeneral.Paginated;
   private totalCount: number;
@@ -102,9 +103,11 @@ export class LandingComponent implements OnInit, OnDestroy {
   private serachMoves(value: string): void {
     if (!value || value.length === 0) {
       this.rawFilteredList = [];
+      this.isSearching = false;
       return;
     }
 
+    this.isSearching = true;
     this.rawFilteredList = this.rawList.results.filter((el) => el.name.includes(value));
   }
 }

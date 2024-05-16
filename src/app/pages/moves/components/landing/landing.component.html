@@ -46,18 +46,22 @@
 
   <!-- Search move results -->
   <div class="search-results-container" search-results>
-    <div class="search-item" *ngFor="let move of rawFilteredList">
-      <div class="row">
-        <div class="col-10 text-truncate">
-          {{move.name | capitalize}}
-        </div>
-        <div class="col-2 text-center">
-          <span class="learn-more-btn" [ngbTooltip]="'common.learn-more' | translate"
-            (click)="openMoveDetail(null, move.url)">
-            <em class="far fa-eye"></em>
-          </span>
-        </div>
-      </div>
+    <div class="start-search" *ngIf="!isSearching">
+      {{'moves.search.start-search' | translate}}
+    </div>
+    <div class="no-results" *ngIf="isSearching && rawFilteredList.length === 0">
+      {{'common.no-results' | translate}}
+    </div>
+    <div class="search-info" *ngIf="rawFilteredList.length > 0">
+      <span class="info-icon">
+        <em class="fas fa-circle-info"></em>
+      </span>
+      <span>
+        {{'moves.search.info' | translate}}
+      </span>
+    </div>
+    <div class="search-item" *ngFor="let move of rawFilteredList" (click)="openMoveDetail(null, move.url)">
+      {{move.name | capitalize}}
     </div>
   </div>
 </ngkdx-base-layout>

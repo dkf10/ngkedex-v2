@@ -62,6 +62,10 @@
       "type": "Type",
       "category": "Category",
       "description": "Description"
+    },
+    "search": {
+      "info": "Click on a result to see more details.",
+      "start-search": "Search moves by typing something."
     }
   },
   "common": {
@@ -69,6 +73,7 @@
     "learn-more": "Learn More",
     "min": "Min",
     "max": "Max",
-    "search-by": "Search by: "
+    "search-by": "Search by: ",
+    "no-results": "No results"
   }
 }
