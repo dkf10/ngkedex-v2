@@ -4,7 +4,7 @@
     <table class="table table-striped">
       <thead>
         <th scope="col" id="read-col"></th>
-        <th scope="col">
+        <th scope="col" id="name-col">
           {{'moves.fields.name' | translate}}
         </th>
         <th scope="col" id="category-col">
@@ -25,7 +25,9 @@
             </span>
           </td>
           <td>
-            {{move.name}}
+            <div class="text-truncate">
+              {{move.name}}
+            </div>
           </td>
           <td>
             <span class="badge w-100 rounded-pill text-bg-move-category {{move.category_class}}">
@@ -38,7 +40,9 @@
             </span>
           </td>
           <td>
-            {{move.flavor_text}}
+            <div class="text-truncate">
+              {{move.flavor_text}}
+            </div>
           </td>
         </tr>
       </tbody>
