@@ -25,6 +25,7 @@
     "line-1": "This software uses the <a target='blank' href='https://pokeapi.co/'>PokéAPI</a> public service.",
     "line-2": "Created with ",
     "line-3": " by <a target='blank' href='https://github.com/dkf10'>dkf10</a>.",
+    "line-4": "Optimized for desktop use only (for now 😉). ",
     "license-1": "This software is supplied under the ",
     "license-2": "GNU GPL v3 license",
     "license-3": " and comes with no warranty."

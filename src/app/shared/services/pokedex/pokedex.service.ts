@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { lastValueFrom, timeout } from 'rxjs';
 import { AppConfig } from 'src/app/core/config/app.config';
@@ -13,11 +13,33 @@ import { environment } from 'src/environments/environment';
 })
 export class PokedexService {
 
+  private _pokemonPaginated: IGeneral.Paginated;
+
   constructor(
     private httpClient: HttpClient
   ) { }
 
-  public async getAllPokemon(url?: string): Promise<IGeneral.Paginated> {
+  public get pokemonPaginated(): IGeneral.Paginated {
+    return this._pokemonPaginated;
+  }
+
+  public async getAllPokemon(limit?: number): Promise<IGeneral.Paginated> {
+    let params = new HttpParams();
+
+    if (!isNaN(limit)) {
+      params = params.append('offset', 0);
+      params = params.append('limit', limit);
+    }
+
+    this._pokemonPaginated = await lastValueFrom(
+      this.httpClient.get<IGeneral.Paginated>(`${environment.BASE_URL}${ApiUrl.Pokemon.POKEMON}`, { params: params, responseType: 'json' })
+        .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
+    );
+
+    return this._pokemonPaginated;
+  }
+
+  /* public async getAllPokemon(url?: string): Promise<IGeneral.Paginated> {
     if (!url) {
       url = `${environment.BASE_URL}${ApiUrl.Pokemon.POKEMON}`;
     }
@@ -26,7 +48,7 @@ export class PokedexService {
       this.httpClient.get<IGeneral.Paginated>(url, { responseType: 'json' })
         .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
     );
-  }
+  } */
 
   public async getPokemon(pokemon: number | string): Promise<IPokemon.Pokemon> {
     return lastValueFrom(
