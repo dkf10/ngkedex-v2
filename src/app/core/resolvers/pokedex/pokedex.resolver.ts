@@ -7,5 +7,6 @@ import { mainMenu } from '../../enum/routes.enum';
 export const pokedexResolver: ResolveFn<boolean> = (route, state) => {
   const searchService = inject(SearchService);
   searchService.searchBtnVisible = (state.url === `/${mainMenu.POKEDEX}`);
+  searchService.searchTerm = null;
   return of(true);
 };

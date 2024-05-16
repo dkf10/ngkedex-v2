@@ -12,21 +12,40 @@ import { environment } from 'src/environments/environment';
 })
 export class MovesService {
 
+  private _movesPaginated: IGeneral.Paginated;
+  private _typesPaginated: IGeneral.Paginated;
+  private _categoriesPaginated: IGeneral.Paginated;
+
   constructor(
     private httpClient: HttpClient
   ) { }
 
+  public get movesPaginated(): IGeneral.Paginated {
+    return this._movesPaginated;
+  }
+
+  public get typesPaginated(): IGeneral.Paginated {
+    return this._typesPaginated;
+  }
+
+  public get categoriesPaginated(): IGeneral.Paginated {
+    return this._categoriesPaginated;
+  }
+
   public async getAllMoves(limit?: number): Promise<IGeneral.Paginated> {
     let params = new HttpParams();
-    if (limit) {
+
+    if (!isNaN(limit)) {
       params = params.append('offset', 0);
       params = params.append('limit', limit);
     }
 
-    return lastValueFrom(
+    this._movesPaginated = await lastValueFrom(
       this.httpClient.get<IGeneral.Paginated>(`${environment.BASE_URL}${ApiUrl.Move.MOVE}`, { params: params, responseType: 'json' })
         .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
     );
+
+    return this._movesPaginated;
   }
 
   public async getMoveDetail(url: string): Promise<IMove.Item> {
@@ -34,5 +53,23 @@ export class MovesService {
       this.httpClient.get<IMove.Item>(`${url}`, { responseType: 'json' })
         .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
     );
+  }
+
+  public async getAllTypes(): Promise<IGeneral.Paginated> {
+    this._typesPaginated = await lastValueFrom(
+      this.httpClient.get<IMove.Item>(`${environment.BASE_URL}${ApiUrl.Move.TYPE}`, { responseType: 'json' })
+        .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
+    );
+
+    return this._typesPaginated;
+  }
+
+  public async getAllCategories(): Promise<IGeneral.Paginated> {
+    this._categoriesPaginated = await lastValueFrom(
+      this.httpClient.get<IMove.Item>(`${environment.BASE_URL}${ApiUrl.Move.CATEGORY}`, { responseType: 'json' })
+        .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
+    );
+
+    return this._categoriesPaginated;
   }
 }

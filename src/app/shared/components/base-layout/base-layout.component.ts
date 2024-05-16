@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
-import { NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
+import { NgbOffcanvas, NgbOffcanvasOptions } from '@ng-bootstrap/ng-bootstrap';
 import { SearchService } from '../../services/search/search.service';
 import { Subscription } from 'rxjs';
 
@@ -41,10 +41,12 @@ export class BaseLayoutComponent implements OnInit, OnDestroy {
       return;
     }
 
-    this.canvasService.open(this.searchCanvas, {
+    const options: NgbOffcanvasOptions = {
       panelClass: 'search-canvas',
       position: 'end',
       ariaLabelledBy: 'search-canvas-title'
-    });
+    };
+
+    this.canvasService.open(this.searchCanvas, options);
   }
 }

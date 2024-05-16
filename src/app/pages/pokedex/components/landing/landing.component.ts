@@ -36,13 +36,19 @@ export class LandingComponent implements AfterViewInit {
   }
 
   public async onScroll(): Promise<void> {
+    // Preventing loading duplicates
+    if (this.showSmallLoader) {
+      return;
+    }
+
     const nativeElement = this.uiElement.nativeElement
 
-    if (nativeElement.clientHeight + Math.round(nativeElement.scrollTop) === nativeElement.scrollHeight
-      && this.pokemonList.length !== this.totalCount) {
+    if (
+      nativeElement.clientHeight + Math.round(nativeElement.scrollTop) === nativeElement.scrollHeight
+      && this.pokemonList.length !== this.totalCount
+    ) {
       this.showSmallLoader = true;
       await this.loadPokemonList(this.lastUrl);
-      this.showSmallLoader = false;
     }
   }
 
@@ -72,5 +78,6 @@ export class LandingComponent implements AfterViewInit {
     );
 
     this.pokemonList = this.pokemonList.concat(rawPokemonList).sort((a, b) => a.id - b.id);
+    this.showSmallLoader = false;
   }
 }

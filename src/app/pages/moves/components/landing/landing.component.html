@@ -1,6 +1,6 @@
 <ngkdx-base-layout [id]="'moves'">
 
-  <div class="moves-table" #uiElement (scroll)="onScroll()" [class.overflow-hidden]="showSmallLoader">
+  <div class="moves-table" #uiElement (scroll)="onScroll()">
     <table class="table table-striped">
       <thead>
         <th scope="col" id="read-col"></th>
@@ -20,8 +20,7 @@
       <tbody>
         <tr *ngFor="let move of movesList">
           <td class="text-center">
-            <span class="learn-more-btn" [ngbTooltip]="'common.learn-more' | translate"
-              (click)="moveDetail.openModal(move)">
+            <span class="learn-more-btn" [ngbTooltip]="'common.learn-more' | translate" (click)="openMoveDetail(move)">
               <em class="far fa-eye"></em>
             </span>
           </td>
@@ -46,8 +45,21 @@
     </table>
   </div>
 
-  <div search-results>
-    test search results
+  <!-- Search move results -->
+  <div class="search-results-container" search-results>
+    <div class="search-item" *ngFor="let move of rawFilteredList">
+      <div class="row">
+        <div class="col-10 text-truncate">
+          {{move.name | capitalize}}
+        </div>
+        <div class="col-2 text-center">
+          <span class="learn-more-btn" [ngbTooltip]="'common.learn-more' | translate"
+            (click)="openMoveDetail(null, move.url)">
+            <em class="far fa-eye"></em>
+          </span>
+        </div>
+      </div>
+    </div>
   </div>
 </ngkdx-base-layout>
 

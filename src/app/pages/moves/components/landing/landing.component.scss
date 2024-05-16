@@ -13,3 +13,17 @@
   text-align: center;
   bottom: 0;
 }
+
+.search-results-container {
+  height: calc(100% - pxToRem(15px));
+  overflow-y: auto;
+
+  .search-item {
+    border: 1px solid rgba($ngkdx-light-blue-1);
+    border-radius: pxToRem(8px);
+    padding: pxToRem(15px);
+    margin: pxToRem(10px) 0;
+    font-size: pxToRem(20px);
+    font-weight: lighter;
+  }
+}

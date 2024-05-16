@@ -8,6 +8,8 @@ export namespace ApiUrl {
     }
 
     export enum Move {
-        MOVE = '/move/'
+        MOVE = '/move/',
+        TYPE = '/type/',
+        CATEGORY = '/move-category/'
     }
 }
