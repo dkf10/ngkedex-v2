@@ -54,6 +54,7 @@ export class LandingComponent implements OnInit, OnDestroy {
     if (this.showSmallLoader) {
       return;
     }
+
     const nativeElement = this.uiElement.nativeElement
 
     if (nativeElement.clientHeight + Math.round(nativeElement.scrollTop) === nativeElement.scrollHeight

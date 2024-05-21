@@ -9,7 +9,6 @@ import * as PlotlyJS from 'plotly.js-dist-min';
 
 import { PokedexRoutingModule } from './pokedex-routes.module';
 import { LandingComponent } from './components/landing/landing.component';
-import { PokemonModalComponent } from './components/pokemon-modal/pokemon-modal.component';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
 import { PokemonComponent } from './components/pokemon/pokemon.component';
 import { PipesModule } from 'src/app/shared/pipes/pipes.module';
@@ -22,7 +21,6 @@ PlotlyModule.plotlyjs = PlotlyJS;
 @NgModule({
   declarations: [
     LandingComponent,
-    PokemonModalComponent,
     PokemonComponent,
     MovesComponent,
     EvolutionsComponent,

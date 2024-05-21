@@ -39,17 +39,6 @@ export class PokedexService {
     return this._pokemonPaginated;
   }
 
-  /* public async getAllPokemon(url?: string): Promise<IGeneral.Paginated> {
-    if (!url) {
-      url = `${environment.BASE_URL}${ApiUrl.Pokemon.POKEMON}`;
-    }
-
-    return lastValueFrom(
-      this.httpClient.get<IGeneral.Paginated>(url, { responseType: 'json' })
-        .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
-    );
-  } */
-
   public async getPokemon(pokemon: number | string): Promise<IPokemon.Pokemon> {
     return lastValueFrom(
       this.httpClient.get<IPokemon.Form>(`${environment.BASE_URL}${ApiUrl.Pokemon.POKEMON}${pokemon}`, { responseType: 'json' })
@@ -57,9 +46,9 @@ export class PokedexService {
     );
   }
 
-  public async getPokemonForm(id: number): Promise<IPokemon.Form> {
+  public async getPokemonForm(name: string): Promise<IPokemon.Form> {
     return lastValueFrom(
-      this.httpClient.get<IPokemon.Form>(`${environment.BASE_URL}${ApiUrl.Pokemon.FORM}${id}`, { responseType: 'json' })
+      this.httpClient.get<IPokemon.Form>(`${environment.BASE_URL}${ApiUrl.Pokemon.FORM}${name}`, { responseType: 'json' })
         .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
     );
   }
@@ -76,5 +65,22 @@ export class PokedexService {
       this.httpClient.get<IEvolution.Item>(`${url}`, { responseType: 'json' })
         .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
     );
+  }
+
+  public async fetchPokemonList(list: IGeneral.Result[]): Promise<IPokemon.ListItem[]> {
+    return Promise.all(
+      list.map(async (el) => {
+        const form = await this.getPokemonForm(el.name);
+        return {
+          id: this.extractIdFromUrl(el.url),
+          sprite_link: form.sprites.front_default,
+          ...el
+        }
+      })
+    );
+  }
+
+  private extractIdFromUrl(url: string): number {
+    return parseInt(url.match(/\/(\d+)+[\/]?/g)[0].replace(/\//g, ''), 10);
   }
 }

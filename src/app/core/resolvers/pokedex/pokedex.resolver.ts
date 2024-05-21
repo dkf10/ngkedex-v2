@@ -20,5 +20,6 @@ export const pokedexResolver: ResolveFn<void> = async (route, state) => {
   const mainData = await pokedexService.getAllPokemon();
   const totalCount = mainData.count;
   await pokedexService.getAllPokemon(totalCount);
+
   waiting.WaitingEnabled = true;
 };

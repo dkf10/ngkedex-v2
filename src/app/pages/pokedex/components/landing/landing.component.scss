@@ -1,7 +1,16 @@
 @use "/src/assets/styles/utils" as *;
+@import "/src/assets/palette/base-palette.scss";
 
 .pokemon-list {
   height: 100%;
   flex-grow: 1;
   overflow-y: auto;
+}
+
+.search-results-container {
+  .search-item {
+    .pokemon-number {
+      color: rgba($ngkdx-light-blue-1);
+    }
+  }
 }

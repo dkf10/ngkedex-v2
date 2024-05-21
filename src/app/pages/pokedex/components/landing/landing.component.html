@@ -10,4 +10,24 @@
       <img src="assets/img/pokeball-spinner.gif" width="64" height="64" alt="Waiter" />
     </div>
   </div>
+
+  <div class="search-results-container" search-results>
+    <div class="start-search" *ngIf="!isSearching">
+      {{'moves.search.start-search' | translate}}
+    </div>
+    <div class="no-results" *ngIf="isSearching && searchResultsList.length === 0">
+      {{'common.no-results' | translate}}
+    </div>
+    <div class="search-item" *ngFor="let pokemon of searchResultsList" (click)="goToPokemon(pokemon, true)">
+      <span>
+        <img *ngIf="pokemon.sprite_link" [src]="pokemon.sprite_link" width="64" height="64" alt="pokemon" />
+      </span>
+      <span class="mx-2">
+        {{pokemon.name | capitalize}}
+      </span>
+      <span class="pokemon-number">
+        -{{pokemon.id | number:'3.0'}}-
+      </span>
+    </div>
+  </div>
 </ngkdx-base-layout>

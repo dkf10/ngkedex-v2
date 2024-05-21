@@ -22,7 +22,6 @@ export namespace IPokemon {
   }
 
   export interface ListItem extends IGeneral.Result {
-    id: number;
     sprite_link: string;
   }
 
