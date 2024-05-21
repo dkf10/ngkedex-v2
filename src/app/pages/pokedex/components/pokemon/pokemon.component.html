@@ -72,14 +72,14 @@
               <ngkdx-pokemon-moves [moves]="selectedPokemon.moves" />
             </ng-template>
           </li>
-          <li [ngbNavItem]="tabs.EVOLUTIONS">
+          <!-- <li [ngbNavItem]="tabs.EVOLUTIONS">
             <button ngbNavLink>
               {{'pokedex.evolutions' | translate}}
             </button>
             <ng-template ngbNavContent>
               <ngkdx-pokemon-evolutions [species]="pokemonSpecies" (onPokeboxClick)="switchPokemon($event)" />
             </ng-template>
-          </li>
+          </li> -->
         </ul>
 
         <div id="specs-tabs-content" [ngbNavOutlet]="specsTabs"></div>
