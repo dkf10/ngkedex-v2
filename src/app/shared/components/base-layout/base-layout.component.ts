@@ -32,6 +32,10 @@ export class BaseLayoutComponent implements OnInit, OnDestroy {
   }
 
   public onSearch(): void {
+    if (this.searchTerm.length < 3) {
+      return;
+    }
+
     this.searchService.searchTerm = this.searchTerm;
   }
 

@@ -13,10 +13,18 @@
 
   <div class="search-results-container" search-results>
     <div class="start-search" *ngIf="!isSearching">
-      {{'moves.search.start-search' | translate}}
+      {{'pokedex.search.start-search' | translate}}
     </div>
     <div class="no-results" *ngIf="isSearching && searchResultsList.length === 0">
       {{'common.no-results' | translate}}
+    </div>
+    <div class="search-info" *ngIf="searchResultsList.length > 0">
+      <span class="info-icon">
+        <em class="fas fa-circle-info"></em>
+      </span>
+      <span>
+        {{'pokedex.search.info' | translate}}
+      </span>
     </div>
     <div class="search-item" *ngFor="let pokemon of searchResultsList" (click)="goToPokemon(pokemon, true)">
       <span>

@@ -41,7 +41,8 @@ const TRANSLATE_MODULE_CONFIG = {
       timeOut: 15000,
       closeButton: true,
       progressBar: true,
-      preventDuplicates: true
+      preventDuplicates: true,
+      positionClass: 'toast-bottom-right'
     }),
     ErrorModule
   ],

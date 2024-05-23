@@ -55,6 +55,10 @@
       "effect-chance": "Effect Chance",
       "flinch-chance": "Flinch Chance",
       "ailment": "Ailment"
+    },
+    "search": {
+      "info": "Click on a Pokémon to go to detail page.",
+      "start-search": "Serach Pokémon by typing something."
     }
   },
   "moves": {
