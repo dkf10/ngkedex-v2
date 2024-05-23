@@ -71,6 +71,8 @@
 
   .pokemon-number {
     opacity: 0;
+    font-size: 1rem;
+    margin-left: pxToRem(8px);
     color: rgba($ngkdx-light-blue-1);
     transition: all 200ms ease-in-out;
   }

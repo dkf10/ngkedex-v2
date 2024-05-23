@@ -21,14 +21,18 @@
 
 <!-- Compact mode -->
 <div class="poke-box-compact" (click)="clickEvent.emit(pokemon)" *ngIf="compactView">
-  <span>
-    <img *ngIf="pokemon.sprite_link" [src]="pokemon.sprite_link" width="64" height="64" alt="pokemon" />
-    <img *ngIf="!pokemon.sprite_link" src="assets/img/pokeball-pixel.png" width="64" height="64" alt="pokemon" />
-  </span>
-  <span class="mx-2">
-    {{pokemon.name | capitalize}}
-  </span>
-  <span class="pokemon-number">
-    -{{pokemon.id | number:'3.0'}}-
-  </span>
+  <div class="row align-items-center">
+    <div class="col-2 pe-0">
+      <img *ngIf="pokemon.sprite_link" [src]="pokemon.sprite_link" width="64" height="64" alt="pokemon" />
+      <img *ngIf="!pokemon.sprite_link" src="assets/img/pokeball-pixel.png" width="64" height="64" alt="pokemon" />
+    </div>
+    <div class="col-9 p-0 offset-1 text-truncate">
+      <span>
+        {{pokemon.name | capitalize}}
+      </span>
+      <span class="pokemon-number">
+        -{{pokemon.id | number:'3.0'}}-
+      </span>
+    </div>
+  </div>
 </div>

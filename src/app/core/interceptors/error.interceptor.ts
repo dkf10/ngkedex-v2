@@ -8,12 +8,14 @@ import {
 } from '@angular/common/http';
 import { Observable, catchError } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { WaitingService } from 'src/app/shared/services/waiting/waiting.service';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
 
   constructor(
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private waiting: WaitingService
   ) { }
 
   public intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
@@ -25,6 +27,7 @@ export class ErrorInterceptor implements HttpInterceptor {
             break;
         }
 
+        this.waiting.WaitingEnabled = false;
         throw err;
       })
     );
