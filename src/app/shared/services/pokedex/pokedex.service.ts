@@ -39,23 +39,23 @@ export class PokedexService {
     return this._pokemonPaginated;
   }
 
-  public async getPokemon(pokemon: number | string): Promise<IPokemon.Pokemon> {
+  public async getPokemon(id: number): Promise<IPokemon.Pokemon> {
     return lastValueFrom(
-      this.httpClient.get<IPokemon.Form>(`${environment.BASE_URL}${ApiUrl.Pokemon.POKEMON}${pokemon}`, { responseType: 'json' })
+      this.httpClient.get<IPokemon.Form>(`${environment.BASE_URL}${ApiUrl.Pokemon.POKEMON}${id}`, { responseType: 'json' })
         .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
     );
   }
 
-  public async getPokemonForm(name: string): Promise<IPokemon.Form> {
+  public async getPokemonForm(id: number): Promise<IPokemon.Form> {
     return lastValueFrom(
-      this.httpClient.get<IPokemon.Form>(`${environment.BASE_URL}${ApiUrl.Pokemon.FORM}${name}`, { responseType: 'json' })
+      this.httpClient.get<IPokemon.Form>(`${environment.BASE_URL}${ApiUrl.Pokemon.FORM}${id}`, { responseType: 'json' })
         .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
     );
   }
 
-  public async getPokemonSpecies(name: string): Promise<IPokemon.Species> {
+  public async getPokemonSpecies(id: number): Promise<IPokemon.Species> {
     return lastValueFrom(
-      this.httpClient.get<IPokemon.Species>(`${environment.BASE_URL}${ApiUrl.Pokemon.POKEMON_SPECIES}${name}`, { responseType: 'json' })
+      this.httpClient.get<IPokemon.Species>(`${environment.BASE_URL}${ApiUrl.Pokemon.POKEMON_SPECIES}${id}`, { responseType: 'json' })
         .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
     );
   }
@@ -68,19 +68,23 @@ export class PokedexService {
   }
 
   public async fetchPokemonList(list: IGeneral.Result[]): Promise<IPokemon.ListItem[]> {
-    return Promise.all(
+    const output = Promise.allSettled(
       list.map(async (el) => {
-        const form = await this.getPokemonForm(el.name);
+        const id = this.extractIdFromUrl(el.url);
+        const form = await this.getPokemonForm(id);
         return {
-          id: this.extractIdFromUrl(el.url),
+          id: id,
           sprite_link: form.sprites.front_default,
           ...el
         }
       })
     );
+
+    // Creating output array without not found items
+    return (await output).map((out) => out['value']).filter((el) => el !== undefined);
   }
 
-  private extractIdFromUrl(url: string): number {
+  public extractIdFromUrl(url: string): number {
     return parseInt(url.match(/\/(\d+)+[\/]?/g)[0].replace(/\//g, ''), 10);
   }
 }

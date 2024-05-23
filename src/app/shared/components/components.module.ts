@@ -11,6 +11,8 @@ import { PipesModule } from '../pipes/pipes.module';
 import { BaseLayoutComponent } from './base-layout/base-layout.component';
 import { MovePopupComponent } from './move-popup/move-popup.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { StatsComponent } from './move-popup/stats/stats.component';
+import { LearnedByComponent } from './move-popup/learned-by/learned-by.component';
 
 
 
@@ -21,7 +23,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BaseLayoutComponent,
     BaseModalComponent,
     PokeBoxComponent,
-    MovePopupComponent
+    MovePopupComponent,
+    StatsComponent,
+    LearnedByComponent
   ],
   imports: [
     CommonModule,

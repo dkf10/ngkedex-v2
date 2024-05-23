@@ -44,7 +44,7 @@ export class PokemonComponent implements OnInit {
   private async getPokemonDetail(id: number): Promise<void> {
     this.waiting.WaitingEnabled = true;
     this.selectedPokemon = await this.pokedexService.getPokemon(id);
-    this.pokemonSpecies = await this.pokedexService.getPokemonSpecies(this.selectedPokemon.species.name);
+    this.pokemonSpecies = await this.pokedexService.getPokemonSpecies(id);
     this.waiting.WaitingEnabled = false;
   }
 }

@@ -45,6 +45,21 @@
     "move": "Move",
     "learned-at-level": "Learned at level",
     "method": "Method",
+    "search": {
+      "info": "Click on a Pokémon to go to detail page.",
+      "start-search": "Serach Pokémon by typing something."
+    }
+  },
+  "moves": {
+    "title": "Moves",
+    "fields": {
+      "name": "Name",
+      "type": "Type",
+      "category": "Category",
+      "description": "Description",
+      "stats": "Stats",
+      "learned-by": "Learned by"
+    },
     "move-detail-modal": {
       "accuracy": "Accuracy",
       "power": "Power",
@@ -55,14 +70,6 @@
       "effect-chance": "Effect Chance",
       "flinch-chance": "Flinch Chance",
       "ailment": "Ailment"
-    }
-  },
-  "moves": {
-    "fields": {
-      "name": "Name",
-      "type": "Type",
-      "category": "Category",
-      "description": "Description"
     },
     "search": {
       "info": "Click on a result to see more details.",

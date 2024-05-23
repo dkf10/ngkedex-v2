@@ -1,12 +1,16 @@
 @use "/src/assets/styles/utils" as *;
 @import "/src/assets/palette/base-palette.scss";
 
+.poke-box,
+.poke-box-compact {
+  border: 1px solid rgba($ngkdx-light-blue-1);
+  border-radius: pxToRem(8px);
+  transition: all 200ms ease-in-out;
+}
+
 .poke-box {
   min-height: pxToRem(250px);
   min-width: 100%;
-  border: 1px solid rgba($ngkdx-light-blue-1);
-  border-radius: pxToRem(8px);
-  // margin-bottom: pxToRem(30px);
   display: flex;
   flex-direction: column;
   user-select: none;
@@ -56,5 +60,29 @@
 
   &:active {
     background-color: rgba($ngkdx-light-blue-1) !important;
+  }
+}
+
+.poke-box-compact {
+  padding: pxToRem(15px);
+  margin: pxToRem(10px) 0;
+  font-size: pxToRem(20px);
+  font-weight: lighter;
+
+  .pokemon-number {
+    opacity: 0;
+    font-size: 1rem;
+    margin-left: pxToRem(8px);
+    color: rgba($ngkdx-light-blue-1);
+    transition: all 200ms ease-in-out;
+  }
+
+  &:hover {
+    background-color: rgba($ngkdx-light-blue-3) !important;
+    cursor: pointer;
+
+    .pokemon-number {
+      opacity: 1;
+    }
   }
 }

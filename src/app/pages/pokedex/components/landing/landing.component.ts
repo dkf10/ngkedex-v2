@@ -58,8 +58,8 @@ export class LandingComponent implements OnInit, OnDestroy {
     const nativeElement = this.uiElement.nativeElement
 
     if (
-      nativeElement.clientHeight + Math.round(nativeElement.scrollTop) === nativeElement.scrollHeight
-      && this.pokemonList.length !== this.totalCount
+      nativeElement.clientHeight + Math.round(nativeElement.scrollTop) === nativeElement.scrollHeight &&
+      this.pokemonList.length !== this.totalCount
     ) {
       this.showSmallLoader = true;
       await this.loadPokemonList(this.rawList.results);

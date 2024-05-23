@@ -120,9 +120,10 @@
 .standard-tabs {
   background-color: rgba($ngkdx-light-blue-1);
   border-radius: pxToRem(8px);
-  padding: pxToRem(8px);
+  padding: pxToRem(5px);
   margin-top: pxToRem(15px);
   user-select: none;
+  font-size: pxToRem(13px);
 
   .nav-item {
     .nav-link {
@@ -229,20 +230,5 @@
     align-items: center;
     justify-content: center;
     color: rgba($ngkdx-grey);
-  }
-
-  .search-item {
-    border: 1px solid rgba($ngkdx-light-blue-1);
-    border-radius: pxToRem(8px);
-    padding: pxToRem(15px);
-    margin: pxToRem(10px) 0;
-    font-size: pxToRem(20px);
-    font-weight: lighter;
-    transition: all 200ms ease-in-out;
-
-    &:hover {
-      background-color: rgba($ngkdx-light-blue-3) !important;
-      cursor: pointer;
-    }
   }
 }

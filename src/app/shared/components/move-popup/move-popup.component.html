@@ -1,4 +1,4 @@
-<ngkdx-base-modal [title]="'pokedex.move' | translate" [(isOpen)]="isMoveDetailOpen" (isOpenChange)="closeModal()">
+<ngkdx-base-modal [title]="'moves.title' | translate" [(isOpen)]="isMoveDetailOpen" (isOpenChange)="closeModal()">
   <div class="container-fluid" id="move" *ngIf="selectedMove">
     <div class="row" id="header">
       <div class="col">
@@ -24,7 +24,7 @@
           </div>
 
           <div class="title text-truncate">
-            {{'pokedex.move-detail-modal.accuracy' | translate}}
+            {{'moves.move-detail-modal.accuracy' | translate}}
           </div>
         </div>
       </div>
@@ -40,133 +40,31 @@
       </div>
     </div>
 
-    <hr />
+    <!-- <hr class="mb-0" /> -->
 
     <div class="row">
-      <div class="col-2">
-        <div class="value-block">
-          <div class="value">
-            <span *ngIf="selectedMove.power !== null; else noValue">
-              {{selectedMove.power || '-'}}
-            </span>
-          </div>
+      <div class="col">
+        <ul ngbNav #movesTabs="ngbNav" class="standard-tabs nav-tabs" [destroyOnHide]="false"
+          [(activeId)]="selectedTab">
+          <li [ngbNavItem]="tabs.STATS">
+            <button ngbNavLink>
+              {{'moves.fields.stats' | translate}}
+            </button>
+            <ng-template ngbNavContent>
+              <ngkdx-stats [selectedMove]="selectedMove" />
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="tabs.LEARNED_BY">
+            <button ngbNavLink>
+              {{'moves.fields.learned-by' | translate}}
+            </button>
+            <ng-template ngbNavContent>
+              <ngkdx-learned-by [selectedMove]="selectedMove"  (clickEvent)="goToPokemon($event)" />
+            </ng-template>
+          </li>
+        </ul>
 
-          <div class="title text-truncate">
-            {{'pokedex.move-detail-modal.power' | translate}}
-          </div>
-        </div>
-      </div>
-
-      <div class="col-2">
-        <div class="value-block">
-          <div class="value">
-            <span *ngIf="selectedMove.pp !== null; else noValue">
-              {{selectedMove.pp || '-'}}
-            </span>
-          </div>
-
-          <div class="title text-truncate">
-            {{'pokedex.move-detail-modal.pp' | translate}}
-          </div>
-        </div>
-      </div>
-
-      <div class="col-2">
-        <div class="value-block">
-          <div class="value">
-            <span *ngIf="selectedMove.meta?.crit_rate !== null; else noValue">
-              {{selectedMove.meta.crit_rate}}
-            </span>
-          </div>
-
-          <div class="title text-truncate">
-            {{'pokedex.move-detail-modal.critical-rate' | translate}}
-          </div>
-        </div>
-      </div>
-
-      <div class="col-2">
-        <div class="value-block">
-          <div class="value">
-            <span *ngIf="selectedMove.meta?.drain !== null; else noValue">
-              {{selectedMove.meta.drain}}
-            </span>
-          </div>
-
-          <div class="title text-truncate">
-            {{'pokedex.move-detail-modal.drain' | translate}}
-          </div>
-        </div>
-      </div>
-
-      <div class="col-2">
-        <div class="value-block">
-          <div class="value">
-            <span *ngIf="selectedMove.effect_chance !== null; else noValue">
-              {{selectedMove.effect_chance}}%
-            </span>
-          </div>
-
-          <div class="title text-truncate">
-            {{'pokedex.move-detail-modal.effect-chance' | translate}}
-          </div>
-        </div>
-      </div>
-
-      <div class="col-2">
-        <div class="value-block">
-          <div class="value">
-            <span *ngIf="selectedMove.meta?.flinch_chance !== null; else noValue">
-              {{selectedMove.meta.flinch_chance}}%
-            </span>
-          </div>
-
-          <div class="title text-truncate">
-            {{'pokedex.move-detail-modal.flinch-chance' | translate}}
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row my-3">
-      <div class="col-6">
-        <div class="value-block">
-          <div class="value">
-            <ng-container *ngIf="selectedMove.meta?.min_turns !== null && selectedMove.meta?.max_turns; else noValue">
-              <span class="me-2">
-                {{'common.min' | translate}}: {{selectedMove.meta.min_turns}}
-              </span>
-
-              <span class="ms-2">
-                {{'common.max' | translate}}: {{selectedMove.meta.max_turns}}
-              </span>
-            </ng-container>
-          </div>
-
-          <div class="title text-truncate">
-            {{'pokedex.move-detail-modal.turns' | translate}}
-          </div>
-        </div>
-      </div>
-
-      <div class="col-6">
-        <div class="value-block">
-          <div class="value">
-            <ng-container *ngIf="selectedMove.meta.ailment.name !== 'none'; else noValue">
-              <span class="me-1">
-                {{selectedMove.meta.ailment.name | capitalize}}
-              </span>
-
-              <span>
-                {{selectedMove.meta.ailment_chance}}%
-              </span>
-            </ng-container>
-          </div>
-
-          <div class="title text-truncate">
-            {{'pokedex.move-detail-modal.ailment' | translate}}
-          </div>
-        </div>
+        <div id="specs-tabs-content" [ngbNavOutlet]="movesTabs"></div>
       </div>
     </div>
   </div>

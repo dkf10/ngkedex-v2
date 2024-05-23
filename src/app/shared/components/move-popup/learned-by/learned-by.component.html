@@ -1,0 +1,13 @@
+<div id="learned-by-list">
+  <div class="row" *ngIf="showWaiter">
+    <div class="col text-center">
+      <img src="assets/img/pokeball-spinner.gif" width="128" height="128" alt="waiter" />
+    </div>
+  </div>
+
+  <div class="row" *ngIf="!showWaiter">
+    <div class="col-6" *ngFor="let pokemon of pokemonList">
+      <ngkdx-poke-box [pokemon]="pokemon" [compactView]="true" (clickEvent)="clickEvent.emit($event)" />
+    </div>
+  </div>
+</div>
