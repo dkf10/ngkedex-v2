@@ -11,7 +11,6 @@ import { PipesModule } from '../pipes/pipes.module';
 import { BaseLayoutComponent } from './base-layout/base-layout.component';
 import { MovePopupComponent } from './move-popup/move-popup.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ToastContainerComponent } from './toast-container/toast-container.component';
 
 
 
@@ -22,8 +21,7 @@ import { ToastContainerComponent } from './toast-container/toast-container.compo
     BaseLayoutComponent,
     BaseModalComponent,
     PokeBoxComponent,
-    MovePopupComponent,
-    ToastContainerComponent
+    MovePopupComponent
   ],
   imports: [
     CommonModule,
@@ -39,8 +37,7 @@ import { ToastContainerComponent } from './toast-container/toast-container.compo
     BaseLayoutComponent,
     BaseModalComponent,
     PokeBoxComponent,
-    MovePopupComponent,
-    ToastContainerComponent
+    MovePopupComponent
   ]
 })
 export class ComponentsModule { }

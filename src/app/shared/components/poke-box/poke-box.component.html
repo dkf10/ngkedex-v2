@@ -1,7 +1,7 @@
 <div class="poke-box" (click)="clickEvent.emit(pokemon)">
   <div class="row pokemon-picture">
     <div class="col-auto">
-      <img *ngIf="!pokemon.sprite_link" src="assets/img/pokeball-spinner.gif" width="128" height="128" alt="Waiter" />
+      <img *ngIf="!pokemon.sprite_link" src="assets/img/pokeball-pixel.png" width="128" height="128" alt="pokemon" />
       <img *ngIf="pokemon.sprite_link" [src]="pokemon.sprite_link" width="128" height="128" alt="pokemon" />
     </div>
   </div>

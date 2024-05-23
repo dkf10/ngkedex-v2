@@ -68,7 +68,7 @@ export class PokedexService {
   }
 
   public async fetchPokemonList(list: IGeneral.Result[]): Promise<IPokemon.ListItem[]> {
-    return Promise.all(
+    const output = Promise.allSettled(
       list.map(async (el) => {
         const form = await this.getPokemonForm(el.name);
         return {
@@ -78,6 +78,9 @@ export class PokedexService {
         }
       })
     );
+
+    // Creating output array without not found items
+    return (await output).map((out) => out['value']).filter((el) => el !== undefined);
   }
 
   private extractIdFromUrl(url: string): number {

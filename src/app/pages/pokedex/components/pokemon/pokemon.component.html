@@ -6,7 +6,9 @@
       <div class="container-fluid" id="bio">
         <div class="row align-items-center">
           <div class="col-2 col-xxl-3">
-            <img [src]="selectedPokemon.sprites.front_default" alt="pokemon" />
+            <img *ngIf="selectedPokemon.sprites?.front_default" [src]="selectedPokemon.sprites.front_default"
+              alt="pokemon" />
+            <img *ngIf="!selectedPokemon.sprites?.front_default" src="assets/img/pokeball-pixel.png" alt="pokemon" />
           </div>
           <div class="col px-4">
             <p class="display-name">

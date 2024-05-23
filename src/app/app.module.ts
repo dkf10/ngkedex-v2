@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { ErrorModule } from './pages/error/error.module';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
+import { ToastrModule } from 'ngx-toastr';
 
 export function setupTranslations(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/languages/', '.json');
@@ -36,6 +37,12 @@ const TRANSLATE_MODULE_CONFIG = {
     SharedComponents,
     BrowserAnimationsModule,
     TranslateModule.forRoot(TRANSLATE_MODULE_CONFIG),
+    ToastrModule.forRoot({
+      timeOut: 15000,
+      closeButton: true,
+      progressBar: true,
+      preventDuplicates: true
+    }),
     ErrorModule
   ],
   providers: [{
