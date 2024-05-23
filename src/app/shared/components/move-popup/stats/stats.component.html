@@ -1,0 +1,129 @@
+<div class="row mt-3">
+  <div class="col-2">
+    <div class="value-block">
+      <div class="value">
+        <span *ngIf="selectedMove.power !== null; else noValue">
+          {{selectedMove.power || '-'}}
+        </span>
+      </div>
+
+      <div class="title text-truncate">
+        {{'moves.move-detail-modal.power' | translate}}
+      </div>
+    </div>
+  </div>
+
+  <div class="col-2">
+    <div class="value-block">
+      <div class="value">
+        <span *ngIf="selectedMove.pp !== null; else noValue">
+          {{selectedMove.pp || '-'}}
+        </span>
+      </div>
+
+      <div class="title text-truncate">
+        {{'moves.move-detail-modal.pp' | translate}}
+      </div>
+    </div>
+  </div>
+
+  <div class="col-2">
+    <div class="value-block">
+      <div class="value">
+        <span *ngIf="selectedMove.meta?.crit_rate !== null; else noValue">
+          {{selectedMove.meta.crit_rate}}
+        </span>
+      </div>
+
+      <div class="title text-truncate">
+        {{'moves.move-detail-modal.critical-rate' | translate}}
+      </div>
+    </div>
+  </div>
+
+  <div class="col-2">
+    <div class="value-block">
+      <div class="value">
+        <span *ngIf="selectedMove.meta?.drain !== null; else noValue">
+          {{selectedMove.meta.drain}}
+        </span>
+      </div>
+
+      <div class="title text-truncate">
+        {{'moves.move-detail-modal.drain' | translate}}
+      </div>
+    </div>
+  </div>
+
+  <div class="col-2">
+    <div class="value-block">
+      <div class="value">
+        <span *ngIf="selectedMove.effect_chance !== null; else noValue">
+          {{selectedMove.effect_chance}}%
+        </span>
+      </div>
+
+      <div class="title text-truncate">
+        {{'moves.move-detail-modal.effect-chance' | translate}}
+      </div>
+    </div>
+  </div>
+
+  <div class="col-2">
+    <div class="value-block">
+      <div class="value">
+        <span *ngIf="selectedMove.meta?.flinch_chance !== null; else noValue">
+          {{selectedMove.meta.flinch_chance}}%
+        </span>
+      </div>
+
+      <div class="title text-truncate">
+        {{'moves.move-detail-modal.flinch-chance' | translate}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row my-3">
+  <div class="col-6">
+    <div class="value-block">
+      <div class="value">
+        <ng-container *ngIf="selectedMove.meta?.min_turns !== null && selectedMove.meta?.max_turns; else noValue">
+          <span class="me-2">
+            {{'common.min' | translate}}: {{selectedMove.meta.min_turns}}
+          </span>
+
+          <span class="ms-2">
+            {{'common.max' | translate}}: {{selectedMove.meta.max_turns}}
+          </span>
+        </ng-container>
+      </div>
+
+      <div class="title text-truncate">
+        {{'moves.move-detail-modal.turns' | translate}}
+      </div>
+    </div>
+  </div>
+
+  <div class="col-6">
+    <div class="value-block">
+      <div class="value">
+        <ng-container *ngIf="selectedMove.meta.ailment.name !== 'none'; else noValue">
+          <span class="me-1">
+            {{selectedMove.meta.ailment.name | capitalize}}
+          </span>
+
+          <span>
+            {{selectedMove.meta.ailment_chance}}%
+          </span>
+        </ng-container>
+      </div>
+
+      <div class="title text-truncate">
+        {{'moves.move-detail-modal.ailment' | translate}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noValue>-</ng-template>

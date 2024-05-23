@@ -8,5 +8,6 @@ import { IPokemon } from '../../interfaces/pokemon.interface';
 })
 export class PokeBoxComponent {
   @Input() public pokemon: IPokemon.ListItem;
+  @Input() public compactView: boolean = false;
   @Output() public clickEvent = new EventEmitter<IPokemon.ListItem>();
 }

@@ -37,14 +37,16 @@ export class EvolutionsComponent implements OnChanges {
 
     if (!chain) {
       this.displayEvolution = [];
-      pokemon = await this.pokedexService.getPokemon(this.evolution.chain.species.name);
+      const pokemonId = this.pokedexService.extractIdFromUrl(this.evolution.chain.species.url)
+      pokemon = await this.pokedexService.getPokemon(pokemonId);
       this.addElementToDisplayChain(pokemon);
       await this.buildChain(this.evolution.chain.evolves_to);
       return;
     }
 
     chain.forEach(async (evo) => {
-      pokemon = await this.pokedexService.getPokemon(evo.species.name);
+      const pokemonId = this.pokedexService.extractIdFromUrl(evo.species.url)
+      pokemon = await this.pokedexService.getPokemon(pokemonId);
       this.addElementToDisplayChain(pokemon);
 
       if (evo.evolves_to?.length > 0) {

@@ -39,7 +39,7 @@ export class PokedexService {
     return this._pokemonPaginated;
   }
 
-  public async getPokemon(pokemon: number | string): Promise<IPokemon.Pokemon> {
+  public async getPokemon(pokemon: number): Promise<IPokemon.Pokemon> {
     return lastValueFrom(
       this.httpClient.get<IPokemon.Form>(`${environment.BASE_URL}${ApiUrl.Pokemon.POKEMON}${pokemon}`, { responseType: 'json' })
         .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
@@ -83,7 +83,7 @@ export class PokedexService {
     return (await output).map((out) => out['value']).filter((el) => el !== undefined);
   }
 
-  private extractIdFromUrl(url: string): number {
+  public extractIdFromUrl(url: string): number {
     return parseInt(url.match(/\/(\d+)+[\/]?/g)[0].replace(/\//g, ''), 10);
   }
 }
