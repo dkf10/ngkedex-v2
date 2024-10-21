@@ -45,6 +45,7 @@
     "move": "Move",
     "learned-at-level": "Learned at level",
     "method": "Method",
+    "generation": "Generation",
     "search": {
       "info": "Click on a Pokémon to go to detail page.",
       "start-search": "Serach Pokémon by typing something."
@@ -82,6 +83,7 @@
     "min": "Min",
     "max": "Max",
     "search-by": "Search by: ",
-    "no-results": "No results"
+    "no-results": "No results",
+    "all": "All"
   }
 }

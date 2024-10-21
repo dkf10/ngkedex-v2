@@ -19,6 +19,8 @@ export class LandingComponent implements OnInit, OnDestroy {
   @ViewChild('uiElement', { static: false }) public uiElement: ElementRef;
 
   public searchTerm: string;
+  public selectedGeneration: number;
+  public generationsList: IGeneral.Result[];
   public pokemonList: IPokemon.ListItem[] = [];
   public searchResultsList: IPokemon.ListItem[] = [];
   public showSmallLoader: boolean = false;
@@ -40,6 +42,7 @@ export class LandingComponent implements OnInit, OnDestroy {
 
   public async ngOnInit(): Promise<void> {
     this.initSearchSubscription();
+    this.generationsList = this.pokedexService.generationsList;
     this.rawList = this.pokedexService.pokemonPaginated;
     await this.loadPokemonList(this.rawList.results);
     this.waiting.WaitingEnabled = false;
@@ -55,7 +58,7 @@ export class LandingComponent implements OnInit, OnDestroy {
       return;
     }
 
-    const nativeElement = this.uiElement.nativeElement
+    const nativeElement = this.uiElement.nativeElement;
 
     if (
       nativeElement.clientHeight + Math.round(nativeElement.scrollTop) === nativeElement.scrollHeight &&

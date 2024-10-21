@@ -17,10 +17,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/moves/moves.module').then(m => m.MovesModule)
   },
   {
-    path: mainMenu.GENERATIONS,
-    loadChildren: () => import('./pages/generations/generations.module').then(m => m.GenerationsModule)
-  },
-  {
     path: mainMenu.MACHINES,
     loadChildren: () => import('./pages/machines/machines.module').then(m => m.MachinesModule)
   },

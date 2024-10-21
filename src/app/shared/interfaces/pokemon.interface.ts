@@ -2,13 +2,13 @@ import { IGeneral } from "./general.interface";
 
 export namespace IPokemon {
   export interface Pokemon {
+    id: number;
     abilities: Ability[];
     base_experience: number;
     cries: Cry;
     forms: IGeneral.Result[];
     game_indices: GameIndex[];
     height: number;
-    id: number;
     is_default: boolean;
     location_areas_encounters: string;
     moves: Move[];

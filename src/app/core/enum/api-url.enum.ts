@@ -1,6 +1,7 @@
 export namespace ApiUrl {
     export enum Pokemon {
         POKEMON = '/pokemon/',
+        GENERATION = '/generation/',
         FORM = '/pokemon-form/',
         STAT = '/stat/',
         POKEMON_SPECIES = '/pokemon-species/',

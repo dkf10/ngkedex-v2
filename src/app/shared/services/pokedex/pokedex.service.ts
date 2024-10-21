@@ -1,10 +1,12 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { lastValueFrom, timeout } from 'rxjs';
 import { AppConfig } from 'src/app/core/config/app.config';
 import { ApiUrl } from 'src/app/core/enum/api-url.enum';
 import { IEvolution } from 'src/app/shared/interfaces/evolution.interface';
 import { IPokemon } from 'src/app/shared/interfaces/pokemon.interface';
+import { IGeneration } from 'src/app/shared/interfaces/generation.interface';
 import { IGeneral } from 'src/app/shared/interfaces/general.interface';
 import { environment } from 'src/environments/environment';
 
@@ -13,14 +15,28 @@ import { environment } from 'src/environments/environment';
 })
 export class PokedexService {
 
+  private _generationsList: IGeneral.Result[] = [];
   private _pokemonPaginated: IGeneral.Paginated;
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private translate: TranslateService
   ) { }
 
   public get pokemonPaginated(): IGeneral.Paginated {
     return this._pokemonPaginated;
+  }
+
+  public get generationsList(): IGeneral.Result[] {
+    return this._generationsList;
+  }
+
+  public async getAllGenerations(): Promise<void> {
+    const generationsRaw: IGeneral.Paginated = await lastValueFrom(this.httpClient.get<IGeneral.Paginated>(`${environment.BASE_URL}${ApiUrl.Pokemon.GENERATION}`, { responseType: 'json' })
+      .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
+    );
+
+    this.fetchGenerationsList(generationsRaw);
   }
 
   public async getAllPokemon(limit?: number): Promise<IGeneral.Paginated> {
@@ -67,6 +83,13 @@ export class PokedexService {
     );
   }
 
+  public async getGeneration(id: number): Promise<IGeneration.Generation> {
+    return lastValueFrom(
+      this.httpClient.get<IGeneration.Generation>(`${environment.BASE_URL}${ApiUrl.Pokemon.GENERATION}${id}`, { responseType: 'json' })
+        .pipe(timeout(AppConfig.DEFAULT_TIMEOUT)), { defaultValue: null }
+    );
+  }
+
   public async fetchPokemonList(list: IGeneral.Result[]): Promise<IPokemon.ListItem[]> {
     const output = Promise.allSettled(
       list.map(async (el) => {
@@ -82,6 +105,24 @@ export class PokedexService {
 
     // Creating output array without not found items
     return (await output).map((out) => out['value']).filter((el) => el !== undefined);
+  }
+
+  public fetchGenerationsList(paginated: IGeneral.Paginated): void {
+    this._generationsList = [{
+      id: 0,
+      name: this.translate.instant('common.all')
+    }];
+
+    this._generationsList = this.generationsList.concat(
+      paginated.results.map((el) => {
+        const id = this.extractIdFromUrl(el.url);
+        return {
+          id: id,
+          name: `${this.translate.instant('pokedex.generation')} ${id}`,
+          url: el.url
+        }
+      })
+    );
   }
 
   public extractIdFromUrl(url: string): number {

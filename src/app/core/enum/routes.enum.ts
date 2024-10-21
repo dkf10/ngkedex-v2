@@ -1,4 +1,4 @@
-type MainMenu = 'HOME' | 'POKEDEX' | 'MACHINES' | 'MOVES' | 'GENERATIONS' | 'ABOUT';
+type MainMenu = 'HOME' | 'POKEDEX' | 'MACHINES' | 'MOVES' | 'ABOUT';
 type PokemonPage = 'POKEMON';
 type ErrorPage = 'ERR_401' | 'ERR_403' | 'ERR_404';
 
@@ -7,7 +7,6 @@ export const mainMenu: Record<MainMenu, string> = {
   POKEDEX: 'pokedex',
   MACHINES: 'machines',
   MOVES: 'moves',
-  GENERATIONS: 'generations',
   ABOUT: 'about'
 }
 

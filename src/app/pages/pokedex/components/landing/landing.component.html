@@ -1,4 +1,21 @@
 <ngkdx-base-layout [id]="'pokedex'">
+  <div class="row">
+    <div class="col p-0">
+      <div class="container-fluid" id="generations">
+        <ul ngbNav #generationsTab="ngbNav" class="standard-tabs nav-tabs" [(activeId)]="selectedGeneration"
+          [destroyOnHide]="false">
+          <ng-container *ngFor="let generation of generationsList">
+            <li [ngbNavItem]="generation.name">
+              <button ngbNavLink>
+                {{generation.name}}
+              </button>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <div class="row pokemon-list" #uiElement (scroll)="onScroll()">
     <div class="col-3 mt-4" *ngFor="let pokemon of pokemonList">
       <ngkdx-poke-box [pokemon]="pokemon" (clickEvent)="goToPokemon($event)" />
