@@ -1,5 +1,7 @@
-<div id="waiting-layer" *ngIf="showWaiting">
+@if (show) {
+<div id="waiting-layer">
   <div id="loader-container">
     <img src="assets/img/pokeball-spinner.gif" width="256" height="256" alt="Waiter" />
   </div>
 </div>
+}

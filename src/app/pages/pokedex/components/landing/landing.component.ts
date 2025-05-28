@@ -7,7 +7,7 @@ import { WaitingService } from 'src/app/shared/services/waiting/waiting.service'
 import { mainMenu, pokemonPage } from 'src/app/core/enum/routes.enum';
 import { SearchService } from 'src/app/shared/services/search/search.service';
 import { IGeneral } from 'src/app/shared/interfaces/general.interface';
-import { PokedexService } from '../../../../shared/services/pokedex/pokedex.service';
+import { PokedexService } from 'src/app/shared/services/pokedex/pokedex.service';
 
 @Component({
     selector: 'ngkdx-landing',

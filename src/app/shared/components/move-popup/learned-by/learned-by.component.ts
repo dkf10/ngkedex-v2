@@ -2,12 +2,13 @@ import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from
 import { IMove } from 'src/app/shared/interfaces/move.interface';
 import { IPokemon } from 'src/app/shared/interfaces/pokemon.interface';
 import { PokedexService } from 'src/app/shared/services/pokedex/pokedex.service';
+import { PokeBoxComponent } from '../../../standalones/poke-box/poke-box.component';
 
 @Component({
-    selector: 'ngkdx-learned-by',
-    templateUrl: './learned-by.component.html',
-    styleUrls: ['./learned-by.component.scss'],
-    standalone: false
+  selector: 'ngkdx-learned-by',
+  templateUrl: './learned-by.component.html',
+  styleUrls: ['./learned-by.component.scss'],
+  standalone: false
 })
 export class LearnedByComponent implements OnChanges {
 

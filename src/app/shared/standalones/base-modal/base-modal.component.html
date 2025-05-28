@@ -10,9 +10,11 @@
         </span>
       </header>
 
-      <section *ngIf="isOpen">
+      @if (isOpen) {
+      <section>
         <ng-content />
       </section>
+      }
 
       <footer #footer [hidden]="footer.childNodes.length === 0">
         <ng-content select="[footer]" />
