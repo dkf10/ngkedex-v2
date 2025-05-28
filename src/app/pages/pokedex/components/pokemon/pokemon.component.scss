@@ -1,5 +1,5 @@
 @use "/src/assets/styles/utils" as *;
-@import "/src/assets/palette/base-palette.scss";
+@use "/src/assets/palette/base-palette.scss" as basePalette;
 
 #pokemon {
   padding-top: pxToRem(30px);
@@ -11,7 +11,7 @@
 
   #bio {
     margin-bottom: pxToRem(15px);
-    border: 1px solid rgba($ngkdx-light-blue-1);
+    border: 1px solid rgba(basePalette.$ngkdx-light-blue-1);
     border-radius: pxToRem(8px);
     min-height: pxToRem(150px);
 
@@ -25,7 +25,7 @@
       margin: 0;
 
       .pokemon-number {
-        color: rgba($ngkdx-light-blue-1);
+        color: rgba(basePalette.$ngkdx-light-blue-1);
         padding: 0 pxToRem(5px);
       }
     }
@@ -37,7 +37,7 @@
   }
 
   #specs {
-    border: 1px solid rgba($ngkdx-light-blue-1);
+    border: 1px solid rgba(basePalette.$ngkdx-light-blue-1);
     border-radius: pxToRem(8px);
     height: 100%;
 

@@ -1,5 +1,5 @@
 @use "/src/assets/styles/utils" as *;
-@import "/src/assets/palette/base-palette.scss";
+@use "/src/assets/palette/base-palette.scss" as basePalette;
 
 #base-layout {
   display: flex;
@@ -17,22 +17,22 @@
 
 .search-canvas-header,
 .search-canvas-body {
-  border-left: 1px solid rgba($ngkdx-red-1);
+  border-left: 1px solid rgba(basePalette.$ngkdx-red-1);
   padding: pxToRem(20px);
 }
 
 .search-canvas-header {
   display: flex;
   align-items: center;
-  border-bottom: pxToRem(5px) solid rgba($ngkdx-red-1);
-  background: rgba($ngkdx-dark-blue-1);
-  color: rgba($ngkdx-white);
+  border-bottom: pxToRem(5px) solid rgba(basePalette.$ngkdx-red-1);
+  background: rgba(basePalette.$ngkdx-dark-blue-1);
+  color: rgba(basePalette.$ngkdx-white);
 
   #search-canvas-title {
     flex-grow: 1;
     font-size: pxToRem(23px);
     font-weight: lighter;
-    
+
     .close-btn {
       cursor: pointer;
     }

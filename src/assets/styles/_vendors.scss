@@ -1,12 +1,12 @@
 @use "/src/assets/styles/utils" as *;
-@import "/src/assets/palette/base-palette.scss";
+@use "/src/assets/palette/base-palette.scss" as basePalette;
 
 .container {
   min-width: 994px;
 }
 
 .form-control {
-  border-color: rgba($ngkdx-light-blue-1) !important;
+  border-color: rgba(basePalette.$ngkdx-light-blue-1) !important;
 
   &:focus {
     outline: unset !important;
@@ -15,8 +15,8 @@
 }
 
 .input-group-text {
-  border-color: rgba($ngkdx-light-blue-1) !important;
-  background-color: rgba($ngkdx-light-blue-3) !important;
+  border-color: rgba(basePalette.$ngkdx-light-blue-1) !important;
+  background-color: rgba(basePalette.$ngkdx-light-blue-3) !important;
 }
 
 .min-h-0 {
@@ -24,88 +24,88 @@
 }
 
 .text-bg-poke {
-  background-color: rgba($ngkdx-dark-blue-1);
-  color: rgba($ngkdx-white);
+  background-color: rgba(basePalette.$ngkdx-dark-blue-1);
+  color: rgba(basePalette.$ngkdx-white);
 }
 
 .text-bg-move-type {
-  color: rgba($ngkdx-white);
+  color: rgba(basePalette.$ngkdx-white);
 
   &.unkown,
   &.normal {
-    background-color: rgba($ngkdx-dark-blue-2);
+    background-color: rgba(basePalette.$ngkdx-dark-blue-2);
   }
 
   &.fire {
-    background-color: rgba($ngkdx-red-1);
+    background-color: rgba(basePalette.$ngkdx-red-1);
   }
 
   &.fighting,
   &.ground {
-    background-color: rgba($ngkdx-orange-1);
+    background-color: rgba(basePalette.$ngkdx-orange-1);
   }
 
   &.flying,
   &.ghost,
   &.steel {
-    background-color: rgba($ngkdx-grey);
+    background-color: rgba(basePalette.$ngkdx-grey);
   }
 
   &.grass,
   &.rock {
-    background-color: rgba($ngkdx-green-2);
+    background-color: rgba(basePalette.$ngkdx-green-2);
   }
 
   &.bug,
   &.poison,
   &.psychic {
-    background-color: rgba($ngkdx-green-3);
+    background-color: rgba(basePalette.$ngkdx-green-3);
   }
 
   &.ice {
-    background-color: rgba($ngkdx-light-blue-1);
+    background-color: rgba(basePalette.$ngkdx-light-blue-1);
   }
 
   &.water {
-    background-color: rgba($ngkdx-dark-blue-3);
+    background-color: rgba(basePalette.$ngkdx-dark-blue-3);
   }
 
   &.electric {
-    background-color: rgba($ngkdx-yellow-2);
+    background-color: rgba(basePalette.$ngkdx-yellow-2);
   }
 
   &.dark {
-    background-color: rgba($ngkdx-black);
+    background-color: rgba(basePalette.$ngkdx-black);
   }
 
   &.dragon {
-    background-color: rgba($ngkdx-purple-1);
+    background-color: rgba(basePalette.$ngkdx-purple-1);
   }
 
   &.fairy {
-    background-color: rgba($ngkdx-pink);
+    background-color: rgba(basePalette.$ngkdx-pink);
   }
 }
 
 .text-bg-move-category {
-  color: rgba($ngkdx-white);
+  color: rgba(basePalette.$ngkdx-white);
 
   &.damage,
   &.ailment {
-    background-color: rgba($ngkdx-red-2);
+    background-color: rgba(basePalette.$ngkdx-red-2);
   }
 
   &.net-good-stats,
   &.heal,
   &.ohko {
-    background-color: rgba($ngkdx-green-1);
+    background-color: rgba(basePalette.$ngkdx-green-1);
   }
 
   &.damage-lower,
   &.damage-raise,
   &.damage-heal,
   &.damage-ailment {
-    background-color: rgba($ngkdx-yellow-1);
+    background-color: rgba(basePalette.$ngkdx-yellow-1);
   }
 
   &.unique,
@@ -113,12 +113,12 @@
   &.field-effect,
   &.whole-field-effect,
   &.swagger {
-    background-color: rgba($ngkdx-dark-blue-1);
+    background-color: rgba(basePalette.$ngkdx-dark-blue-1);
   }
 }
 
 .standard-tabs {
-  background-color: rgba($ngkdx-light-blue-1);
+  background-color: rgba(basePalette.$ngkdx-light-blue-1);
   border-radius: pxToRem(8px);
   padding: pxToRem(5px);
   margin-top: pxToRem(15px);
@@ -132,16 +132,16 @@
       border-radius: pxToRem(6px);
       min-width: pxToRem(100px);
       margin-right: pxToRem(6px);
-      color: rgba($ngkdx-black);
+      color: rgba(basePalette.$ngkdx-black);
 
       &.active {
-        background-color: rgba($ngkdx-dark-blue-1);
-        color: rgba($ngkdx-white);
+        background-color: rgba(basePalette.$ngkdx-dark-blue-1);
+        color: rgba(basePalette.$ngkdx-white);
         font-weight: 600;
       }
 
       &:hover:not(.active) {
-        background-color: rgba($ngkdx-light-blue-2);
+        background-color: rgba(basePalette.$ngkdx-light-blue-2);
         cursor: pointer;
       }
     }
@@ -180,14 +180,14 @@
     &:nth-of-type(2n+1) {
       td {
         transition: all 200ms ease-in-out;
-        background-color: rgba($ngkdx-light-blue-4);
+        background-color: rgba(basePalette.$ngkdx-light-blue-4);
         box-shadow: unset !important;
       }
     }
 
     &:hover {
       td {
-        background-color: rgba($ngkdx-light-blue-3) !important;
+        background-color: rgba(basePalette.$ngkdx-light-blue-3) !important;
       }
 
       cursor: pointer;
@@ -216,7 +216,7 @@
     display: flex;
     align-items: center;
     margin: pxToRem(15px) 0;
-    color: rgba($ngkdx-grey);
+    color: rgba(basePalette.$ngkdx-grey);
 
     .info-icon {
       margin-right: pxToRem(10px);
@@ -229,6 +229,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgba($ngkdx-grey);
+    color: rgba(basePalette.$ngkdx-grey);
   }
 }

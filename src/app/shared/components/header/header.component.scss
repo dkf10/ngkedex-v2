@@ -1,30 +1,30 @@
 @use "/src/assets/styles/utils" as *;
-@import "/src/assets/palette/base-palette.scss";
+@use "/src/assets/palette/base-palette.scss" as basePalette;
 
 nav {
 	height: pxToRem(60px);
 	padding: pxToRem(0px) pxToRem(15px);
-	border-bottom: pxToRem(5px) solid rgba($ngkdx-red-1);
-	background: rgba($ngkdx-dark-blue-1);
+	border-bottom: pxToRem(5px) solid rgba(basePalette.$ngkdx-red-1);
+	background: rgba(basePalette.$ngkdx-dark-blue-1);
 
 	.navbar-nav {
 		margin-left: pxToRem(15px);
 
 		.nav-link {
-			color: rgba($ngkdx-white);
+			color: rgba(basePalette.$ngkdx-white);
 			text-align: center;
 			border-radius: pxToRem(6px);
 			min-width: pxToRem(120px);
 			margin-right: pxToRem(6px);
 
 			&.active {
-				background-color: rgba($ngkdx-red-1);
+				background-color: rgba(basePalette.$ngkdx-red-1);
 				font-weight: 600;
 			}
 
 			&:hover:not(.active) {
-				background-color: rgba($ngkdx-light-blue-1);
-				color: rgba($ngkdx-black);
+				background-color: rgba(basePalette.$ngkdx-light-blue-1);
+				color: rgba(basePalette.$ngkdx-black);
 				cursor: pointer;
 			}
 		}

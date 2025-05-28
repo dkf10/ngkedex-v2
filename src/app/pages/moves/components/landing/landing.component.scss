@@ -1,8 +1,7 @@
 @use "/src/assets/styles/utils" as *;
-@import "/src/assets/palette/base-palette.scss";
-
+@use "/src/assets/palette/base-palette.scss" as basePalette;
 .moves-table {
-  border: 1px solid rgba($ngkdx-light-blue-1);
+  border: 1px solid rgba(basePalette.$ngkdx-light-blue-1);
   margin-top: pxToRem(30px);
   margin-bottom: pxToRem(30px);
 }
@@ -15,7 +14,7 @@
 }
 
 .search-item {
-  border: 1px solid rgba($ngkdx-light-blue-1);
+  border: 1px solid rgba(basePalette.$ngkdx-light-blue-1);
   border-radius: pxToRem(8px);
   padding: pxToRem(15px);
   margin: pxToRem(10px) 0;
@@ -24,7 +23,7 @@
   transition: all 200ms ease-in-out;
 
   &:hover {
-    background-color: rgba($ngkdx-light-blue-3) !important;
+    background-color: rgba(basePalette.$ngkdx-light-blue-3) !important;
     cursor: pointer;
   }
 }

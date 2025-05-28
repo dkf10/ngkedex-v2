@@ -1,5 +1,5 @@
 @use "/src/assets/styles/utils" as *;
-@import "/src/assets/palette/base-palette.scss";
+@use "/src/assets/palette/base-palette.scss" as basePalette;
 
 #about {
   display: flex;
@@ -15,6 +15,6 @@
   }
 
   .heart {
-    color: rgba($ngkdx-red-1)
+    color: rgba(basePalette.$ngkdx-red-1)
   }
 }

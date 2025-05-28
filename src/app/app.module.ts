@@ -4,6 +4,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HTTP_INTERCEPTORS, HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { ToastrModule } from 'ngx-toastr';
 
 import { ComponentsModule as SharedComponents } from './shared/components/components.module';
 import { AppRoutingModule } from './app-routing.module';
@@ -11,7 +12,6 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { ErrorModule } from './pages/error/error.module';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
-import { ToastrModule } from 'ngx-toastr';
 
 export function setupTranslations(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/languages/', '.json');
