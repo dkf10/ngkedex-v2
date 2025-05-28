@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { ComponentsModule as SharedComponents } from './shared/components/components.module';
@@ -29,10 +29,9 @@ const TRANSLATE_MODULE_CONFIG = {
   declarations: [
     AppComponent
   ],
-  imports: [
-    BrowserModule,
+  bootstrap: [AppComponent],
+  imports: [BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     CoreModule,
     SharedComponents,
     BrowserAnimationsModule,
@@ -44,13 +43,10 @@ const TRANSLATE_MODULE_CONFIG = {
       preventDuplicates: true,
       positionClass: 'toast-bottom-right'
     }),
-    ErrorModule
-  ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: ErrorInterceptor,
-    multi: true
-  }],
-  bootstrap: [AppComponent]
+    ErrorModule], providers: [{
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true
+    }, provideHttpClient(withInterceptorsFromDi())]
 })
 export class AppModule { }
