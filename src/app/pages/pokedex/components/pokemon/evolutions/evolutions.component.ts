@@ -4,9 +4,10 @@ import { IPokemon } from 'src/app/shared/interfaces/pokemon.interface';
 import { PokedexService } from '../../../../../shared/services/pokedex/pokedex.service';
 
 @Component({
-  selector: 'ngkdx-pokemon-evolutions',
-  templateUrl: './evolutions.component.html',
-  styleUrls: ['./evolutions.component.scss']
+    selector: 'ngkdx-pokemon-evolutions',
+    templateUrl: './evolutions.component.html',
+    styleUrls: ['./evolutions.component.scss'],
+    standalone: false
 })
 export class EvolutionsComponent implements OnChanges {
 

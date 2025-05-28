@@ -4,9 +4,10 @@ import { IPokemon } from 'src/app/shared/interfaces/pokemon.interface';
 import { PokedexService } from 'src/app/shared/services/pokedex/pokedex.service';
 
 @Component({
-  selector: 'ngkdx-learned-by',
-  templateUrl: './learned-by.component.html',
-  styleUrls: ['./learned-by.component.scss']
+    selector: 'ngkdx-learned-by',
+    templateUrl: './learned-by.component.html',
+    styleUrls: ['./learned-by.component.scss'],
+    standalone: false
 })
 export class LearnedByComponent implements OnChanges {
 

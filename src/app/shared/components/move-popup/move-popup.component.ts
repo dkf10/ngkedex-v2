@@ -8,9 +8,10 @@ import { mainMenu, pokemonPage } from 'src/app/core/enum/routes.enum';
 import { IPokemon } from '../../interfaces/pokemon.interface';
 
 @Component({
-  selector: 'ngkdx-move-popup',
-  templateUrl: './move-popup.component.html',
-  styleUrls: ['./move-popup.component.scss']
+    selector: 'ngkdx-move-popup',
+    templateUrl: './move-popup.component.html',
+    styleUrls: ['./move-popup.component.scss'],
+    standalone: false
 })
 export class MovePopupComponent {
   public isMoveDetailOpen: boolean = false;

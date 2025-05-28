@@ -10,9 +10,10 @@ import { IGeneral } from 'src/app/shared/interfaces/general.interface';
 import { PokedexService } from '../../../../shared/services/pokedex/pokedex.service';
 
 @Component({
-  selector: 'ngkdx-landing',
-  templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.scss']
+    selector: 'ngkdx-landing',
+    templateUrl: './landing.component.html',
+    styleUrls: ['./landing.component.scss'],
+    standalone: false
 })
 export class LandingComponent implements OnInit, OnDestroy {
 

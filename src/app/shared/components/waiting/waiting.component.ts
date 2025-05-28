@@ -3,9 +3,10 @@ import { Subscription } from 'rxjs';
 import { WaitingService } from '../../services/waiting/waiting.service';
 
 @Component({
-  selector: 'ngkdx-waiting',
-  templateUrl: './waiting.component.html',
-  styleUrls: ['./waiting.component.scss']
+    selector: 'ngkdx-waiting',
+    templateUrl: './waiting.component.html',
+    styleUrls: ['./waiting.component.scss'],
+    standalone: false
 })
 export class WaitingComponent implements OnInit, OnDestroy {
   public showWaiting: boolean;

@@ -4,9 +4,10 @@ import { SearchService } from '../../services/search/search.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'ngkdx-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+    selector: 'ngkdx-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.scss'],
+    standalone: false
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   public readonly mainMenuRoute = mainMenu;

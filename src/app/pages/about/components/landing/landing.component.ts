@@ -3,9 +3,10 @@ import { Component } from '@angular/core';
 const { version: appVersion } = require('../../../../../../package.json');
 
 @Component({
-  selector: 'ngkdx-about',
-  templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.scss']
+    selector: 'ngkdx-about',
+    templateUrl: './landing.component.html',
+    styleUrls: ['./landing.component.scss'],
+    standalone: false
 })
 export class AboutLandingComponent {
   public readonly appVersion = appVersion;

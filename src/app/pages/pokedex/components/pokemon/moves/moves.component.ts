@@ -5,9 +5,10 @@ import { MovesService } from 'src/app/shared/services/moves/moves.service';
 import { WaitingService } from 'src/app/shared/services/waiting/waiting.service';
 
 @Component({
-  selector: 'ngkdx-pokemon-moves',
-  templateUrl: './moves.component.html',
-  styleUrls: ['./moves.component.scss']
+    selector: 'ngkdx-pokemon-moves',
+    templateUrl: './moves.component.html',
+    styleUrls: ['./moves.component.scss'],
+    standalone: false
 })
 export class MovesComponent {
   @ViewChild('moveDetail') public moveDetailPopup: MovePopupComponent;

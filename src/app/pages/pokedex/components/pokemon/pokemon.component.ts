@@ -8,9 +8,10 @@ import { PokedexService } from '../../../../shared/services/pokedex/pokedex.serv
 import { PokedexEnum } from '../../enums/pokedex.enum';
 
 @Component({
-  selector: 'ngkdx-pokemon',
-  templateUrl: './pokemon.component.html',
-  styleUrls: ['./pokemon.component.scss']
+    selector: 'ngkdx-pokemon',
+    templateUrl: './pokemon.component.html',
+    styleUrls: ['./pokemon.component.scss'],
+    standalone: false
 })
 export class PokemonComponent implements OnInit {
 

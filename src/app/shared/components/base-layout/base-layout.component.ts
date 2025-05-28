@@ -4,9 +4,10 @@ import { SearchService } from '../../services/search/search.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'ngkdx-base-layout',
-  templateUrl: './base-layout.component.html',
-  styleUrls: ['./base-layout.component.scss']
+    selector: 'ngkdx-base-layout',
+    templateUrl: './base-layout.component.html',
+    styleUrls: ['./base-layout.component.scss'],
+    standalone: false
 })
 export class BaseLayoutComponent implements OnInit, OnDestroy {
 

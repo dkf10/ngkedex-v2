@@ -4,9 +4,10 @@ import { IPokemon } from 'src/app/shared/interfaces/pokemon.interface';
 import { CapitalizePipe } from 'src/app/shared/pipes/capitalize/capitalize.pipe';
 
 @Component({
-  selector: 'ngkdx-pokemon-stats',
-  templateUrl: './stats.component.html',
-  styleUrls: ['./stats.component.scss']
+    selector: 'ngkdx-pokemon-stats',
+    templateUrl: './stats.component.html',
+    styleUrls: ['./stats.component.scss'],
+    standalone: false
 })
 export class StatsComponent implements OnChanges {
 

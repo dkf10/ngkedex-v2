@@ -10,9 +10,10 @@ import { MovesService } from '../../../../shared/services/moves/moves.service';
 import { SearchService } from 'src/app/shared/services/search/search.service';
 
 @Component({
-  selector: 'ngkdx-landing',
-  templateUrl: './landing.component.html',
-  styleUrls: ['./landing.component.scss']
+    selector: 'ngkdx-landing',
+    templateUrl: './landing.component.html',
+    styleUrls: ['./landing.component.scss'],
+    standalone: false
 })
 export class LandingComponent implements OnInit, OnDestroy {
 
