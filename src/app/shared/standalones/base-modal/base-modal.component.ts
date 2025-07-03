@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { trigger, state, style, transition, animate, animateChild, query, group } from '@angular/animations';
-import { ModalSize } from '../../enum/modal-size.enum';
 import { CommonModule } from '@angular/common';
+import { ModalSize } from '../../enum/modal-size.enum';
 
 @Component({
 	selector: 'ngkdx-base-modal',

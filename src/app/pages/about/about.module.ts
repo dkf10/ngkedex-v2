@@ -5,6 +5,7 @@ import { AboutRoutingModule } from './about-routing.module';
 import { AboutLandingComponent } from './components/landing/landing.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { ComponentsModule } from 'src/app/shared/components/components.module';
+import { BaseModalComponent } from 'src/app/shared/standalones/base-modal/base-modal.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { ComponentsModule } from 'src/app/shared/components/components.module';
     CommonModule,
     TranslateModule,
     ComponentsModule,
+    BaseModalComponent,
     AboutRoutingModule
   ]
 })
