@@ -17,8 +17,6 @@ import { EvolutionsComponent } from './components/pokemon/evolutions/evolutions.
 import { StatsComponent } from './components/pokemon/stats/stats.component';
 import { PokeBoxComponent } from 'src/app/shared/standalones/poke-box/poke-box.component';
 
-PlotlyModule.plotlyjs = PlotlyJS;
-
 @NgModule({
   declarations: [
     LandingComponent,
@@ -33,7 +31,7 @@ PlotlyModule.plotlyjs = PlotlyJS;
     RouterModule,
     ComponentsModule,
     PipesModule,
-    PlotlyModule,
+    PlotlyModule.forRoot(PlotlyJS),
     NgbModule,
     PokedexRoutingModule,
     PokeBoxComponent,

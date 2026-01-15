@@ -18,56 +18,68 @@
       </thead>
 
       <tbody>
-        <tr *ngFor="let move of movesList" (click)="openMoveDetail(move)">
-          <td>
-            <div class="text-truncate">
-              {{move.name}}
-            </div>
-          </td>
-          <td>
-            <span class="badge w-100 rounded-pill text-bg-move-category {{move.category_class}}">
-              {{move.meta.category.name | capitalize}}
-            </span>
-          </td>
-          <td>
-            <span class="badge w-100 rounded-pill text-bg-move-type {{move.type.name}}">
-              {{move.type.name | capitalize}}
-            </span>
-          </td>
-          <td>
-            <div class="text-truncate">
-              {{move.flavor_text}}
-            </div>
-          </td>
-        </tr>
+        @for (move of movesList; track move) {
+          <tr (click)="openMoveDetail(move)">
+            <td>
+              <div class="text-truncate">
+                {{move.name}}
+              </div>
+            </td>
+            <td>
+              <span class="badge w-100 rounded-pill text-bg-move-category {{move.category_class}}">
+                {{move.meta.category.name | capitalize}}
+              </span>
+            </td>
+            <td>
+              <span class="badge w-100 rounded-pill text-bg-move-type {{move.type.name}}">
+                {{move.type.name | capitalize}}
+              </span>
+            </td>
+            <td>
+              <div class="text-truncate">
+                {{move.flavor_text}}
+              </div>
+            </td>
+          </tr>
+        }
       </tbody>
     </table>
   </div>
 
   <!-- Search move results -->
   <div class="search-results-container" search-results>
-    <div class="start-search" *ngIf="!isSearching">
-      {{'moves.search.start-search' | translate}}
-    </div>
-    <div class="no-results" *ngIf="isSearching && rawFilteredList.length === 0">
-      {{'common.no-results' | translate}}
-    </div>
-    <div class="search-info" *ngIf="rawFilteredList.length > 0">
-      <span class="info-icon">
-        <em class="fas fa-circle-info"></em>
-      </span>
-      <span>
-        {{'moves.search.info' | translate}}
-      </span>
-    </div>
-    <div class="search-item" *ngFor="let move of rawFilteredList" (click)="openMoveDetail(null, move.url)">
-      {{move.name | capitalize}}
-    </div>
+    @if (!isSearching) {
+      <div class="start-search">
+        {{'moves.search.start-search' | translate}}
+      </div>
+    }
+    @if (isSearching && rawFilteredList.length === 0) {
+      <div class="no-results">
+        {{'common.no-results' | translate}}
+      </div>
+    }
+    @if (rawFilteredList.length > 0) {
+      <div class="search-info">
+        <span class="info-icon">
+          <em class="fas fa-circle-info"></em>
+        </span>
+        <span>
+          {{'moves.search.info' | translate}}
+        </span>
+      </div>
+    }
+    @for (move of rawFilteredList; track move) {
+      <div class="search-item" (click)="openMoveDetail(null, move.url)">
+        {{move.name | capitalize}}
+      </div>
+    }
   </div>
 </ngkdx-base-layout>
 
-<div class="small-loader" *ngIf="showSmallLoader">
-  <img src="assets/img/pokeball-spinner.gif" width="64" height="64" alt="Waiter" />
-</div>
+@if (showSmallLoader) {
+  <div class="small-loader">
+    <img src="assets/img/pokeball-spinner.gif" width="64" height="64" alt="Waiter" />
+  </div>
+}
 
 <ngkdx-move-popup #moveDetail />

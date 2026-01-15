@@ -1,95 +1,94 @@
-<div class="container" id="pokemon" *ngIf="selectedPokemon">
-  <div class="row">
-    <div class="col">
-
-      <!-- Pokemon Bio Container -->
-      <div class="container-fluid" id="bio">
-        <div class="row align-items-center">
-          <div class="col-2 col-xxl-3">
-            <img *ngIf="selectedPokemon.sprites?.front_default" [src]="selectedPokemon.sprites.front_default"
-              alt="pokemon" />
-            <img *ngIf="!selectedPokemon.sprites?.front_default" src="assets/img/pokeball-pixel.png" alt="pokemon" />
-          </div>
-          <div class="col px-4">
-            <p class="display-name">
-              <span>
-                {{selectedPokemon.name | capitalize}}
-              </span>
-              <span class="pokemon-number">
-                -{{selectedPokemon.id | number:'3.0'}}-
-              </span>
-              <span>
-                <button type="button" id="cry-play" class="btn btn-success" (click)="pokemonCry.play()"
-                  [ngbTooltip]="'pokedex.play-cry' | translate">
-                  <span>
-                    <em class="fas fa-play"></em>
+@if (selectedPokemon) {
+  <div class="container" id="pokemon">
+    <div class="row">
+      <div class="col">
+        <!-- Pokemon Bio Container -->
+        <div class="container-fluid" id="bio">
+          <div class="row align-items-center">
+            <div class="col-2 col-xxl-3">
+              @if (selectedPokemon.sprites?.front_default) {
+                <img [src]="selectedPokemon.sprites.front_default"
+                  alt="pokemon" />
+              }
+              @if (!selectedPokemon.sprites?.front_default) {
+                <img src="assets/img/pokeball-pixel.png" alt="pokemon" />
+              }
+            </div>
+            <div class="col px-4">
+              <p class="display-name">
+                <span>
+                  {{selectedPokemon.name | capitalize}}
+                </span>
+                <span class="pokemon-number">
+                  -{{selectedPokemon.id | number:'3.0'}}-
+                </span>
+                <span>
+                  <button type="button" id="cry-play" class="btn btn-success" (click)="pokemonCry.play()"
+                    [ngbTooltip]="'pokedex.play-cry' | translate">
+                    <span>
+                      <em class="fas fa-play"></em>
+                    </span>
+                  </button>
+                </span>
+              </p>
+              <p class="mb-1">
+                <span>{{'pokedex.height' | translate}}: {{selectedPokemon.height / 10}}m</span>
+                <span class="mx-2">|</span>
+                <span>{{'pokedex.weight' | translate}}: {{selectedPokemon.weight / 10}}kg</span>
+                <span class="mx-2">|</span>
+                <span>{{'pokedex.type' | translate}}: {{selectedPokemon.types[0].type.name | capitalize}}</span>
+                <span class="mx-2">|</span>
+                <span>{{'pokedex.base-experience' | translate}}: {{selectedPokemon.base_experience}}</span>
+              </p>
+              <p>
+                <span class="me-1">{{'pokedex.abilities' | translate}}:</span>
+                @for (ability of selectedPokemon.abilities; track ability) {
+                  <span class="badge rounded-pill text-bg-poke mx-1">
+                    {{ability.ability.name | capitalize}}
                   </span>
-                </button>
-              </span>
-            </p>
-
-            <p class="mb-1">
-              <span>{{'pokedex.height' | translate}}: {{selectedPokemon.height / 10}}m</span>
-              <span class="mx-2">|</span>
-              <span>{{'pokedex.weight' | translate}}: {{selectedPokemon.weight / 10}}kg</span>
-              <span class="mx-2">|</span>
-              <span>{{'pokedex.type' | translate}}: {{selectedPokemon.types[0].type.name | capitalize}}</span>
-              <span class="mx-2">|</span>
-              <span>{{'pokedex.base-experience' | translate}}: {{selectedPokemon.base_experience}}</span>
-            </p>
-
-            <p>
-              <span class="me-1">{{'pokedex.abilities' | translate}}:</span>
-              <span class="badge rounded-pill text-bg-poke mx-1" *ngFor="let ability of selectedPokemon.abilities">
-                {{ability.ability.name | capitalize}}
-              </span>
-            </p>
+                }
+              </p>
+            </div>
           </div>
         </div>
       </div>
-
     </div>
-  </div>
-
-  <div class="row flex-grow-1 min-h-0">
-    <div class="col h-100">
-
-      <!-- Pokemon specs container -->
-      <div class="container-fluid" id="specs">
-        <ul ngbNav #specsTabs="ngbNav" class="standard-tabs nav-tabs" [(activeId)]="selectedTab"
-          [destroyOnHide]="false">
-          <li [ngbNavItem]="tabs.STATS">
-            <button ngbNavLink>
-              {{'pokedex.stats' | translate}}
-            </button>
-            <ng-template ngbNavContent>
-              <ngkdx-pokemon-stats [stats]="selectedPokemon.stats" />
-            </ng-template>
-          </li>
-          <li [ngbNavItem]="tabs.MOVES">
-            <button ngbNavLink>
-              {{'pokedex.moves' | translate}}
-            </button>
-            <ng-template ngbNavContent>
-              <ngkdx-pokemon-moves [moves]="selectedPokemon.moves" />
-            </ng-template>
-          </li>
-          <li [ngbNavItem]="tabs.EVOLUTIONS">
-            <button ngbNavLink>
-              {{'pokedex.evolutions' | translate}}
-            </button>
-            <ng-template ngbNavContent>
-              <ngkdx-pokemon-evolutions [species]="pokemonSpecies" (onPokeboxClick)="switchPokemon($event)" />
-            </ng-template>
-          </li>
-        </ul>
-
-        <div id="specs-tabs-content" [ngbNavOutlet]="specsTabs"></div>
+    <div class="row flex-grow-1 min-h-0">
+      <div class="col h-100">
+        <!-- Pokemon specs container -->
+        <div class="container-fluid" id="specs">
+          <ul ngbNav #specsTabs="ngbNav" class="standard-tabs nav-tabs" [(activeId)]="selectedTab"
+            [destroyOnHide]="false">
+            <li [ngbNavItem]="tabs.STATS">
+              <button ngbNavLink>
+                {{'pokedex.stats' | translate}}
+              </button>
+              <ng-template ngbNavContent>
+                <ngkdx-pokemon-stats [stats]="selectedPokemon.stats" />
+              </ng-template>
+            </li>
+            <li [ngbNavItem]="tabs.MOVES">
+              <button ngbNavLink>
+                {{'pokedex.moves' | translate}}
+              </button>
+              <ng-template ngbNavContent>
+                <ngkdx-pokemon-moves [moves]="selectedPokemon.moves" />
+              </ng-template>
+            </li>
+            <li [ngbNavItem]="tabs.EVOLUTIONS">
+              <button ngbNavLink>
+                {{'pokedex.evolutions' | translate}}
+              </button>
+              <ng-template ngbNavContent>
+                <ngkdx-pokemon-evolutions [species]="pokemonSpecies" (onPokeboxClick)="switchPokemon($event)" />
+              </ng-template>
+            </li>
+          </ul>
+          <div id="specs-tabs-content" [ngbNavOutlet]="specsTabs"></div>
+        </div>
       </div>
-
     </div>
+    <audio #pokemonCry [id]="'pokemon-cry'" [src]="selectedPokemon.cries.latest" type="audio/ogg">
+    </audio>
   </div>
-
-  <audio #pokemonCry [id]="'pokemon-cry'" [src]="selectedPokemon.cries.latest" type="audio/ogg">
-  </audio>
-</div>
+}

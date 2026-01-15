@@ -2,9 +2,13 @@
   <div class="col-2">
     <div class="value-block">
       <div class="value">
-        <span *ngIf="selectedMove.power !== null; else noValue">
-          {{selectedMove.power || '-'}}
-        </span>
+        @if (selectedMove.power !== null) {
+          <span>
+            {{selectedMove.power || '-'}}
+          </span>
+        } @else {
+          -
+        }
       </div>
 
       <div class="title text-truncate">
@@ -16,9 +20,13 @@
   <div class="col-2">
     <div class="value-block">
       <div class="value">
-        <span *ngIf="selectedMove.pp !== null; else noValue">
-          {{selectedMove.pp || '-'}}
-        </span>
+        @if (selectedMove.pp !== null) {
+          <span>
+            {{selectedMove.pp || '-'}}
+          </span>
+        } @else {
+          -
+        }
       </div>
 
       <div class="title text-truncate">
@@ -30,9 +38,13 @@
   <div class="col-2">
     <div class="value-block">
       <div class="value">
-        <span *ngIf="selectedMove.meta?.crit_rate !== null; else noValue">
-          {{selectedMove.meta.crit_rate}}
-        </span>
+        @if (selectedMove.meta?.crit_rate !== null) {
+          <span>
+            {{selectedMove.meta.crit_rate}}
+          </span>
+        } @else {
+          -
+        }
       </div>
 
       <div class="title text-truncate">
@@ -44,9 +56,13 @@
   <div class="col-2">
     <div class="value-block">
       <div class="value">
-        <span *ngIf="selectedMove.meta?.drain !== null; else noValue">
-          {{selectedMove.meta.drain}}
-        </span>
+        @if (selectedMove.meta?.drain !== null) {
+          <span>
+            {{selectedMove.meta.drain}}
+          </span>
+        } @else {
+          -
+        }
       </div>
 
       <div class="title text-truncate">
@@ -58,9 +74,13 @@
   <div class="col-2">
     <div class="value-block">
       <div class="value">
-        <span *ngIf="selectedMove.effect_chance !== null; else noValue">
-          {{selectedMove.effect_chance}}%
-        </span>
+        @if (selectedMove.effect_chance !== null) {
+          <span>
+            {{selectedMove.effect_chance}}%
+          </span>
+        } @else {
+          -
+        }
       </div>
 
       <div class="title text-truncate">
@@ -72,9 +92,13 @@
   <div class="col-2">
     <div class="value-block">
       <div class="value">
-        <span *ngIf="selectedMove.meta?.flinch_chance !== null; else noValue">
-          {{selectedMove.meta.flinch_chance}}%
-        </span>
+        @if (selectedMove.meta?.flinch_chance !== null) {
+          <span>
+            {{selectedMove.meta.flinch_chance}}%
+          </span>
+        } @else {
+          -
+        }
       </div>
 
       <div class="title text-truncate">
@@ -88,15 +112,16 @@
   <div class="col-6">
     <div class="value-block">
       <div class="value">
-        <ng-container *ngIf="selectedMove.meta?.min_turns !== null && selectedMove.meta?.max_turns; else noValue">
+        @if (selectedMove.meta?.min_turns !== null && selectedMove.meta?.max_turns) {
           <span class="me-2">
             {{'common.min' | translate}}: {{selectedMove.meta.min_turns}}
           </span>
-
           <span class="ms-2">
             {{'common.max' | translate}}: {{selectedMove.meta.max_turns}}
           </span>
-        </ng-container>
+        } @else {
+          -
+        }
       </div>
 
       <div class="title text-truncate">
@@ -108,15 +133,16 @@
   <div class="col-6">
     <div class="value-block">
       <div class="value">
-        <ng-container *ngIf="selectedMove.meta.ailment.name !== 'none'; else noValue">
+        @if (selectedMove.meta.ailment.name !== 'none') {
           <span class="me-1">
             {{selectedMove.meta.ailment.name | capitalize}}
           </span>
-
           <span>
             {{selectedMove.meta.ailment_chance}}%
           </span>
-        </ng-container>
+        } @else {
+          -
+        }
       </div>
 
       <div class="title text-truncate">
@@ -126,4 +152,3 @@
   </div>
 </div>
 
-<ng-template #noValue>-</ng-template>

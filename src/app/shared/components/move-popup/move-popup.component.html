@@ -1,73 +1,71 @@
 <ngkdx-base-modal [title]="'moves.title' | translate" [(isOpen)]="isMoveDetailOpen" (isOpenChange)="closeModal()">
-  <div class="container-fluid" id="move" *ngIf="selectedMove">
-    <div class="row" id="header">
-      <div class="col">
-        <h1>
-          {{selectedMove.name}}
-        </h1>
-
-        <span class="badge rounded-pill text-bg-move-category mt-1 mb-2 {{selectedMove.category_class}}">
-          {{selectedMove.meta.category.name | capitalize}}
-        </span>
-
-        <span class="badge rounded-pill text-bg-move-type ms-1 mt-1 mb-2 {{selectedMove.type.name}}">
-          {{selectedMove.type.name | capitalize}}
-        </span>
-      </div>
-
-      <div class="col-2 mt-1">
-        <div class="value-block">
-          <div class="value">
-            <span *ngIf="selectedMove.accuracy !== null; else noValue">
-              {{selectedMove.accuracy}}%
-            </span>
-          </div>
-
-          <div class="title text-truncate">
-            {{'moves.move-detail-modal.accuracy' | translate}}
+  @if (selectedMove) {
+    <div class="container-fluid" id="move">
+      <div class="row" id="header">
+        <div class="col">
+          <h1>
+            {{selectedMove.name}}
+          </h1>
+          <span class="badge rounded-pill text-bg-move-category mt-1 mb-2 {{selectedMove.category_class}}">
+            {{selectedMove.meta.category.name | capitalize}}
+          </span>
+          <span class="badge rounded-pill text-bg-move-type ms-1 mt-1 mb-2 {{selectedMove.type.name}}">
+            {{selectedMove.type.name | capitalize}}
+          </span>
+        </div>
+        <div class="col-2 mt-1">
+          <div class="value-block">
+            <div class="value">
+              @if (selectedMove.accuracy !== null) {
+                <span>
+                  {{selectedMove.accuracy}}%
+                </span>
+              } @else {
+                -
+              }
+            </div>
+            <div class="title text-truncate">
+              {{'moves.move-detail-modal.accuracy' | translate}}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        {{selectedMove.flavor_text}}
+      <div class="row">
+        <div class="col">
+          {{selectedMove.flavor_text}}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          {{selectedMove.effect_entries[0]?.effect}}
+        </div>
+      </div>
+      <!-- <hr class="mb-0" /> -->
+      <div class="row">
+        <div class="col">
+          <ul ngbNav #movesTabs="ngbNav" class="standard-tabs nav-tabs" [destroyOnHide]="false"
+            [(activeId)]="selectedTab">
+            <li [ngbNavItem]="tabs.STATS">
+              <button ngbNavLink>
+                {{'moves.fields.stats' | translate}}
+              </button>
+              <ng-template ngbNavContent>
+                <ngkdx-stats [selectedMove]="selectedMove" />
+              </ng-template>
+            </li>
+            <li [ngbNavItem]="tabs.LEARNED_BY">
+              <button ngbNavLink>
+                {{'moves.fields.learned-by' | translate}}
+              </button>
+              <ng-template ngbNavContent>
+                <ngkdx-learned-by [selectedMove]="selectedMove"  (clickEvent)="goToPokemon($event)" />
+              </ng-template>
+            </li>
+          </ul>
+          <div id="specs-tabs-content" [ngbNavOutlet]="movesTabs"></div>
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col">
-        {{selectedMove.effect_entries[0]?.effect}}
-      </div>
-    </div>
-
-    <!-- <hr class="mb-0" /> -->
-
-    <div class="row">
-      <div class="col">
-        <ul ngbNav #movesTabs="ngbNav" class="standard-tabs nav-tabs" [destroyOnHide]="false"
-          [(activeId)]="selectedTab">
-          <li [ngbNavItem]="tabs.STATS">
-            <button ngbNavLink>
-              {{'moves.fields.stats' | translate}}
-            </button>
-            <ng-template ngbNavContent>
-              <ngkdx-stats [selectedMove]="selectedMove" />
-            </ng-template>
-          </li>
-          <li [ngbNavItem]="tabs.LEARNED_BY">
-            <button ngbNavLink>
-              {{'moves.fields.learned-by' | translate}}
-            </button>
-            <ng-template ngbNavContent>
-              <ngkdx-learned-by [selectedMove]="selectedMove"  (clickEvent)="goToPokemon($event)" />
-            </ng-template>
-          </li>
-        </ul>
-
-        <div id="specs-tabs-content" [ngbNavOutlet]="movesTabs"></div>
-      </div>
-    </div>
-  </div>
+  }
 </ngkdx-base-modal>
 
-<ng-template #noValue>-</ng-template>

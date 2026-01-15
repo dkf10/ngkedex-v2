@@ -1,8 +1,12 @@
 <div class="chart-div h-100" #chartDiv>
-  <plotly-plot *ngIf="displayChartModel" [data]="displayChartModel.data" [layout]="displayChartModel.layout"
-    [config]="displayChartModel.config" />
+  @if (displayChartModel) {
+    <plotly-plot [data]="displayChartModel.data" [layout]="displayChartModel.layout"
+      [config]="displayChartModel.config" />
+  }
 </div>
 
-<div class="h-100 d-flex align-items-center justify-content-center" *ngIf="!displayChartModel">
-  <img src="assets/img/pokeball-spinner.gif" width="64" height="64" alt="Waiter" />
-</div>
+@if (!displayChartModel) {
+  <div class="h-100 d-flex align-items-center justify-content-center">
+    <img src="assets/img/pokeball-spinner.gif" width="64" height="64" alt="Waiter" />
+  </div>
+}

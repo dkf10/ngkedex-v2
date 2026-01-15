@@ -4,47 +4,59 @@
       <div class="container-fluid" id="generations">
         <ul ngbNav #generationsTab="ngbNav" class="standard-tabs nav-tabs" [(activeId)]="selectedGeneration"
           [destroyOnHide]="false">
-          <ng-container *ngFor="let generation of generationsList">
+          @for (generation of generationsList; track generation) {
             <li [ngbNavItem]="generation.name">
               <button ngbNavLink>
                 {{generation.name}}
               </button>
             </li>
-          </ng-container>
+          }
         </ul>
       </div>
     </div>
   </div>
 
   <div class="row pokemon-list" #uiElement (scroll)="onScroll()">
-    <div class="col-3 mt-4" *ngFor="let pokemon of pokemonList">
-      <ngkdx-poke-box [pokemon]="pokemon" (clickEvent)="goToPokemon($event)" />
-    </div>
+    @for (pokemon of pokemonList; track pokemon) {
+      <div class="col-3 mt-4">
+        <ngkdx-poke-box [pokemon]="pokemon" (clickEvent)="goToPokemon($event)" />
+      </div>
+    }
   </div>
 
-  <div class="row justify-content-center" *ngIf="showSmallLoader">
-    <div class="col-auto">
-      <img src="assets/img/pokeball-spinner.gif" width="64" height="64" alt="Waiter" />
+  @if (showSmallLoader) {
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <img src="assets/img/pokeball-spinner.gif" width="64" height="64" alt="Waiter" />
+      </div>
     </div>
-  </div>
+  }
 
   <div class="search-results-container" search-results>
-    <div class="start-search" *ngIf="!isSearching">
-      {{'pokedex.search.start-search' | translate}}
-    </div>
-    <div class="no-results" *ngIf="isSearching && searchResultsList.length === 0">
-      {{'common.no-results' | translate}}
-    </div>
-    <div class="search-info" *ngIf="searchResultsList.length > 0">
-      <span class="info-icon">
-        <em class="fas fa-circle-info"></em>
-      </span>
-      <span>
-        {{'pokedex.search.info' | translate}}
-      </span>
-    </div>
-    <div class="search-item" *ngFor="let pokemon of searchResultsList" (click)="goToPokemon(pokemon, true)">
-      <ngkdx-poke-box [pokemon]="pokemon" [compactView]="true" (clickEvent)="goToPokemon($event)" />
-    </div>
+    @if (!isSearching) {
+      <div class="start-search">
+        {{'pokedex.search.start-search' | translate}}
+      </div>
+    }
+    @if (isSearching && searchResultsList.length === 0) {
+      <div class="no-results">
+        {{'common.no-results' | translate}}
+      </div>
+    }
+    @if (searchResultsList.length > 0) {
+      <div class="search-info">
+        <span class="info-icon">
+          <em class="fas fa-circle-info"></em>
+        </span>
+        <span>
+          {{'pokedex.search.info' | translate}}
+        </span>
+      </div>
+    }
+    @for (pokemon of searchResultsList; track pokemon) {
+      <div class="search-item" (click)="goToPokemon(pokemon, true)">
+        <ngkdx-poke-box [pokemon]="pokemon" [compactView]="true" (clickEvent)="goToPokemon($event)" />
+      </div>
+    }
   </div>
 </ngkdx-base-layout>

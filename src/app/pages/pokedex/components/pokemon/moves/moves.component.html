@@ -14,19 +14,21 @@
       </tr>
     </thead>
     <tbody>
-      <ng-container *ngFor="let moveItem of moves">
-        <tr *ngIf="moveItem.version_group_details[0].level_learned_at > 0" (click)="openMoveDetail(moveItem)">
-          <td>
-            {{moveItem.move.name | capitalize}}
-          </td>
-          <td>
-            {{moveItem.version_group_details[0].level_learned_at}}
-          </td>
-          <td>
-            {{moveItem.version_group_details[0].move_learn_method.name | capitalize}}
-          </td>
-        </tr>
-      </ng-container>
+      @for (moveItem of moves; track moveItem) {
+        @if (moveItem.version_group_details[0].level_learned_at > 0) {
+          <tr (click)="openMoveDetail(moveItem)">
+            <td>
+              {{moveItem.move.name | capitalize}}
+            </td>
+            <td>
+              {{moveItem.version_group_details[0].level_learned_at}}
+            </td>
+            <td>
+              {{moveItem.version_group_details[0].move_learn_method.name | capitalize}}
+            </td>
+          </tr>
+        }
+      }
     </tbody>
   </table>
 </div>

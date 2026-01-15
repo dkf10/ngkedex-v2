@@ -1,14 +1,18 @@
-<div class="h-100 d-flex align-items-center justify-content-center" *ngIf="isLoading">
-  <img src="assets/img/pokeball-spinner.gif" width="64" height="64" alt="Waiter" />
-</div>
+@if (isLoading) {
+  <div class="h-100 d-flex align-items-center justify-content-center">
+    <img src="assets/img/pokeball-spinner.gif" width="64" height="64" alt="Waiter" />
+  </div>
+}
 
 <div class="row" id="chain">
-  <ng-container *ngFor="let pokemon of displayEvolution; let i=index">
+  @for (pokemon of displayEvolution; track pokemon; let i = $index) {
     <div class="col">
       <ngkdx-poke-box [pokemon]="pokemon" (clickEvent)="onPokeboxClick.emit(pokemon)" />
     </div>
-    <div class="col-auto next-icon" *ngIf="i < displayEvolution.length-1">
-      <em class="fas fa-4x fa-angle-right"></em>
-    </div>
-  </ng-container>
+    @if (i < displayEvolution.length-1) {
+      <div class="col-auto next-icon">
+        <em class="fas fa-4x fa-angle-right"></em>
+      </div>
+    }
+  }
 </div>
