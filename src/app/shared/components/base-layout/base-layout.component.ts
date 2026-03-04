@@ -1,13 +1,13 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, TemplateRef, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { NgbOffcanvas, NgbOffcanvasOptions } from '@ng-bootstrap/ng-bootstrap';
-import { SearchService } from '../../services/search/search.service';
 import { Subscription } from 'rxjs';
+import { SearchService } from '../../services/search/search.service';
 
 @Component({
-    selector: 'ngkdx-base-layout',
-    templateUrl: './base-layout.component.html',
-    styleUrls: ['./base-layout.component.scss'],
-    standalone: false
+  selector: 'ngkdx-base-layout',
+  templateUrl: './base-layout.component.html',
+  styleUrls: ['./base-layout.component.scss'],
+  standalone: false
 })
 export class BaseLayoutComponent implements OnInit, OnDestroy {
 
