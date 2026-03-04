@@ -10,10 +10,10 @@ import { IGeneral } from 'src/app/shared/interfaces/general.interface';
 import { PokedexService } from 'src/app/shared/services/pokedex/pokedex.service';
 
 @Component({
-    selector: 'ngkdx-landing',
-    templateUrl: './landing.component.html',
-    styleUrls: ['./landing.component.scss'],
-    standalone: false
+  selector: 'ngkdx-landing',
+  templateUrl: './landing.component.html',
+  styleUrls: ['./landing.component.scss'],
+  standalone: false
 })
 export class LandingComponent implements OnInit, OnDestroy {
 
@@ -43,8 +43,10 @@ export class LandingComponent implements OnInit, OnDestroy {
 
   public async ngOnInit(): Promise<void> {
     this.initSearchSubscription();
+
     this.generationsList = this.pokedexService.generationsList;
     this.rawList = this.pokedexService.pokemonPaginated;
+
     await this.loadPokemonList(this.rawList.results);
     this.waiting.WaitingEnabled = false;
   }
@@ -105,6 +107,8 @@ export class LandingComponent implements OnInit, OnDestroy {
     }
 
     this.isSearching = true;
-    this.searchResultsList = await this.pokedexService.fetchPokemonList(this.rawList.results.filter((el) => el.name.includes(value)));
+    this.searchResultsList = await this.pokedexService.fetchPokemonList(
+      this.rawList.results.filter((el) => el.name.includes(value))
+    );
   }
 }

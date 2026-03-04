@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HTTP_INTERCEPTORS, HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { ToastrModule } from 'ngx-toastr';
 
 import { ComponentsModule as SharedComponents } from './shared/components/components.module';
@@ -31,11 +30,11 @@ const TRANSLATE_MODULE_CONFIG = {
     AppComponent
   ],
   bootstrap: [AppComponent],
-  imports: [BrowserModule,
+  imports: [
+    BrowserModule,
     AppRoutingModule,
     CoreModule,
     SharedComponents,
-    BrowserAnimationsModule,
     WaitingComponent,
     TranslateModule.forRoot(TRANSLATE_MODULE_CONFIG),
     ToastrModule.forRoot({
@@ -45,10 +44,14 @@ const TRANSLATE_MODULE_CONFIG = {
       preventDuplicates: true,
       positionClass: 'toast-bottom-right'
     }),
-    ErrorModule], providers: [{
+    ErrorModule
+  ],
+  providers: [
+    {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorInterceptor,
       multi: true
-    }, provideHttpClient(withInterceptorsFromDi())]
+    }, provideHttpClient(withInterceptorsFromDi())
+  ]
 })
 export class AppModule { }
