@@ -42,7 +42,7 @@ const TRANSLATE_MODULE_CONFIG = {
       closeButton: true,
       progressBar: true,
       preventDuplicates: true,
-      positionClass: 'toast-bottom-right'
+      positionClass: 'toast-top-right'
     }),
     ErrorModule
   ],

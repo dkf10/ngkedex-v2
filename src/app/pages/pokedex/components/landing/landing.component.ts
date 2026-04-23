@@ -19,16 +19,16 @@ export class LandingComponent implements OnInit, OnDestroy {
 
   @ViewChild('uiElement', { static: false }) public uiElement: ElementRef;
 
-  public searchTerm: string;
-  public selectedGeneration: number;
-  public generationsList: IGeneral.Result[];
+  public searchTerm: string = '';
+  public selectedGeneration: number | undefined;
+  public generationsList: IGeneral.Result[] = [];
   public pokemonList: IPokemon.ListItem[] = [];
   public searchResultsList: IPokemon.ListItem[] = [];
   public showSmallLoader: boolean = false;
   public isSearching: boolean = false;
 
-  private rawList: IGeneral.Paginated;
-  private totalCount: number;
+  private rawList: IGeneral.Paginated = {} as IGeneral.Paginated;
+  private totalCount: number = 0;
   private pageIndex: number = 1;
   private readonly pageSize: number = 20;
 
@@ -94,7 +94,7 @@ export class LandingComponent implements OnInit, OnDestroy {
   private initSearchSubscription(): void {
     this.searchTermSubscription = this.searchService.searchTerm
       .pipe(skip(1), debounceTime(300), distinctUntilChanged())
-      .subscribe((value) => {
+      .subscribe((value: string) => {
         this.searchPokemon(value);
       });
   }
@@ -108,7 +108,7 @@ export class LandingComponent implements OnInit, OnDestroy {
 
     this.isSearching = true;
     this.searchResultsList = await this.pokedexService.fetchPokemonList(
-      this.rawList.results.filter((el) => el.name.includes(value))
+      this.rawList.results.filter((el: IGeneral.Result) => (el.name as string).includes(value))
     );
   }
 }
