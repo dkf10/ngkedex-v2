@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/ngkedex-v2",
+    "public": "dist/ngkedex-v2/browser",
     "ignore": [
       "firebase.json",
       "**/.*",

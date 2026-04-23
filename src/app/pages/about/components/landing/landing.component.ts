@@ -3,18 +3,19 @@ import { Component } from '@angular/core';
 const { version: appVersion } = require('../../../../../../package.json');
 
 @Component({
-    selector: 'ngkdx-about',
-    templateUrl: './landing.component.html',
-    styleUrls: ['./landing.component.scss'],
-    standalone: false
+  selector: 'ngkdx-about',
+  templateUrl: './landing.component.html',
+  styleUrls: ['./landing.component.scss'],
+  standalone: false
 })
 export class AboutLandingComponent {
-  public readonly appVersion = appVersion;
-  public licenseText: string;
+  public licenseText: string = '';
   public isLicenseModalOpen: boolean = false;
 
+  public readonly appVersion = appVersion;
+
   constructor(private httpClient: HttpClient) {
-    this.httpClient.get('/assets/license/gnu-gpl.txt', { responseType: 'text' }).subscribe((data) =>
+    this.httpClient.get('/assets/license/gnu-gpl.txt', { responseType: 'text' }).subscribe((data: string) =>
       this.licenseText = data
     );
   }
